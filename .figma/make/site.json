@@ -1,0 +1,10 @@
+{
+  "description": "Showcases RCC Colab Solutions with a tech-focused homepage featuring an orange and blue logo and integrated video to engage visitors.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
