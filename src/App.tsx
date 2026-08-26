@@ -1,7 +1,9 @@
-import robotRabbit from "./imports/public_rabbit.png";
 import { useState, useEffect, useRef } from 'react'
-import logoImg from '@/imports/Content-Creator-Project.png'
-import heroVideo from '@/imports/Green_Modern_Artificial_Intelligence_Technology_Video__1_.mp4'
+
+const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
+const robotRabbit = assetUrl('public_rabbit.png')
+const logoImg = assetUrl('Content-Creator-Project.png')
+const heroVideo = assetUrl('hero-video.mp4')
 
 /* ─── RCC ROYAL BLUE THEME ─────────────────────────────── */
 const C = {
