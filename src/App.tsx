@@ -377,8 +377,8 @@ function AboutPage() {
                 ['Our Commitment', 'We serve clients across industries and tackle challenging projects with the right technology solutions.'],
               ].map(([title, body]) => (
                 <article key={title} className="p-7" style={{ background: C.royal, borderTop: `3px solid ${C.orange}` }}>
-                  <h3 className="text-xl font-bold mb-3" style={{ color: C.royalDeep }}>{title}</h3>
-                  <p className="leading-relaxed" style={{ color: 'rgba(10,36,114,0.66)' }}>{body}</p>
+                  <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
+                  <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>{body}</p>
                 </article>
               ))}
             </div>
@@ -392,8 +392,8 @@ function AboutPage() {
               ['Mission', 'Our mission is to empower businesses and individuals with scalable, cutting-edge technology solutions that drive innovation, transform industries, and create lasting value.'],
             ].map(([title, body]) => (
               <article key={title} className="p-8" style={{ background: 'rgba(37,99,235,0.14)', border: '1px solid rgba(103,232,249,0.2)' }}>
-                <h2 className="text-3xl font-black mb-4" style={{ color: C.royalDeep }}>{title}</h2>
-                <p className="leading-relaxed" style={{ color: 'rgba(18,49,92,0.72)' }}>{body}</p>
+                <h2 className="text-3xl font-black mb-4 text-white">{title}</h2>
+                <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>{body}</p>
               </article>
             ))}
           </div>
@@ -523,26 +523,26 @@ function ServicesPage() {
             <a href="/" aria-label="RCC Colab Solutions Logo" className="inline-block mb-4">
               <img src={logoImg} alt="RCC Colab Solutions Logo" className="object-contain" style={{ width: 100, height: 62 }} />
             </a>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(18,49,92,0.68)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
           </div>
           <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Quick Links</h3>
+            <h3 className="font-black mb-4 text-white">Quick Links</h3>
             <nav className="flex flex-col gap-2 text-sm" aria-label="Footer navigation">
-              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(18,49,92,0.68)' }}>Home</a>
-              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(18,49,92,0.68)' }}>About Us</a>
+              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(255,255,255,0.72)' }}>Home</a>
+              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(255,255,255,0.72)' }}>About Us</a>
               <a href="/services" className="hover:text-orange-500" style={{ color: C.orange }}>Services</a>
-              <a href="/contactus" className="hover:text-orange-500" style={{ color: 'rgba(18,49,92,0.68)' }}>Contact</a>
+              <a href="/contactus" className="hover:text-orange-500" style={{ color: 'rgba(255,255,255,0.72)' }}>Contact</a>
             </nav>
           </div>
           <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Office Address</h3>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(18,49,92,0.68)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
-            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Follow Us</h3>
+            <h3 className="font-black mb-4 text-white">Office Address</h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
+            <h3 className="font-black mt-6 mb-3 text-white">Follow Us</h3>
             <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="text-sm" style={{ color: C.orange }}>LinkedIn</a>
           </div>
           <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
-            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(18,49,92,0.68)' }}>
+            <h3 className="font-black mb-4 text-white">Get In Touch</h3>
+            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.72)' }}>
               <a href="tel:+63286516572">+632 8651 6572</a>
               <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
               <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
@@ -550,7 +550,7 @@ function ServicesPage() {
             </div>
           </div>
         </div>
-        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(18,49,92,0.52)', borderTop: '1px solid rgba(37,99,235,0.14)' }}>© 2025 RCC Colab Solutions, Inc. All rights reserved.</p>
+        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(255,255,255,0.58)', borderTop: '1px solid rgba(255,255,255,0.18)' }}>© 2025 RCC Colab Solutions, Inc. All rights reserved.</p>
       </footer>
     </div>
   )
@@ -933,7 +933,7 @@ export default function App() {
       </section>
 
       {/* ══ SOLUTIONS ════════════════════════════════════════ */}
-      <section id="solutions" className="py-24 px-6 relative" style={{ background: C.bgDark, color: C.royalDeep }}>
+      <section id="solutions" className="py-24 px-6 relative" style={{ background: C.bgDark, color: '#fff' }}>
         <div className="absolute inset-0 pointer-events-none opacity-30"
           style={{ backgroundImage: `linear-gradient(rgba(21,49,125,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(21,49,125,0.15) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
         <div className="max-w-7xl mx-auto relative">
@@ -972,8 +972,8 @@ export default function App() {
                     style={{ background: `linear-gradient(90deg,${C.orange},${C.orangeLight})` }} />
                 </div>
                 <div className="flex flex-col gap-3 p-5 flex-1">
-                  <h3 className="font-bold text-sm leading-snug" style={{ color: C.royalDeep }}>{sol.title}</h3>
-                  <p className="text-xs leading-relaxed flex-1" style={{ color: 'rgba(18,49,92,0.7)' }}>{sol.desc}</p>
+                  <h3 className="font-bold text-sm leading-snug text-white">{sol.title}</h3>
+                  <p className="text-xs leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.78)' }}>{sol.desc}</p>
                   <button onClick={() => setActiveService(sol)}
                     className="self-center flex items-center justify-center gap-1 text-xs font-bold transition-all duration-200 mt-auto hover:gap-2"
                     style={{ color: C.orange }}>
@@ -1134,7 +1134,7 @@ export default function App() {
               <img src={logoImg} alt="RCC Colab Solutions" className="w-full h-full object-contain" />
             </div>
             <div>
-              <div className="font-extrabold text-xs tracking-widest" style={{ color: C.royalDeep }}>RCC COLAB SOLUTIONS</div>
+              <div className="font-extrabold text-xs tracking-widest text-white">RCC COLAB SOLUTIONS</div>
               <div className="text-xs font-bold" style={{ color: C.orange }}>End-to-End IT Solutions</div>
             </div>
           </div>
@@ -1147,7 +1147,7 @@ export default function App() {
               </button>
             ))}
           </div>
-          <p className="text-xs" style={{ color: 'rgba(18,49,92,0.55)' }}>© RCC Colab Solutions Inc. All rights reserved.</p>
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.58)' }}>© RCC Colab Solutions Inc. All rights reserved.</p>
         </div>
       </footer>
 
