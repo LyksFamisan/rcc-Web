@@ -138,6 +138,11 @@
 # ---------------------------------------------------------------------------
 *.dwg                filter=lfs diff=lfs merge=lfs -text
 *.dxf                filter=lfs diff=lfs merge=lfs -text
+
+# Website media must be stored directly in Git so Vercel receives the files.
+public/assets/Content-Creator-Project.png -filter -diff -merge
+public/assets/public_rabbit.png -filter -diff -merge
+public/assets/hero-video.mp4 -filter -diff -merge
 *.step               filter=lfs diff=lfs merge=lfs -text
 *.stp                filter=lfs diff=lfs merge=lfs -text
 *.iges               filter=lfs diff=lfs merge=lfs -text
