@@ -789,9 +789,9 @@ export default function App() {
       {/* ══ NAV ═════════════════════════════════════════════ */}
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          background: '#fff',
-          borderBottom: '1px solid rgba(10,36,114,0.08)',
-          boxShadow: scrolled ? '0 2px 24px rgba(10,36,114,0.12)' : '0 1px 12px rgba(10,36,114,0.06)',
+          background: C.royal,
+          borderBottom: '1px solid rgba(255,255,255,0.16)',
+          boxShadow: scrolled ? '0 2px 24px rgba(4,8,32,0.28)' : '0 1px 12px rgba(4,8,32,0.18)',
         }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <button onClick={() => scrollTo('home')} className="flex items-center gap-3 group shrink-0">
@@ -802,7 +802,7 @@ export default function App() {
             {[{ l: 'Home', id: 'home' }, { l: 'About Us', id: 'about' }, { l: 'Services', id: 'solutions' }, { l: 'Contact Us', id: 'contact' }].map(({ l, id }) => (
               <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : scrollTo(id)}
                 className="nav-link text-sm font-semibold transition-all duration-200 relative group"
-                style={{ letterSpacing: '0.01em', color: C.royalDeep }}>
+                style={{ letterSpacing: '0.01em', color: '#fff' }}>
                 {l}
                 <span className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
                   style={{ background: C.orange }} />
@@ -810,7 +810,7 @@ export default function App() {
             ))}
           </nav>
 
-          <button className="md:hidden p-2" style={{ color: C.royalDeep }} onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
+          <button className="md:hidden p-2" style={{ color: '#fff' }} onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6">
               {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></>}
             </svg>
@@ -818,9 +818,9 @@ export default function App() {
         </div>
 
         <div className={`mobile-menu md:hidden px-6 py-5 flex flex-col gap-4 border-t ${menuOpen ? 'mobile-menu-open' : ''}`}
-            style={{ background: '#fff', borderColor: 'rgba(10,36,114,0.08)' }}>
+            style={{ background: C.royal, borderColor: 'rgba(255,255,255,0.16)' }}>
             {[{ l: 'Home', id: 'home' }, { l: 'About Us', id: 'about' }, { l: 'Services', id: 'solutions' }, { l: 'Contact Us', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : scrollTo(id)} className="mobile-menu-link text-left text-sm font-semibold py-1" style={{ color: C.royalDeep }}>{l}</button>
+              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : scrollTo(id)} className="mobile-menu-link text-left text-sm font-semibold py-1" style={{ color: '#fff' }}>{l}</button>
             ))}
         </div>
       </header>
@@ -1140,9 +1140,9 @@ export default function App() {
           </div>
           <div className="flex flex-wrap gap-6 justify-center">
             {[{ l: 'HOME', id: 'home' }, { l: 'SOLUTIONS', id: 'solutions' }, { l: 'ABOUT US', id: 'about' }, { l: 'CONTACT US', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => scrollTo(id)} className="text-xs font-bold tracking-widest transition-colors" style={{ color: 'rgba(18,49,92,0.62)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = C.royalDeep)}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(18,49,92,0.62)')}>
+              <button key={l} onClick={() => scrollTo(id)} className="text-xs font-bold tracking-widest transition-colors" style={{ color: 'rgba(255,255,255,0.72)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.72)')}>
                 {l}
               </button>
             ))}
