@@ -956,8 +956,8 @@ export default function App() {
               <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>What We Offer</p>
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>Our Services Include</h2>
-            <p className="max-w-xl mx-auto text-base" style={{ color: 'rgba(18,49,92,0.68)' }}>
+            <h2 className="text-3xl md:text-4xl font-white mb-4" style={{ color: 'white', letterSpacing: '-0.02em' }}>Our Services Include</h2>
+            <p className="max-w-xl mx-auto text-base" style={{ color: 'white(18,49,92,0.68)' }}>
               End-to-end technology services engineered to solve complex challenges and unlock new growth.
             </p>
           </div>
