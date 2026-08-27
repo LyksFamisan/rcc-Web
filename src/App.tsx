@@ -358,7 +358,7 @@ function AboutPage() {
           <div className="absolute inset-0 opacity-25" style={{ backgroundImage: `linear-gradient(rgba(103,232,249,0.2) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,0.2) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
           <div className="relative z-10 max-w-6xl mx-auto">
             <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>About Us</p>
-            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Leading the future of digital transformation.</h1>
+            <h1 className="text-5xl md:text-7xl font-black text-white max-w-5xl leading-none">Leading the future of digital transformation.</h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Innovation, expertise, and dedication for businesses ready to move forward.</p>
           </div>
         </section>
