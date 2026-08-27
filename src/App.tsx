@@ -621,8 +621,8 @@ function ContactPage() {
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="contact-hero-content relative z-10 max-w-6xl mx-auto">
             <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Contact Us</p>
-            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Let's Connect</h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>Ready to transform your business? We're here to help you every step of the way.</p>
+            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Contact Us</h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>Let's Connect</p>
           </div>
         </section>
 
