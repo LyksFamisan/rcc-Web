@@ -1054,7 +1054,7 @@ export default function App() {
                 style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
                 allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(10,36,114,0.18)', mixBlendMode: 'multiply' }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(10,36,114,0.42)', mixBlendMode: 'multiply' }} />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full pointer-events-none flex flex-col items-center" aria-hidden="true">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{ background: C.orange, border: '3px solid #fff', boxShadow: '0 4px 18px rgba(4,8,32,0.5)' }}>
                   <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" className="w-5 h-5">
