@@ -433,7 +433,7 @@ function AboutPage() {
 
 function ServicesPage() {
   return (
-    <div className="min-h-screen" style={{ background: '#fff', color: C.royalDeep }}>
+    <div className="min-h-screen" style={{ background: C.bgDark, color: '#fff' }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
@@ -467,12 +467,12 @@ function ServicesPage() {
           </div>
         </section>
 
-        <section id="service-expertise" className="py-24 px-6" style={{ background: '#fff' }}>
+        <section id="service-expertise" className="py-24 px-6" style={{ background: C.bgDark }}>
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Services Include</p>
-              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Services Include</h2>
-              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.68)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-5 text-white">Our Services Include</h2>
+              <p className="text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {SERVICE_PAGE_SOLUTIONS.map((sol, index) => (
@@ -484,14 +484,14 @@ function ServicesPage() {
                   role="button"
                   tabIndex={0}
                   className="group grid md:grid-cols-[1fr_300px] overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
-                  style={{ background: '#fff', border: '1px solid rgba(21,49,125,0.18)', boxShadow: '0 8px 24px rgba(21,49,125,0.08)' }}>
+                  style={{ background: C.royalDark, border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 8px 24px rgba(4,8,32,0.24)' }}>
                   <div className="relative min-h-48 md:min-h-full md:col-start-2 overflow-hidden flex items-center justify-center" style={{ background: C.royal }}>
                     <img src={sol.img} alt={sol.title} loading="lazy" className="w-full h-full max-h-72 object-contain p-5 transition-transform duration-500 group-hover:scale-105" />
                     <span className="absolute top-4 right-5 text-sm font-black" style={{ color: C.orange }}>0{index + 1}</span>
                   </div>
                   <div className="p-6 flex flex-col md:col-start-1 md:row-start-1">
-                    <h3 className="text-xl font-black mb-3" style={{ color: C.royalDeep }}>{sol.title}</h3>
-                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.68)' }}>{sol.desc}</p>
+                    <h3 className="text-xl font-black mb-3 text-white">{sol.title}</h3>
+                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.78)' }}>{sol.desc}</p>
                     <div className="space-y-2 mb-6">
                     </div>
                     <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-center inline-flex items-center justify-center gap-1 text-xs font-bold transition-all duration-200 hover:gap-2 mt-auto" style={{ color: C.orange }}>
