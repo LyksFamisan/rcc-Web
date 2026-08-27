@@ -410,8 +410,8 @@ function AboutPage() {
               {ABOUT_VALUES.map((value, index) => (
                 <article key={value.title} className="p-6" style={{ border: '1px solid rgba(37,99,235,0.16)', background: index % 2 ? C.royal : '#fff' }}>
                   <div className="text-3xl font-black mb-5" style={{ color: C.orange }}>0{index + 1}</div>
-                  <h3 className="text-lg font-bold mb-3" style={{ color: C.royalDeep }}>{value.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.64)' }}>{value.body}</p>
+                  <h3 className="text-lg font-bold mb-3" style={{ color: index % 2 ? '#fff' : C.royalDeep }}>{value.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: index % 2 ? 'rgba(255,255,255,0.78)' : 'rgba(10,36,114,0.64)' }}>{value.body}</p>
                 </article>
               ))}
             </div>
