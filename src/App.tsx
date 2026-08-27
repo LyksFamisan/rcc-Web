@@ -1047,24 +1047,13 @@ export default function App() {
                 </svg>
                 Ascott Makati, Glorietta 4
               </div>
-              <div className="absolute inset-0" aria-hidden="true" style={{ backgroundColor: '#082b70', backgroundImage: 'linear-gradient(42deg, transparent 0 17%, #0b3d91 17% 22%, transparent 22% 39%, #0b3d91 39% 44%, transparent 44% 100%), linear-gradient(132deg, transparent 0 29%, #0b3d91 29% 34%, transparent 34% 56%, #0b3d91 56% 61%, transparent 61% 100%), linear-gradient(18deg, transparent 0 61%, #f47d20 61% 72%, transparent 72% 100%), linear-gradient(142deg, transparent 0 12%, #f47d20 12% 25%, transparent 25% 48%, #f47d20 48% 59%, transparent 59% 100%), linear-gradient(90deg, transparent 0 72%, #f47d20 72% 88%, transparent 88% 100%)', backgroundSize: '100% 100%' }} />
               <iframe
                 title="RCC Colab Solutions Office"
                 src="https://maps.google.com/maps?q=Ascott+Makati+Glorietta+4,+Ayala+Center,+San+Lorenzo,+Makati+City,+Philippines&output=embed&z=17"
                 width="100%" height="420"
-                style={{ border: 0, display: 'block', opacity: 0.78, filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
+                style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
                 allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(10,36,114,0.42)', mixBlendMode: 'multiply' }} />
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full pointer-events-none flex flex-col items-center" aria-hidden="true">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{ background: C.orange, border: '3px solid #fff', boxShadow: '0 4px 18px rgba(4,8,32,0.5)' }}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" className="w-5 h-5">
-                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
-                <div className="w-2 h-2 rounded-full" style={{ background: C.orange, boxShadow: '0 2px 8px rgba(4,8,32,0.5)' }} />
-              </div>
             </div>
 
             {/* Form */}
