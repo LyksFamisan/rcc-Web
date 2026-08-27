@@ -9,12 +9,12 @@ const heroVideo = assetUrl('hero-video.mp4')
 const C = {
   orange:      '#f97316',
   orangeDeep:  '#ea580c',
-  orangeLight: '#fb923c',
-  royal:       '#1e3a8a',   /* RCC royal blue */
-  royalDark:   '#1d4ed8',   /* brighter royal blue */
-  royalDeep:   '#0a2472',   /* hero/section bg */
-  bgDark:      '#071b58',   /* card/form bg */
-  bgDeep:      '#061746',   /* footer */
+  orangeLight: '#fdba74',
+  royal:       '#15317d',
+  royalDark:   '#102766',
+  royalDeep:   '#15317d',
+  bgDark:      '#15317d',
+  bgDeep:      '#15317d',
 }
 
 /* ─── RCC.Ai KNOWLEDGE BASE ─────────────────────────────── */
@@ -63,6 +63,27 @@ type Solution  = {
   whyTitle: string
   whyPoints: { bold: string; text: string }[]
   expertise: Expertise[]
+}
+
+function getExpertiseImage(title: string): string {
+  const images: Record<string, string> = {
+    Refactoring: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=220&fit=crop&auto=format',
+    Replatforming: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&h=220&fit=crop&auto=format',
+    Replacing: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=220&fit=crop&auto=format',
+    'Web Development': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=220&fit=crop&auto=format',
+    'Mobile Development': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=220&fit=crop&auto=format',
+    'API & Integrations': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=220&fit=crop&auto=format',
+    'Dedicated Teams': 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=220&fit=crop&auto=format',
+    'Project-Based': 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=220&fit=crop&auto=format',
+    'On-Demand': 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=220&fit=crop&auto=format',
+    'Architecture Design': 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&h=220&fit=crop&auto=format',
+    'Technology Roadmap': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=220&fit=crop&auto=format',
+    'Digital Transformation': 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=220&fit=crop&auto=format',
+    'Process Discovery': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=220&fit=crop&auto=format',
+    'Bot Development': 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&h=220&fit=crop&auto=format',
+    'Support & Optimization': 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=500&h=220&fit=crop&auto=format',
+  }
+  return images[title] || 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&h=220&fit=crop&auto=format'
 }
 
 const SOLUTIONS: Solution[] = [
@@ -255,11 +276,50 @@ const SOLUTIONS: Solution[] = [
   },
 ]
 
-const STATS = [
-  { value: '150+', label: 'Projects Delivered' },
-  { value: '98%', label: 'Client Satisfaction' },
-  { value: '40+', label: 'Expert Team Members' },
-]
+const SERVICE_PAGE_TITLES: Record<string, string> = {
+  'Application Modernization': 'Application Modernization',
+  'Custom Software Development': 'Software Development',
+  'IT Consulting & Solution Architecture': 'IT Strategy & Consulting',
+  'Robotic Process Automation (RPA)': 'Robotics Process Automation',
+  'Staff Augmentation': 'Staff Augmentation',
+  'Managed IT Services': 'Support & Maintenance',
+}
+
+const SERVICE_PAGE_DESCRIPTIONS: Record<string, string> = {
+  'Application Modernization': 'Transform legacy applications into modern, cloud-ready solutions that drive innovation and performance.',
+  'Software Development': 'Custom software solutions tailored to your unique business requirements and challenges.',
+  'IT Strategy & Consulting': 'Strategic technology planning and roadmaps aligned with your business objectives and growth plans.',
+  'Robotics Process Automation': 'Automate repetitive tasks to boost efficiency, accuracy, and free up valuable human resources.',
+  'Staff Augmentation': 'Flexible talent solutions to scale your team with specialized skills when you need them most.',
+  'Support & Maintenance': 'Comprehensive support services to ensure your IT systems run smoothly and efficiently.',
+}
+
+const SERVICE_PAGE_IMAGES: Record<string, string> = {
+  'Application Modernization': 'https://rcccolabsolutions.com/assets/Application-aksWr-W8.svg',
+  'Software Development': 'https://rcccolabsolutions.com/assets/Development-D_Okrc6Q.svg',
+  'IT Strategy & Consulting': 'https://rcccolabsolutions.com/assets/Consulting-VNXxPGMY.svg',
+  'Robotics Process Automation': 'https://rcccolabsolutions.com/assets/Robotics-DSBf1WUk.svg',
+  'Staff Augmentation': 'https://rcccolabsolutions.com/assets/Augmentation-CboDki-Z.svg',
+  'Support & Maintenance': 'https://rcccolabsolutions.com/assets/Maintenance-DkDhBq_h.svg',
+}
+
+const SERVICE_PAGE_BENEFITS: Record<string, string[]> = {
+  'Application Modernization': ['50% faster performance', 'Cloud-native architecture', 'Enhanced security'],
+  'Software Development': ['Custom-built solutions', 'Agile development', 'Scalable architecture'],
+  'IT Strategy & Consulting': ['Strategic roadmaps', 'Cost optimization', 'Risk mitigation'],
+  'Robotics Process Automation': ['90% time savings', 'Zero human error', '24/7 automation'],
+  'Staff Augmentation': ['Expert talent pool', 'Flexible scaling', 'Seamless integration'],
+  'Support & Maintenance': ['99.9% uptime', '24/7 monitoring', 'Proactive maintenance'],
+}
+
+const SERVICE_PAGE_SOLUTIONS: Solution[] = SOLUTIONS
+  .filter(solution => SERVICE_PAGE_TITLES[solution.title])
+  .map(solution => ({
+    ...solution,
+    title: SERVICE_PAGE_TITLES[solution.title],
+    desc: SERVICE_PAGE_DESCRIPTIONS[SERVICE_PAGE_TITLES[solution.title]],
+    img: SERVICE_PAGE_IMAGES[SERVICE_PAGE_TITLES[solution.title]],
+  }))
 
 const CONTACT_INFO = [
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>, label: '7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines' },
@@ -271,10 +331,370 @@ const CONTACT_INFO = [
 
 type Msg = { role: 'user' | 'ai'; text: string }
 
+const ABOUT_VALUES = [
+  { title: 'Accountability', body: 'We take ownership of responsibilities, honor our commitments, and deliver results and value with integrity and dedication.' },
+  { title: 'Collaboration', body: 'Our team embraces teamwork and open communication to achieve common goals. The best solutions emerge when diverse perspectives unite.' },
+  { title: 'Excellence', body: "We continuously improve to surpass expectations and set the bar for quality and innovation. Excellence is our standard in everything we deliver." },
+  { title: 'Sustainability', body: 'We integrate sustainable practices into everyday operations so our growth contributes positively to the world around us.' },
+]
+
+function AboutPage() {
+  return (
+    <div className="min-h-screen" style={{ background: C.bgDeep, color: C.royalDeep }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+          <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
+            <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
+          </a>
+          <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.orange }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+          </nav>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden pt-40 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})` }}>
+          <video autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 w-full h-full object-cover">
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
+          <div className="absolute inset-0 opacity-25" style={{ backgroundImage: `linear-gradient(rgba(103,232,249,0.2) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,0.2) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>About Us</p>
+            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Leading the future of digital transformation.</h1>
+            <p className="mt-7 max-w-xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Innovation, expertise, and dedication for businesses ready to move forward.</p>
+          </div>
+        </section>
+
+        <section className="py-24 px-6" style={{ background: '#fff' }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-14">
+              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Who We Are</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Technology with purpose.</h2>
+              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.68)' }}>RCC Colab Solutions is an IT solutions provider driven by a deep commitment to digital transformation and operational excellence.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                ['RCC Colab Solutions', 'End-to-end personalized services with a solution-driven approach to unlock your full potential.'],
+                ['Expert Team', 'Dedicated professionals with extensive corporate experience and expertise in cutting-edge technologies.'],
+                ['Our Commitment', 'We serve clients across industries and tackle challenging projects with the right technology solutions.'],
+              ].map(([title, body]) => (
+                <article key={title} className="p-7" style={{ background: C.royal, borderTop: `3px solid ${C.orange}` }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: C.royalDeep }}>{title}</h3>
+                  <p className="leading-relaxed" style={{ color: 'rgba(10,36,114,0.66)' }}>{body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 px-6" style={{ background: C.bgDark }}>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+            {[
+              ['Vision', 'We envision becoming a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth.'],
+              ['Mission', 'Our mission is to empower businesses and individuals with scalable, cutting-edge technology solutions that drive innovation, transform industries, and create lasting value.'],
+            ].map(([title, body]) => (
+              <article key={title} className="p-8" style={{ background: 'rgba(37,99,235,0.14)', border: '1px solid rgba(103,232,249,0.2)' }}>
+                <h2 className="text-3xl font-black mb-4" style={{ color: C.royalDeep }}>{title}</h2>
+                <p className="leading-relaxed" style={{ color: 'rgba(18,49,92,0.72)' }}>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="py-24 px-6" style={{ background: '#fff' }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-12">
+              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Core Values</p>
+              <h2 className="text-4xl font-black mb-4" style={{ color: C.royalDeep }}>How we work.</h2>
+              <p style={{ color: 'rgba(10,36,114,0.62)' }}>The principles that guide our work and define our commitment to excellence.</p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {ABOUT_VALUES.map((value, index) => (
+                <article key={value.title} className="p-6" style={{ border: '1px solid rgba(37,99,235,0.16)', background: index % 2 ? C.royal : '#fff' }}>
+                  <div className="text-3xl font-black mb-5" style={{ color: C.orange }}>0{index + 1}</div>
+                  <h3 className="text-lg font-bold mb-3" style={{ color: C.royalDeep }}>{value.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.64)' }}>{value.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 px-6 text-center" style={{ background: C.royal }}>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orangeLight }}>What Makes Us Different?</p>
+            <h2 className="text-4xl font-black text-white mb-5">Integrated innovation. Seamless solutions.</h2>
+            <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>Our agile organization delivers measurable impact, adjusts quickly to market shifts, and understands that every business has unique goals and challenges.</p>
+            <a href="/#contact" className="inline-block mt-8 px-8 py-3 font-extrabold text-white text-sm rounded-full" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})` }}>LET'S WORK TOGETHER</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  )
+}
+
+function ServicesPage() {
+  return (
+    <div className="min-h-screen" style={{ background: '#fff', color: C.royalDeep }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+          <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
+            <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
+          </a>
+          <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.orange }}>Services</a>
+            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+          </nav>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden pt-40 pb-24 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})` }}>
+          <video autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 w-full h-full object-cover">
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
+          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.22) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Our Services</p>
+            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Our Services</h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>We offer a comprehensive range of business support services designed to help companies operate more efficiently, with each solution carefully tailored to meet your unique goals and operational needs.</p>
+            <a href="#service-expertise" className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full text-sm font-extrabold text-white transition-transform duration-200 hover:scale-105" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 28px rgba(249,115,22,0.28)` }}>
+              Explore Our Expertise
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section id="service-expertise" className="py-24 px-6" style={{ background: '#fff' }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-14">
+              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Expertise</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Expertise</h2>
+              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.68)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {SERVICE_PAGE_SOLUTIONS.map((sol, index) => (
+                <article key={sol.title}
+                  onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  className="group grid md:grid-cols-[1fr_300px] overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+                  style={{ background: '#fff', border: '1px solid rgba(21,49,125,0.18)', boxShadow: '0 8px 24px rgba(21,49,125,0.08)' }}>
+                  <div className="relative min-h-48 md:min-h-full md:col-start-2 overflow-hidden flex items-center justify-center" style={{ background: C.royal }}>
+                    <img src={sol.img} alt={sol.title} loading="lazy" className="w-full h-full max-h-72 object-contain p-5 transition-transform duration-500 group-hover:scale-105" />
+                    <span className="absolute top-4 right-5 text-sm font-black" style={{ color: C.orange }}>0{index + 1}</span>
+                  </div>
+                  <div className="p-6 flex flex-col md:col-start-1 md:row-start-1">
+                    <h3 className="text-xl font-black mb-3" style={{ color: C.royalDeep }}>{sol.title}</h3>
+                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.68)' }}>{sol.desc}</p>
+                    <div className="space-y-2 mb-6">
+                      {SERVICE_PAGE_BENEFITS[sol.title].map((benefit) => (
+                        <div key={benefit} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
+                          <span className="flex items-center justify-center w-5 h-5 rounded-full text-xs font-black" style={{ background: 'rgba(249,115,22,0.12)', color: C.orange }}>+</span>
+                          <span>{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-center inline-flex items-center justify-center gap-1 text-xs font-bold transition-all duration-200 hover:gap-2 mt-auto" style={{ color: C.orange }}>
+                      Explore {sol.title === 'Application Modernization' ? 'App Modernization' : sol.title === 'Software Development' ? 'Software Dev' : sol.title === 'IT Strategy & Consulting' ? 'IT Strategy' : sol.title === 'Robotics Process Automation' ? 'RPA' : sol.title === 'Staff Augmentation' ? 'Staff Aug' : 'Support'}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 px-6 text-center" style={{ background: C.royal }}>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-black text-white mb-5">Ready to Transform Your Business?</h2>
+            <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Let's discuss how our services can help you achieve your goals and drive innovation.</p>
+            <a href="/#contact" className="inline-flex items-center gap-2 mt-8 px-8 py-3 rounded-full font-extrabold text-white text-sm transition-transform duration-200 hover:scale-105" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})` }}>
+              Get Started Today
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="px-6 py-14" style={{ background: C.bgDark, borderTop: `1px solid rgba(37,99,235,0.18)` }}>
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div>
+            <a href="/" aria-label="RCC Colab Solutions Logo" className="inline-block mb-4">
+              <img src={logoImg} alt="RCC Colab Solutions Logo" className="object-contain" style={{ width: 100, height: 62 }} />
+            </a>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(18,49,92,0.68)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
+          </div>
+          <div>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Quick Links</h3>
+            <nav className="flex flex-col gap-2 text-sm" aria-label="Footer navigation">
+              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(18,49,92,0.68)' }}>Home</a>
+              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(18,49,92,0.68)' }}>About Us</a>
+              <a href="/services" className="hover:text-orange-500" style={{ color: C.orange }}>Services</a>
+              <a href="/contactus" className="hover:text-orange-500" style={{ color: 'rgba(18,49,92,0.68)' }}>Contact</a>
+            </nav>
+          </div>
+          <div>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Office Address</h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(18,49,92,0.68)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
+            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Follow Us</h3>
+            <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="text-sm" style={{ color: C.orange }}>LinkedIn</a>
+          </div>
+          <div>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
+            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(18,49,92,0.68)' }}>
+              <a href="tel:+63286516572">+632 8651 6572</a>
+              <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
+              <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
+              <span>Business Hours Mon - Fri: 8:00 AM - 7:00 PM</span>
+            </div>
+          </div>
+        </div>
+        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(18,49,92,0.52)', borderTop: '1px solid rgba(37,99,235,0.14)' }}>© 2025 RCC Colab Solutions, Inc. All rights reserved.</p>
+      </footer>
+    </div>
+  )
+}
+
+function ContactPage() {
+  const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', message: '' })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle')
+  const contactRevealRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const revealRoot = contactRevealRef.current
+    if (!revealRoot) return
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('contact-reveal-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12 })
+    revealRoot.querySelectorAll('.contact-reveal').forEach(element => observer.observe(element))
+    return () => observer.disconnect()
+  }, [])
+
+  const handleContactSend = async (event: React.FormEvent) => {
+    event.preventDefault()
+    setStatus('sending')
+    try {
+      const data = new FormData()
+      data.append('name', form.name)
+      data.append('company', form.company)
+      data.append('phone', form.phone)
+      data.append('email', form.email)
+      data.append('message', form.message)
+      data.append('_subject', `New Contact Inquiry from ${form.name}`)
+      data.append('_captcha', 'false')
+      data.append('_template', 'table')
+      const response = await fetch('https://formsubmit.co/info@rcccolabsolutions.com', {
+        method: 'POST', body: data, headers: { Accept: 'application/json' },
+      })
+      if (!response.ok) throw new Error('Unable to send message')
+      setStatus('ok')
+      setForm({ name: '', company: '', phone: '', email: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  return (
+    <div className="min-h-screen" style={{ background: '#fff', color: C.royalDeep }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+          <a href="/" aria-label="RCC Colab Solutions home"><img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} /></a>
+          <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.orange }}>Contact Us</a>
+          </nav>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden pt-40 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})` }}>
+          <video autoPlay muted loop playsInline aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={heroVideo} type="video/mp4" /></video>
+          <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
+          <div className="contact-hero-content relative z-10 max-w-6xl mx-auto">
+            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Contact Us</p>
+            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Let's Connect</h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>Ready to transform your business? We're here to help you every step of the way.</p>
+          </div>
+        </section>
+
+        <section ref={contactRevealRef} className="py-24 px-6" style={{ background: '#fff' }}>
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
+            <div className="contact-reveal">
+              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Get in Touch</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>We'd love to hear from you.</h2>
+              <p className="text-lg leading-relaxed mb-9" style={{ color: 'rgba(10,36,114,0.68)' }}>Whether you're looking for help with your next big project or want to join our team, we are ready to answer all your questions.</p>
+              <div className="space-y-5">
+                {[
+                  ['Phone Number', '+632 8651 6572'],
+                  ['Email Address', 'info@rcccolabsolutions.com'],
+                  ['Office Address', '7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City'],
+                  ['Office Hours', 'Monday to Friday (8:00 AM - 7:00 PM)'],
+                ].map(([label, value]) => (
+                  <div key={label} className="contact-detail contact-reveal border-l-4 pl-4" style={{ borderColor: C.orange }}>
+                    <p className="text-xs font-extrabold uppercase tracking-widest mb-1" style={{ color: C.royalDark }}>{label}</p>
+                    <p className="leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>{value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <form onSubmit={handleContactSend} className="contact-reveal contact-form rounded-2xl p-7 md:p-9" style={{ background: C.royal, border: '1px solid rgba(37,99,235,0.16)' }}>
+              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Send us a Message</p>
+              <h2 className="text-3xl font-black mb-2" style={{ color: C.royalDeep }}>Start a conversation.</h2>
+              <p className="mb-7" style={{ color: 'rgba(10,36,114,0.66)' }}>Fill out the form below and we'll get back to you as soon as possible.</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {([['Full Name', 'name', 'Your full name', true], ['Company', 'company', 'Your company name', false], ['Contact Number', 'phone', '+63 900 000 0000', false], ['Work Email', 'email', 'you@company.com', true]] as const).map(([label, key, placeholder, required]) => (
+                  <label key={key} className="block text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(10,36,114,0.68)' }}>{label}
+                    <input required={required} type={key === 'email' ? 'email' : 'text'} placeholder={placeholder} value={form[key]} onChange={event => setForm(current => ({ ...current, [key]: event.target.value }))} className="mt-2 w-full px-3 py-3 rounded-lg text-sm outline-none" style={{ color: C.royalDeep, background: '#fff', border: '1px solid rgba(10,36,114,0.16)' }} />
+                  </label>
+                ))}
+              </div>
+              <label className="block mt-4 text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(10,36,114,0.68)' }}>Message
+                <textarea required rows={5} placeholder="How can we help?" value={form.message} onChange={event => setForm(current => ({ ...current, message: event.target.value }))} className="mt-2 w-full px-3 py-3 rounded-lg text-sm outline-none resize-none" style={{ color: C.royalDeep, background: '#fff', border: '1px solid rgba(10,36,114,0.16)' }} />
+              </label>
+              {status === 'ok' && <p className="mt-4 text-sm font-bold" style={{ color: '#16a34a' }}>Your message was sent. We'll be in touch soon.</p>}
+              {status === 'error' && <p className="mt-4 text-sm font-bold" style={{ color: '#dc2626' }}>Something went wrong. Please try again.</p>}
+              <button type="submit" disabled={status === 'sending'} className="mt-6 w-full py-3.5 rounded-full font-extrabold text-white text-sm disabled:opacity-60" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})` }}>{status === 'sending' ? 'SENDING...' : 'SEND MESSAGE'}</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  )
+}
+
 export default function App() {
+  if (window.location.pathname === '/aboutus' || window.location.pathname === '/aboutus/') return <AboutPage />
+  if (window.location.pathname === '/services' || window.location.pathname === '/services/') return <ServicesPage />
+  if (window.location.pathname === '/contactus' || window.location.pathname === '/contactus/') return <ContactPage />
   const [menuOpen, setMenuOpen]         = useState(false)
   const [scrolled, setScrolled]         = useState(false)
-  const [activeService, setActiveService] = useState<Solution | null>(null)
+  const [activeService, setActiveService] = useState<Solution | null>(() => {
+    const serviceTitle = new URLSearchParams(window.location.search).get('service')
+    return SOLUTIONS.find(solution => solution.title === serviceTitle || SERVICE_PAGE_TITLES[solution.title] === serviceTitle) ?? null
+  })
   const [form, setForm]             = useState({ firstName: '', lastName: '', email: '', company: '', message: '' })
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle')
   const [chatOpen, setChatOpen]     = useState(false)
@@ -316,7 +736,7 @@ export default function App() {
       fd.append('message', form.message)
       fd.append('_captcha', 'false')
       fd.append('_template', 'table')
-      const res = await fetch('https://formsubmit.co/famisan.lyka02@gmail.com', {
+      const res = await fetch('https://formsubmit.co/info@rcccolabsolutions.com', {
         method: 'POST', body: fd, headers: { Accept: 'application/json' },
       })
       if (res.ok) {
@@ -332,11 +752,8 @@ export default function App() {
     if (!msg) return
     setMessages(m => [...m, { role: 'user', text: msg }])
     setChatInput('')
-    setAiTyping(true)
-    setTimeout(() => {
-      setAiTyping(false)
-      setMessages(m => [...m, { role: 'ai', text: getAiReply(msg) }])
-    }, 800 + Math.random() * 500)
+    setAiTyping(false)
+    setMessages(m => [...m, { role: 'ai', text: getAiReply(msg) }])
   }
 
   const handleChatPointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
@@ -373,14 +790,14 @@ export default function App() {
       const parts = line.split(/\*\*(.*?)\*\*/g)
       return (
         <span key={i}>
-          {parts.map((p, j) => j % 2 === 1 ? <strong key={j} className="font-semibold text-white">{p}</strong> : p)}
+          {parts.map((p, j) => j % 2 === 1 ? <strong key={j} className="font-semibold" style={{ color: C.royalDeep }}>{p}</strong> : p)}
           {i < arr.length - 1 && <br />}
         </span>
       )
     })
 
   return (
-    <div className="min-h-screen overflow-x-hidden" style={{ background: C.royalDeep }}>
+    <div className="lyka-app min-h-screen overflow-x-hidden" style={{ background: C.royalDeep }}>
 
       {/* ══ NAV ═════════════════════════════════════════════ */}
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
@@ -395,9 +812,9 @@ export default function App() {
           </button>
 
           <nav className="hidden md:flex items-center gap-9">
-            {[{ l: 'HOME', id: 'home' }, { l: 'ABOUT US', id: 'about' }, { l: 'SERVICES', id: 'solutions' }, { l: 'CONTACT US', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => scrollTo(id)}
-                className="text-sm font-semibold transition-all duration-200 relative group"
+            {[{ l: 'Home', id: 'home' }, { l: 'About Us', id: 'about' }, { l: 'Services', id: 'solutions' }, { l: 'Contact Us', id: 'contact' }].map(({ l, id }) => (
+              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : scrollTo(id)}
+                className="nav-link text-sm font-semibold transition-all duration-200 relative group"
                 style={{ letterSpacing: '0.01em', color: C.royalDeep }}>
                 {l}
                 <span className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
@@ -413,14 +830,12 @@ export default function App() {
           </button>
         </div>
 
-        {menuOpen && (
-          <div className="md:hidden px-6 py-5 flex flex-col gap-4 border-t"
+        <div className={`mobile-menu md:hidden px-6 py-5 flex flex-col gap-4 border-t ${menuOpen ? 'mobile-menu-open' : ''}`}
             style={{ background: '#fff', borderColor: 'rgba(10,36,114,0.08)' }}>
-            {[{ l: 'HOME', id: 'home' }, { l: 'ABOUT US', id: 'about' }, { l: 'SERVICES', id: 'solutions' }, { l: 'CONTACT US', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => scrollTo(id)} className="text-left text-sm font-semibold py-1" style={{ color: C.royalDeep }}>{l}</button>
+            {[{ l: 'Home', id: 'home' }, { l: 'About Us', id: 'about' }, { l: 'Services', id: 'solutions' }, { l: 'Contact Us', id: 'contact' }].map(({ l, id }) => (
+              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : scrollTo(id)} className="mobile-menu-link text-left text-sm font-semibold py-1" style={{ color: C.royalDeep }}>{l}</button>
             ))}
-          </div>
-        )}
+        </div>
       </header>
 
       {/* ══ HERO ════════════════════════════════════════════ */}
@@ -429,15 +844,15 @@ export default function App() {
           <source src={heroVideo} type="video/mp4" />
         </video>
         {/* Royal blue tinted overlay */}
-        <div className="absolute inset-0" style={{ zIndex: 1, background: 'rgba(8,13,54,0.62)' }} />
-        <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(8,13,54,0.2) 0%, rgba(8,13,54,0.95) 100%)' }} />
+        <div className="absolute inset-0" style={{ zIndex: 1, background: 'rgba(8,13,54,0.28)' }} />
+        <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(8,13,54,0.08) 0%, rgba(8,13,54,0.62) 100%)' }} />
         {/* Animated scanline */}
         <div className="absolute left-0 right-0 h-px opacity-30 pointer-events-none"
           style={{ zIndex: 3, top: '42%', background: `linear-gradient(90deg,transparent,${C.orange},transparent)`, animation: 'scanline 5s ease-in-out infinite' }} />
         {/* Royal blue bottom line */}
         <div className="absolute bottom-0 left-0 right-0 h-px" style={{ zIndex: 3, background: `linear-gradient(90deg,transparent,${C.orange},transparent)` }} />
         {/* Royal blue radial glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2, background: 'radial-gradient(ellipse at 50% 60%, rgba(26,35,126,0.4) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2, background: 'radial-gradient(ellipse at 50% 60%, rgba(21,49,125,0.4) 0%, transparent 70%)' }} />
 
         <div className="relative flex flex-col items-center justify-center text-center px-6"
           style={{ zIndex: 4, minHeight: '100vh', paddingTop: 72 }}>
@@ -460,9 +875,9 @@ export default function App() {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => scrollTo('contact')}
+            <button onClick={() => scrollTo('about')}
               className="px-10 py-4 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105 hover:shadow-2xl"
-              style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 36px rgba(65,105,225,0.55)`, letterSpacing: '0.07em' }}>
+              style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 36px rgba(21,49,125,0.55)`, letterSpacing: '0.07em' }}>
               GET STARTED TODAY
             </button>
             <button onClick={() => scrollTo('solutions')}
@@ -474,36 +889,18 @@ export default function App() {
         </div>
       </section>
 
-      {/* ══ STATS ════════════════════════════════════════════ */}
-      <div className="py-14 px-6 relative overflow-hidden"
-        style={{ background: `linear-gradient(135deg,${C.royal} 0%,${C.royalDark} 100%)` }}>
-        <div className="absolute inset-0 opacity-20"
-          style={{ backgroundImage: `radial-gradient(circle at 75% 50%,${C.orange} 0%,transparent 55%)` }} />
-        <div className="max-w-3xl mx-auto grid grid-cols-3 gap-6 relative">
-          {STATS.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-4xl md:text-5xl font-black mb-2"
-                style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeLight})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                {s.value}
-              </div>
-              <div className="text-xs font-bold text-white/40 uppercase tracking-widest">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ══ ABOUT ════════════════════════════════════════════ */}
       <section id="about" className="py-24 px-6 relative overflow-hidden" style={{ background: '#fff', color: '#0a2472' }}>
         <div className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
-          style={{ background: `radial-gradient(circle at top right,rgba(29,78,216,0.08),transparent 70%)` }} />
+          style={{ background: `radial-gradient(circle at top right,rgba(21,49,125,0.08),transparent 70%)` }} />
         <div className="absolute bottom-0 left-0 w-80 h-80 pointer-events-none"
-          style={{ background: `radial-gradient(circle at bottom left,rgba(29,78,216,0.08),transparent 70%)` }} />
+          style={{ background: `radial-gradient(circle at bottom left,rgba(21,49,125,0.08),transparent 70%)` }} />
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center relative">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
-              <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>About Us</p>
+              <p className="text-sm font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>About Us</p>
             </div>
             <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>
               Who We Are
@@ -524,34 +921,34 @@ export default function App() {
             <div className="flex flex-wrap gap-2 mb-8">
               {['ISO 27001 Certified', 'AWS Partner', 'Microsoft Gold', 'Google Cloud'].map((b) => (
                 <span key={b} className="px-3 py-1.5 rounded-full text-xs font-bold"
-                  style={{ background: 'rgba(29,78,216,0.08)', border: `1px solid rgba(29,78,216,0.2)`, color: C.royalDark }}>{b}</span>
+                  style={{ background: 'rgba(21,49,125,0.08)', border: `1px solid rgba(21,49,125,0.2)`, color: C.royalDark }}>{b}</span>
               ))}
             </div>
             <button onClick={() => scrollTo('solutions')}
               className="px-7 py-3 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105"
-              style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(65,105,225,0.4)`, letterSpacing: '0.05em' }}>
+              style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.05em' }}>
               Explore Our Services
             </button>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=360&fit=crop&auto=format"
-              alt="RCC team collaborating" className="rounded-2xl col-span-2 w-full object-cover"
-              style={{ height: 210, border: '1px solid rgba(29,78,216,0.15)' }} />
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=360&fit=crop&auto=format"
+              alt="Business team meeting" className="rounded-2xl col-span-2 w-full object-cover"
+              style={{ height: 210, border: '1px solid rgba(21,49,125,0.15)' }} />
             <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&h=240&fit=crop&auto=format"
               alt="Technology development" className="rounded-2xl w-full object-cover"
-              style={{ height: 148, border: '1px solid rgba(29,78,216,0.15)' }} />
+              style={{ height: 148, border: '1px solid rgba(21,49,125,0.15)' }} />
             <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=240&fit=crop&auto=format"
               alt="Server infrastructure" className="rounded-2xl w-full object-cover"
-              style={{ height: 148, border: '1px solid rgba(29,78,216,0.15)' }} />
+              style={{ height: 148, border: '1px solid rgba(21,49,125,0.15)' }} />
           </div>
         </div>
       </section>
 
       {/* ══ SOLUTIONS ════════════════════════════════════════ */}
-      <section id="solutions" className="py-24 px-6 relative" style={{ background: C.bgDark }}>
+      <section id="solutions" className="py-24 px-6 relative" style={{ background: C.bgDark, color: C.royalDeep }}>
         <div className="absolute inset-0 pointer-events-none opacity-30"
-          style={{ backgroundImage: `linear-gradient(rgba(26,35,126,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(26,35,126,0.15) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
+          style={{ backgroundImage: `linear-gradient(rgba(21,49,125,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(21,49,125,0.15) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-3">
@@ -559,8 +956,8 @@ export default function App() {
               <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>What We Offer</p>
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>Our Services Include</h2>
-            <p className="max-w-xl mx-auto text-base" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            <h2 className="text-3xl md:text-4xl font-black mb-4" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>Our Services Include</h2>
+            <p className="max-w-xl mx-auto text-base" style={{ color: 'rgba(18,49,92,0.68)' }}>
               End-to-end technology services engineered to solve complex challenges and unlock new growth.
             </p>
           </div>
@@ -568,11 +965,17 @@ export default function App() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {SOLUTIONS.map((sol) => (
               <div key={sol.title}
+                onClick={() => setActiveService(sol)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') setActiveService(sol)
+                }}
+                role="button"
+                tabIndex={0}
                 className="group rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
-                style={{ background: 'rgba(26,35,126,0.18)', border: '1px solid rgba(65,105,225,0.12)', boxShadow: '0 4px 20px rgba(8,13,54,0.4)' }}>
+                style={{ background: 'rgba(255,255,255,0.72)', border: '1px solid rgba(37,99,235,0.18)', boxShadow: '0 4px 20px rgba(37,99,235,0.14)' }}>
                 {/* Realistic image */}
-                <div className="relative overflow-hidden" style={{ height: 140 }}>
-                  <img src={sol.img} alt={sol.title}
+                <div className="relative overflow-hidden" style={{ height: 180 }}>
+                  <img src={sol.img} alt={sol.title} loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     style={{ background: C.royalDark }} />
                   <div className="absolute inset-0"
@@ -582,10 +985,10 @@ export default function App() {
                     style={{ background: `linear-gradient(90deg,${C.orange},${C.orangeLight})` }} />
                 </div>
                 <div className="flex flex-col gap-3 p-5 flex-1">
-                  <h3 className="font-bold text-sm leading-snug text-white">{sol.title}</h3>
-                  <p className="text-xs leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.45)' }}>{sol.desc}</p>
+                  <h3 className="font-bold text-sm leading-snug" style={{ color: C.royalDeep }}>{sol.title}</h3>
+                  <p className="text-xs leading-relaxed flex-1" style={{ color: 'rgba(18,49,92,0.7)' }}>{sol.desc}</p>
                   <button onClick={() => setActiveService(sol)}
-                    className="flex items-center gap-1 text-xs font-bold transition-all duration-200 mt-auto hover:gap-2"
+                    className="self-center flex items-center justify-center gap-1 text-xs font-bold transition-all duration-200 mt-auto hover:gap-2"
                     style={{ color: C.orange }}>
                     Learn More
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -602,7 +1005,7 @@ export default function App() {
         <div className="absolute inset-0 opacity-20"
           style={{ backgroundImage: `radial-gradient(circle at 15% 50%,${C.orange} 0%,transparent 50%),radial-gradient(circle at 85% 50%,${C.orangeDeep} 0%,transparent 50%)` }} />
         <div className="absolute inset-0 pointer-events-none opacity-8"
-          style={{ backgroundImage: `linear-gradient(rgba(65,105,225,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(65,105,225,0.3) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
+          style={{ backgroundImage: `linear-gradient(rgba(21,49,125,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(21,49,125,0.3) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
         <div className="relative max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight" style={{ letterSpacing: '-0.02em' }}>
             Optimize Your IT Infrastructure,<br />Grow Your Business Today
@@ -612,7 +1015,7 @@ export default function App() {
           </p>
           <button onClick={() => scrollTo('contact')}
             className="px-10 py-4 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105 hover:shadow-2xl"
-            style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 32px rgba(65,105,225,0.55)`, letterSpacing: '0.08em' }}>
+            style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 32px rgba(21,49,125,0.55)`, letterSpacing: '0.08em' }}>
             GET STARTED TODAY
           </button>
         </div>
@@ -639,7 +1042,7 @@ export default function App() {
               <div key={item.label} className="flex items-start gap-3 rounded-xl p-4"
                 style={{ background: '#f8fafc', border: '1px solid rgba(10,36,114,0.1)' }}>
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(29,78,216,0.1)', color: C.royalDark }}>{item.icon}</div>
+                  style={{ background: 'rgba(21,49,125,0.1)', color: C.royalDark }}>{item.icon}</div>
                 <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>{item.label}</p>
               </div>
             ))}
@@ -649,7 +1052,7 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-6">
 
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden relative" style={{ border: `1.5px solid rgba(10,36,114,0.15)`, minHeight: 420 }}>
+            <div className="rounded-2xl overflow-hidden relative" style={{ background: C.royalDeep, border: `1.5px solid ${C.royalDark}`, minHeight: 420 }}>
               <div className="absolute top-3 left-3 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold"
                 style={{ background: 'rgba(10,36,114,0.92)', border: `1px solid rgba(249,115,22,0.35)`, color: C.orangeLight, backdropFilter: 'blur(8px)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
@@ -661,7 +1064,7 @@ export default function App() {
                 title="RCC Colab Solutions Office"
                 src="https://maps.google.com/maps?q=Ascott+Makati+Glorietta+4,+Ayala+Center,+San+Lorenzo,+Makati+City,+Philippines&output=embed&z=17"
                 width="100%" height="420"
-                style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(200deg) brightness(0.78) saturate(1.4) contrast(0.88)' }}
+                style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
                 allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
@@ -724,20 +1127,19 @@ export default function App() {
 
               <button type="submit" disabled={formStatus === 'sending'}
                 className="w-full py-3.5 rounded-xl font-extrabold text-white text-sm transition-all duration-200 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-60"
-                style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 4px 24px rgba(65,105,225,0.4)`, letterSpacing: '0.07em' }}>
+                style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 4px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.07em' }}>
                 {formStatus === 'sending'
                   ? <><svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" strokeOpacity=".3"/><path d="M12 2a10 10 0 0110 10"/></svg>SENDING…</>
                   : <><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>SEND MESSAGE</>
                 }
               </button>
-              <p className="text-center text-xs" style={{ color: 'rgba(10,36,114,0.42)' }}>Sends directly to famisan.lyka02@gmail.com</p>
             </form>
           </div>
         </div>
       </section>
 
       {/* ══ FOOTER ══════════════════════════════════════════ */}
-      <footer style={{ background: C.bgDeep, borderTop: `1px solid rgba(65,105,225,0.12)` }} className="px-6 py-10">
+      <footer style={{ background: C.bgDeep, borderTop: `1px solid rgba(37,99,235,0.18)` }} className="px-6 py-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <div className="rounded-full overflow-hidden flex items-center justify-center"
@@ -745,20 +1147,20 @@ export default function App() {
               <img src={logoImg} alt="RCC Colab Solutions" className="w-full h-full object-contain" />
             </div>
             <div>
-              <div className="font-extrabold text-xs tracking-widest text-white">RCC COLAB SOLUTIONS</div>
+              <div className="font-extrabold text-xs tracking-widest" style={{ color: C.royalDeep }}>RCC COLAB SOLUTIONS</div>
               <div className="text-xs font-bold" style={{ color: C.orange }}>End-to-End IT Solutions</div>
             </div>
           </div>
           <div className="flex flex-wrap gap-6 justify-center">
             {[{ l: 'HOME', id: 'home' }, { l: 'SOLUTIONS', id: 'solutions' }, { l: 'ABOUT US', id: 'about' }, { l: 'CONTACT US', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => scrollTo(id)} className="text-xs font-bold tracking-widest transition-colors" style={{ color: 'rgba(255,255,255,0.25)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
+              <button key={l} onClick={() => scrollTo(id)} className="text-xs font-bold tracking-widest transition-colors" style={{ color: 'rgba(18,49,92,0.62)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = C.royalDeep)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(18,49,92,0.62)')}>
                 {l}
               </button>
             ))}
           </div>
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.15)' }}>© RCC Colab Solutions Inc. All rights reserved.</p>
+          <p className="text-xs" style={{ color: 'rgba(18,49,92,0.55)' }}>© RCC Colab Solutions Inc. All rights reserved.</p>
         </div>
       </footer>
 
@@ -781,7 +1183,7 @@ export default function App() {
           cursor: draggingChat ? 'grabbing' : 'grab',
           touchAction: 'none',
           transform: `translate(${chatOffset.x}px, ${chatOffset.y}px)`,
-          filter: 'drop-shadow(0 0 16px rgba(65,105,225,.8))',
+          filter: 'drop-shadow(0 0 16px rgba(21,49,125,.8))',
         }}
       >
         <img
@@ -793,7 +1195,7 @@ export default function App() {
 
       {chatOpen && (
         <div className="fixed bottom-24 right-3 sm:right-6 z-50 rounded-2xl flex flex-col overflow-hidden"
-          style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100vh - 96px))', minHeight: 390, background: '#061746', border: '1px solid rgba(29,78,216,0.3)', boxShadow: '0 24px 80px rgba(0,0,0,0.55)', backdropFilter: 'blur(24px)' }}>
+          style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100vh - 96px))', minHeight: 390, background: C.royal, border: '1px solid rgba(37,99,235,0.24)', boxShadow: '0 24px 80px rgba(37,99,235,0.2)', backdropFilter: 'blur(24px)' }}>
 
           {/* Header */}
           <div className="flex items-center gap-2.5 px-3 py-2.5 shrink-0"
@@ -814,13 +1216,13 @@ export default function App() {
 
           {/* Messages */}
               <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3"
-                style={{ scrollbarWidth: 'thin', scrollbarColor: `rgba(65,105,225,0.3) transparent` }}>
+                style={{ scrollbarWidth: 'thin', scrollbarColor: `rgba(21,49,125,0.3) transparent` }}>
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className="max-w-[84%] rounded-xl px-3 py-2.5 text-sm leading-relaxed"
                   style={m.role === 'user'
                     ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 }
-                    : { background: '#0b2678', color: 'rgba(255,255,255,0.86)', borderBottomLeftRadius: 4, border: '1px solid rgba(29,78,216,0.35)' }}>
+                    : { background: C.royal, color: '#fff', borderBottomLeftRadius: 4, border: '1px solid rgba(37,99,235,0.2)' }}>
                   {m.role === 'ai' ? renderAiText(m.text) : m.text}
                 </div>
               </div>
@@ -828,7 +1230,7 @@ export default function App() {
             {aiTyping && (
               <div className="flex justify-start">
                 <div className="rounded-2xl px-4 py-3 flex gap-1.5 items-center"
-                  style={{ background: '#0b2678', border: '1px solid rgba(29,78,216,0.35)', borderBottomLeftRadius: 4 }}>
+                  style={{ background: C.royal, border: '1px solid rgba(37,99,235,0.2)', borderBottomLeftRadius: 4 }}>
                   {[0,1,2].map(i => (
                     <span key={i} className="w-1.5 h-1.5 rounded-full"
                       style={{ background: C.orange, opacity: 0.7, animation: `typingDot 1s ${i*0.2}s infinite` }} />
@@ -844,7 +1246,7 @@ export default function App() {
             {['Our Services','Location','Get Quote','Contact'].map(q => (
               <button key={q} onClick={() => handleChatSend(q)}
                 className="shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 hover:bg-orange-500/15"
-                style={{ background: 'transparent', border: `1px solid ${C.orange}`, color: C.orangeLight, whiteSpace: 'nowrap' }}>
+                style={{ background: 'rgba(255,255,255,0.42)', border: `1px solid ${C.orange}`, color: C.orangeDeep, whiteSpace: 'nowrap' }}>
                 {q}
               </button>
             ))}
@@ -853,13 +1255,13 @@ export default function App() {
           {/* Input */}
           <div className="px-3 pb-3 pt-1 shrink-0">
             <div className="flex gap-2 rounded-lg px-3 py-2"
-              style={{ background: '#0b2678', border: '1px solid rgba(29,78,216,0.35)' }}>
+                style={{ background: C.royal, border: '1px solid rgba(37,99,235,0.2)' }}>
               <input type="text" value={chatInput}
                 onChange={e => setChatInput(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleChatSend()}
                 placeholder="Ask RCC.Ai anything…"
-                className="flex-1 bg-transparent text-xs text-white outline-none"
-                style={{ color: 'rgba(255,255,255,0.85)' }}
+                className="flex-1 bg-transparent text-xs outline-none"
+                style={{ color: C.royalDeep }}
               />
               <button onClick={() => handleChatSend()}
                 className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110"
@@ -882,12 +1284,12 @@ export default function App() {
         >
           <div
             className="relative w-full h-full overflow-y-auto rounded-none"
-            style={{ background: 'linear-gradient(160deg,#0d1652 0%,#060b2e 100%)', border: '1.5px solid rgba(65,105,225,0.25)', boxShadow: '0 32px 80px rgba(0,0,0,0.7)' }}
+                style={{ background: C.royal, border: '1.5px solid rgba(37,99,235,0.22)', boxShadow: '0 32px 80px rgba(37,99,235,0.22)' }}
             onClick={e => e.stopPropagation()}
           >
             {/* Hero image */}
             <div className="relative h-48 overflow-hidden rounded-t-2xl">
-              <img src={activeService.img} alt={activeService.title}
+              <img src={activeService.img} alt={activeService.title} loading="eager" decoding="async"
                 className="w-full h-full object-cover" />
               <div className="absolute inset-0"
                 style={{ background: 'linear-gradient(to bottom, rgba(8,13,54,0.3) 0%, rgba(8,13,54,0.85) 100%)' }} />
@@ -898,7 +1300,7 @@ export default function App() {
               <button
                 onClick={() => setActiveService(null)}
                 className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
-                style={{ background: 'rgba(8,13,54,0.8)', border: '1px solid rgba(65,105,225,0.3)' }}>
+                style={{ background: 'rgba(219,234,254,0.9)', border: '1px solid rgba(37,99,235,0.3)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke={C.orange} strokeWidth="2.5" className="w-4 h-4">
                   <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
@@ -914,21 +1316,21 @@ export default function App() {
 
             <div className="p-6 md:p-8 space-y-7">
               {/* Intro paragraph */}
-              <p className="text-sm md:text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
+              <p className="text-base md:text-lg leading-relaxed" style={{ color: 'rgba(18,49,92,0.78)' }}>
                 {activeService.intro}
               </p>
 
               {/* Why card */}
               <div className="rounded-xl p-5"
-                style={{ background: 'rgba(26,35,126,0.35)', border: '1px solid rgba(65,105,225,0.18)', borderLeft: `4px solid ${C.orange}` }}>
-                <h3 className="font-extrabold text-white text-base mb-4">{activeService.whyTitle}</h3>
+                style={{ background: 'rgba(255,255,255,0.62)', border: '1px solid rgba(37,99,235,0.18)', borderLeft: `4px solid ${C.orange}` }}>
+                <h3 className="font-extrabold text-lg mb-4" style={{ color: C.royalDeep }}>{activeService.whyTitle}</h3>
                 <ul className="space-y-3">
                   {activeService.whyPoints.map((pt, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                    <li key={i} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: 'rgba(18,49,92,0.78)' }}>
                       <svg viewBox="0 0 24 24" fill="none" stroke={C.orange} strokeWidth="2.5" className="w-4 h-4 shrink-0 mt-0.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                       </svg>
-                      <span><strong className="text-white font-bold">{pt.bold}</strong> {pt.text}</span>
+                      <span><strong className="font-bold" style={{ color: C.royalDeep }}>{pt.bold}</strong> {pt.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -942,13 +1344,17 @@ export default function App() {
                 </div>
                 <div className="grid sm:grid-cols-3 gap-4">
                   {activeService.expertise.map((ex, i) => (
-                    <div key={i} className="rounded-xl p-5 flex flex-col gap-3"
-                      style={{ background: 'rgba(26,35,126,0.25)', border: `1px solid rgba(65,105,225,0.15)`, borderTop: `3px solid ${C.orange}` }}>
+                    <div key={i} className="rounded-xl p-5 flex flex-col gap-3 overflow-hidden"
+                      style={{ background: 'rgba(255,255,255,0.62)', border: `1px solid rgba(37,99,235,0.15)`, borderTop: `3px solid ${C.orange}` }}>
+                      <div className="relative -mx-5 -mt-5 h-28 overflow-hidden">
+                        <img src={getExpertiseImage(ex.title)} alt={ex.title} loading="lazy" className="w-full h-full object-cover" />
+                        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom,rgba(8,13,54,0.08),rgba(8,13,54,0.7))' }} />
+                      </div>
                       <div className="flex items-center gap-2">
                         <span className="text-xl">{ex.icon}</span>
-                        <span className="text-xs font-extrabold uppercase tracking-widest" style={{ color: C.orange }}>{ex.title}</span>
+                        <span className="text-sm font-extrabold uppercase tracking-widest" style={{ color: C.orange }}>{ex.title}</span>
                       </div>
-                      <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>{ex.body}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: 'rgba(18,49,92,0.72)' }}>{ex.body}</p>
                     </div>
                   ))}
                 </div>
@@ -957,8 +1363,8 @@ export default function App() {
               {/* CTA */}
               <div className="pt-2 flex flex-wrap gap-3">
                 <button onClick={() => { setActiveService(null); scrollTo('contact') }}
-                  className="px-7 py-3 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105"
-                  style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(65,105,225,0.4)`, letterSpacing: '0.05em' }}>
+                  className="px-7 py-3 font-extrabold text-white text-base rounded-full transition-all duration-200 hover:scale-105"
+                  style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.05em' }}>
                   Get a Free Consultation
                 </button>
                 <button onClick={() => setActiveService(null)}

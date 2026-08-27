@@ -2,11 +2,11 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-navy: #0a2472;
-  --color-navy-dark: #061746;
-  --color-navy-mid: #1e3a8a;
+  --color-navy: #15317d;
+  --color-navy-dark: #15317d;
+  --color-navy-mid: #15317d;
   --color-orange: #f97316;
-  --color-orange-light: #fb923c;
+  --color-orange-light: #fdba74;
   --color-orange-dark: #ea580c;
 }
 
@@ -21,9 +21,284 @@ html {
 body {
   font-family: 'Outfit', sans-serif;
   background-color: #ffffff;
-  color: #0a2472;
+  color: #15317d;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --lyka-ink: #15317d;
+  --lyka-blue: #15317d;
+  --lyka-sky: #15317d;
+  --lyka-mist: #15317d;
+  --lyka-orange: #f97316;
+  --lyka-line: rgba(21, 49, 125, 0.16);
+}
+
+.lyka-app {
+  color: var(--lyka-ink);
+  background: #15317d !important;
+}
+
+/* Normalize legacy inline blue values to the current royal-blue palette. */
+[style*="#3b82f6"],
+[style*="#2563eb"],
+[style*="#12315c"],
+[style*="#0a2472"] {
+  color: #15317d !important;
+  border-color: #15317d !important;
+}
+
+[style*="rgba(37,99,235"] {
+  background-color: rgba(21, 49, 125, 0.14) !important;
+  border-color: rgba(21, 49, 125, 0.2) !important;
+}
+
+[style*="rgba(65,105,225"],
+[style*="rgba(103,232,249"] {
+  background-color: rgba(21, 49, 125, 0.14) !important;
+  border-color: rgba(21, 49, 125, 0.2) !important;
+}
+
+[style*="rgba(10,36,114"],
+[style*="rgba(18,49,92"] {
+  color: rgba(21, 49, 125, 0.72) !important;
+  border-color: rgba(21, 49, 125, 0.16) !important;
+}
+
+.lyka-app header {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-bottom-color: var(--lyka-line) !important;
+  box-shadow: 0 8px 30px rgba(18, 49, 92, 0.08) !important;
+  backdrop-filter: blur(16px);
+}
+
+.lyka-app header > div {
+  min-height: 76px;
+}
+
+.lyka-app section {
+  scroll-margin-top: 76px;
+}
+
+.lyka-app button,
+.lyka-app a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lyka-app button:focus-visible,
+.lyka-app a:focus-visible,
+.lyka-app input:focus-visible,
+.lyka-app textarea:focus-visible {
+  outline: 3px solid rgba(249, 115, 22, 0.4);
+  outline-offset: 3px;
+}
+
+.lyka-app .group {
+  transition: transform 260ms cubic-bezier(.22, 1, .36, 1), box-shadow 260ms ease;
+}
+
+.lyka-app .group:hover {
+  box-shadow: 0 20px 44px rgba(18, 49, 92, 0.14) !important;
+}
+
+.lyka-app input,
+.lyka-app textarea {
+  font-family: inherit;
+}
+
+.lyka-app input:hover,
+.lyka-app textarea:hover {
+  border-color: rgba(37, 99, 235, 0.36) !important;
+}
+
+.lyka-app footer {
+  background: #15317d !important;
+}
+
+@media (max-width: 767px) {
+  .lyka-app header > div {
+    min-height: 68px;
+  }
+
+  .lyka-app section {
+    scroll-margin-top: 68px;
+  }
+
+  .lyka-app .text-5xl {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+    line-height: 0.98;
+  }
+
+  .lyka-app .text-4xl {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.05;
+  }
+
+  .lyka-app .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .lyka-app .grid-cols-2 > .col-span-2 {
+    grid-column: span 1;
+  }
+
+  .lyka-app .rounded-2xl {
+    border-radius: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lyka-app .group,
+  .lyka-app .group:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+.nav-link {
+  position: relative;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 2px;
+  background: #f97316;
+  transition: right 240ms ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #f97316 !important;
+  transform: translateY(-2px);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  right: 0;
+}
+
+.mobile-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-8px);
+  transition: max-height 320ms ease, opacity 220ms ease, transform 320ms ease;
+  pointer-events: none;
+}
+
+.mobile-menu-open {
+  max-height: 280px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu-link {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 260ms ease, transform 260ms ease, color 180ms ease;
+}
+
+.mobile-menu-open .mobile-menu-link {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-menu-open .mobile-menu-link:nth-child(2) { transition-delay: 45ms; }
+.mobile-menu-open .mobile-menu-link:nth-child(3) { transition-delay: 90ms; }
+.mobile-menu-open .mobile-menu-link:nth-child(4) { transition-delay: 135ms; }
+
+.contact-hero-video {
+  animation: contactVideoDrift 16s ease-in-out infinite alternate;
+}
+
+.contact-hero-content {
+  animation: contactHeroReveal 800ms cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(.22,1,.36,1);
+}
+
+.contact-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-detail:nth-child(2) { transition-delay: 80ms; }
+.contact-detail:nth-child(3) { transition-delay: 160ms; }
+.contact-detail:nth-child(4) { transition-delay: 240ms; }
+
+.contact-detail {
+  transition-property: opacity, transform, border-color;
+}
+
+.contact-detail:hover {
+  border-color: #15317d !important;
+  transform: translateX(6px);
+}
+
+.contact-form {
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(37, 99, 235, 0.14);
+}
+
+.contact-form input,
+.contact-form textarea {
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #15317d !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(18, 49, 92, 0.56);
+  opacity: 1;
+}
+
+@keyframes contactVideoDrift {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+@keyframes contactHeroReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link,
+  .nav-link::after,
+  .mobile-menu,
+  .mobile-menu-link {
+    transition: none;
+  }
+
+  .contact-hero-video,
+  .contact-hero-content,
+  .contact-reveal,
+  .contact-form {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 ::-webkit-scrollbar {
