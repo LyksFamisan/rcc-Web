@@ -649,16 +649,16 @@ function ContactPage() {
 
             <form onSubmit={handleContactSend} className="contact-reveal contact-form rounded-2xl p-7 md:p-9" style={{ background: C.royal, border: '1px solid rgba(37,99,235,0.16)' }}>
               <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Send us a Message</p>
-              <h2 className="text-3xl font-black mb-2" style={{ color: C.royalDeep }}>Send us a Message</h2>
-              <p className="mb-7" style={{ color: 'rgba(10,36,114,0.66)' }}>Fill out the form below and we'll get back to you as soon as possible.</p>
+              <h2 className="text-3xl font-black mb-2 text-white">Send us a Message</h2>
+              <p className="mb-7" style={{ color: 'rgba(255,255,255,0.78)' }}>Fill out the form below and we'll get back to you as soon as possible.</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {([['Full Name', 'name', 'Your full name', true], ['Company', 'company', 'Your company name', false], ['Contact Number', 'phone', '+63 900 000 0000', false], ['Work Email', 'email', 'you@company.com', true]] as const).map(([label, key, placeholder, required]) => (
-                  <label key={key} className="block text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(10,36,114,0.68)' }}>{label}
+                  <label key={key} className="block text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.82)' }}>{label}
                     <input required={required} type={key === 'email' ? 'email' : 'text'} placeholder={placeholder} value={form[key]} onChange={event => setForm(current => ({ ...current, [key]: event.target.value }))} className="mt-2 w-full px-3 py-3 rounded-lg text-sm outline-none" style={{ color: C.royalDeep, background: '#fff', border: '1px solid rgba(10,36,114,0.16)' }} />
                   </label>
                 ))}
               </div>
-              <label className="block mt-4 text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(10,36,114,0.68)' }}>Message
+              <label className="block mt-4 text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.82)' }}>Message
                 <textarea required rows={5} placeholder="How can we help?" value={form.message} onChange={event => setForm(current => ({ ...current, message: event.target.value }))} className="mt-2 w-full px-3 py-3 rounded-lg text-sm outline-none resize-none" style={{ color: C.royalDeep, background: '#fff', border: '1px solid rgba(10,36,114,0.16)' }} />
               </label>
               {status === 'ok' && <p className="mt-4 text-sm font-bold" style={{ color: '#16a34a' }}>Your message was sent. We'll be in touch soon.</p>}
