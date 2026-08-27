@@ -1041,7 +1041,7 @@ export default function App() {
             {/* Map */}
             <div className="rounded-2xl overflow-hidden relative" style={{ background: C.royalDeep, border: `1.5px solid ${C.royalDark}`, minHeight: 420 }}>
               <div className="absolute top-3 left-3 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold"
-                style={{ background: 'rgba(10,36,114,0.92)', border: `1px solid rgba(249,115,22,0.35)`, color: C.orangeLight, backdropFilter: 'blur(8px)' }}>
+                style={{ background: 'rgba(10,36,114,0.92)', border: `1px solid rgba(249,115,22,0.35)`, color: '#fff', backdropFilter: 'blur(8px)' }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
                   <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
                 </svg>
