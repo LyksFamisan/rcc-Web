@@ -1047,11 +1047,12 @@ export default function App() {
                 </svg>
                 Ascott Makati, Glorietta 4
               </div>
+              <div className="absolute inset-0" aria-hidden="true" style={{ backgroundColor: '#082b70', backgroundImage: 'linear-gradient(42deg, transparent 0 17%, #0b3d91 17% 22%, transparent 22% 39%, #0b3d91 39% 44%, transparent 44% 100%), linear-gradient(132deg, transparent 0 29%, #0b3d91 29% 34%, transparent 34% 56%, #0b3d91 56% 61%, transparent 61% 100%), linear-gradient(18deg, transparent 0 61%, #f47d20 61% 72%, transparent 72% 100%), linear-gradient(142deg, transparent 0 12%, #f47d20 12% 25%, transparent 25% 48%, #f47d20 48% 59%, transparent 59% 100%), linear-gradient(90deg, transparent 0 72%, #f47d20 72% 88%, transparent 88% 100%)', backgroundSize: '100% 100%' }} />
               <iframe
                 title="RCC Colab Solutions Office"
                 src="https://maps.google.com/maps?q=Ascott+Makati+Glorietta+4,+Ayala+Center,+San+Lorenzo,+Makati+City,+Philippines&output=embed&z=17"
                 width="100%" height="420"
-                style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
+                style={{ border: 0, display: 'block', opacity: 0.78, filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
                 allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               />
               <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(10,36,114,0.42)', mixBlendMode: 'multiply' }} />
