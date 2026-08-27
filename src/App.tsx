@@ -1099,7 +1099,7 @@ export default function App() {
 
             {/* Form */}
             <form ref={formRef} onSubmit={handleSend} className="rounded-2xl p-7 flex flex-col gap-4"
-              style={{ background: '#f8fafc', border: '1.5px solid rgba(10,36,114,0.1)' }}>
+              style={{ background: C.royal, border: '1.5px solid rgba(255,255,255,0.16)' }}>
 
               {formStatus === 'ok' && (
                 <div className="flex items-center gap-3 rounded-xl px-4 py-4"
@@ -1126,7 +1126,7 @@ export default function App() {
               <div className="grid grid-cols-2 gap-3">
                 {([['First Name','firstName','Juan'],['Last Name','lastName','dela Cruz']] as const).map(([label,key,ph]) => (
                   <div key={key}>
-                    <label className="block text-xs font-bold mb-1.5 uppercase tracking-widest" style={{ color: 'rgba(10,36,114,0.62)' }}>{label}</label>
+                    <label className="block text-xs font-bold mb-1.5 uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.82)' }}>{label}</label>
                     <input required type="text" placeholder={ph} value={form[key]}
                       onChange={e => setForm(s => ({ ...s, [key]: e.target.value }))}
                       className="w-full px-3 py-2.5 rounded-lg text-sm outline-none transition-all"
@@ -1137,7 +1137,7 @@ export default function App() {
 
               {([['Email','email','email','you@company.com'],['Company','company','text','Your Company Name']] as const).map(([label,key,type,ph]) => (
                 <div key={key}>
-                  <label className="block text-xs font-bold mb-1.5 uppercase tracking-widest" style={{ color: 'rgba(10,36,114,0.62)' }}>{label}</label>
+                  <label className="block text-xs font-bold mb-1.5 uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.82)' }}>{label}</label>
                   <input required={key==='email'} type={type} placeholder={ph} value={form[key]}
                     onChange={e => setForm(s => ({ ...s, [key]: e.target.value }))}
                     className="w-full px-3 py-2.5 rounded-lg text-sm outline-none"
@@ -1146,7 +1146,7 @@ export default function App() {
               ))}
 
               <div>
-                <label className="block text-xs font-bold mb-1.5 uppercase tracking-widest" style={{ color: 'rgba(10,36,114,0.62)' }}>Message</label>
+                <label className="block text-xs font-bold mb-1.5 uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.82)' }}>Message</label>
                 <textarea required rows={4} placeholder="Tell us about your project..." value={form.message}
                   onChange={e => setForm(s => ({ ...s, message: e.target.value }))}
                   className="w-full px-3 py-2.5 rounded-lg text-sm outline-none resize-none"
