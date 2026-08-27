@@ -517,32 +517,32 @@ function ServicesPage() {
         </section>
       </main>
 
-      <footer className="px-6 py-14" style={{ background: C.bgDark, borderTop: `1px solid rgba(37,99,235,0.18)` }}>
+      <footer className="px-6 py-14" style={{ background: '#fff', borderTop: '1px solid rgba(10,36,114,0.12)' }}>
         <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <a href="/" aria-label="RCC Colab Solutions Logo" className="inline-block mb-4">
               <img src={logoImg} alt="RCC Colab Solutions Logo" className="object-contain" style={{ width: 100, height: 62 }} />
             </a>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
           </div>
           <div>
-            <h3 className="font-black mb-4 text-white">Quick Links</h3>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Quick Links</h3>
             <nav className="flex flex-col gap-2 text-sm" aria-label="Footer navigation">
-              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(255,255,255,0.72)' }}>Home</a>
-              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(255,255,255,0.72)' }}>About Us</a>
+              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Home</a>
+              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>About Us</a>
               <a href="/services" className="hover:text-orange-500" style={{ color: C.orange }}>Services</a>
-              <a href="/contactus" className="hover:text-orange-500" style={{ color: 'rgba(255,255,255,0.72)' }}>Contact</a>
+              <a href="/contactus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Contact</a>
             </nav>
           </div>
           <div>
-            <h3 className="font-black mb-4 text-white">Office Address</h3>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
-            <h3 className="font-black mt-6 mb-3 text-white">Follow Us</h3>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Office Address</h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
+            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Follow Us</h3>
             <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="text-sm" style={{ color: C.orange }}>LinkedIn</a>
           </div>
           <div>
-            <h3 className="font-black mb-4 text-white">Get In Touch</h3>
-            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.72)' }}>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
+            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
               <a href="tel:+63286516572">+632 8651 6572</a>
               <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
               <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
@@ -550,7 +550,7 @@ function ServicesPage() {
             </div>
           </div>
         </div>
-        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(255,255,255,0.58)', borderTop: '1px solid rgba(255,255,255,0.18)' }}>© 2026 RCC Colab Solutions, Inc. All rights reserved.</p>
+        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(10,36,114,0.58)', borderTop: '1px solid rgba(10,36,114,0.12)' }}>© 2026 RCC Colab Solutions, Inc. All rights reserved.</p>
       </footer>
     </div>
   )
