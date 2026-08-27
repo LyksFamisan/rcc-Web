@@ -313,13 +313,6 @@ const SERVICE_PAGE_BENEFITS: Record<string, string[]> = {
 }
 
 const SERVICE_PAGE_SOLUTIONS: Solution[] = SOLUTIONS
-  .filter(solution => SERVICE_PAGE_TITLES[solution.title])
-  .map(solution => ({
-    ...solution,
-    title: SERVICE_PAGE_TITLES[solution.title],
-    desc: SERVICE_PAGE_DESCRIPTIONS[SERVICE_PAGE_TITLES[solution.title]],
-    img: SERVICE_PAGE_IMAGES[SERVICE_PAGE_TITLES[solution.title]],
-  }))
 
 const CONTACT_INFO = [
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>, label: '7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines' },
@@ -500,15 +493,9 @@ function ServicesPage() {
                     <h3 className="text-xl font-black mb-3" style={{ color: C.royalDeep }}>{sol.title}</h3>
                     <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.68)' }}>{sol.desc}</p>
                     <div className="space-y-2 mb-6">
-                      {SERVICE_PAGE_BENEFITS[sol.title].map((benefit) => (
-                        <div key={benefit} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
-                          <span className="flex items-center justify-center w-5 h-5 rounded-full text-xs font-black" style={{ background: 'rgba(249,115,22,0.12)', color: C.orange }}>+</span>
-                          <span>{benefit}</span>
-                        </div>
-                      ))}
                     </div>
                     <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-center inline-flex items-center justify-center gap-1 text-xs font-bold transition-all duration-200 hover:gap-2 mt-auto" style={{ color: C.orange }}>
-                      Explore {sol.title === 'Application Modernization' ? 'App Modernization' : sol.title === 'Software Development' ? 'Software Dev' : sol.title === 'IT Strategy & Consulting' ? 'IT Strategy' : sol.title === 'Robotics Process Automation' ? 'RPA' : sol.title === 'Staff Augmentation' ? 'Staff Aug' : 'Support'}
+                      Learn More
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                     </button>
                   </div>
