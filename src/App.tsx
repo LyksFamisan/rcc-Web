@@ -343,7 +343,7 @@ function AboutPage() {
             <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
             <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
             <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
           </nav>
           <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
         </div>
@@ -443,7 +443,7 @@ function ServicesPage() {
             <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
             <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
             <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
           </nav>
           <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
         </div>
@@ -841,7 +841,7 @@ export default function App() {
 
           <nav className="hidden md:flex items-center gap-9">
             {[{ l: 'Home', id: 'home' }, { l: 'About Us', id: 'about' }, { l: 'Services', id: 'solutions' }, { l: 'Contact Us', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : scrollTo(id)}
+              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : id === 'contact' ? window.location.assign('/contactus') : scrollTo(id)}
                 className="nav-link text-sm font-semibold transition-all duration-200 relative group"
                 style={{ letterSpacing: '0.01em', color: C.royalDeep }}>
                 {l}
@@ -861,7 +861,7 @@ export default function App() {
         <div className={`mobile-menu md:hidden px-6 py-5 flex flex-col gap-4 border-t ${menuOpen ? 'mobile-menu-open' : ''}`}
             style={{ background: '#fff', borderColor: 'rgba(10,36,114,0.08)' }}>
             {[{ l: 'Home', id: 'home' }, { l: 'About Us', id: 'about' }, { l: 'Services', id: 'solutions' }, { l: 'Contact Us', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : scrollTo(id)} className="mobile-menu-link text-left text-sm font-semibold py-1" style={{ color: C.royalDeep }}>{l}</button>
+              <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : id === 'contact' ? window.location.assign('/contactus') : scrollTo(id)} className="mobile-menu-link text-left text-sm font-semibold py-1" style={{ color: C.royalDeep }}>{l}</button>
             ))}
         </div>
       </header>
