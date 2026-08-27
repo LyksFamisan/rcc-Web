@@ -1223,7 +1223,7 @@ export default function App() {
 
       {chatOpen && (
         <div className="fixed bottom-24 right-3 sm:right-6 z-50 rounded-2xl flex flex-col overflow-hidden"
-          style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100vh - 96px))', minHeight: 390, background: C.royal, border: '1px solid rgba(37,99,235,0.24)', boxShadow: '0 24px 80px rgba(37,99,235,0.2)', backdropFilter: 'blur(24px)' }}>
+          style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100vh - 96px))', minHeight: 390, background: '#fff', border: '1px solid rgba(10,36,114,0.16)', boxShadow: '0 24px 80px rgba(37,99,235,0.2)' }}>
 
           {/* Header */}
           <div className="flex items-center gap-2.5 px-3 py-2.5 shrink-0"
@@ -1250,7 +1250,7 @@ export default function App() {
                 <div className="max-w-[84%] rounded-xl px-3 py-2.5 text-sm leading-relaxed"
                   style={m.role === 'user'
                     ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 }
-                    : { background: C.royal, color: '#fff', borderBottomLeftRadius: 4, border: '1px solid rgba(37,99,235,0.2)' }}>
+                    : { background: '#fff', color: C.royalDeep, borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
                   {m.role === 'ai' ? renderAiText(m.text) : m.text}
                 </div>
               </div>
@@ -1258,7 +1258,7 @@ export default function App() {
             {aiTyping && (
               <div className="flex justify-start">
                 <div className="rounded-2xl px-4 py-3 flex gap-1.5 items-center"
-                  style={{ background: C.royal, border: '1px solid rgba(37,99,235,0.2)', borderBottomLeftRadius: 4 }}>
+                  style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)', borderBottomLeftRadius: 4 }}>
                   {[0,1,2].map(i => (
                     <span key={i} className="w-1.5 h-1.5 rounded-full"
                       style={{ background: C.orange, opacity: 0.7, animation: `typingDot 1s ${i*0.2}s infinite` }} />
@@ -1283,12 +1283,12 @@ export default function App() {
           {/* Input */}
           <div className="px-3 pb-3 pt-1 shrink-0">
             <div className="flex gap-2 rounded-lg px-3 py-2"
-                style={{ background: C.royal, border: '1px solid rgba(37,99,235,0.2)' }}>
+                style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)' }}>
               <input type="text" value={chatInput}
                 onChange={e => setChatInput(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleChatSend()}
                 placeholder="Ask RCC.Ai anything…"
-                className="flex-1 bg-transparent text-xs outline-none"
+                className="flex-1 bg-transparent text-xs outline-none placeholder:text-blue-900/50"
                 style={{ color: C.royalDeep }}
               />
               <button onClick={() => handleChatSend()}
