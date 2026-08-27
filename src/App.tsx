@@ -334,18 +334,18 @@ const ABOUT_VALUES = [
 function AboutPage() {
   return (
     <div className="min-h-screen" style={{ background: C.bgDeep, color: C.royalDeep }}>
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: C.royal, borderBottom: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 2px 24px rgba(4,8,32,0.28)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.orange }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.orangeLight }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>Services</a>
+            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>Contact Us</a>
           </nav>
-          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: '#fff' }}>Home</a>
         </div>
       </header>
 
@@ -434,18 +434,18 @@ function AboutPage() {
 function ServicesPage() {
   return (
     <div className="min-h-screen" style={{ background: C.bgDark, color: '#fff' }}>
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: C.royal, borderBottom: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 2px 24px rgba(4,8,32,0.28)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.orange }}>Services</a>
-            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.orangeLight }}>Services</a>
+            <a href="/#contact" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>Contact Us</a>
           </nav>
-          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: '#fff' }}>Home</a>
         </div>
       </header>
 
@@ -602,16 +602,16 @@ function ContactPage() {
 
   return (
     <div className="min-h-screen" style={{ background: '#fff', color: C.royalDeep }}>
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: C.royal, borderBottom: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 2px 24px rgba(4,8,32,0.28)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" aria-label="RCC Colab Solutions home"><img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} /></a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.orange }}>Contact Us</a>
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: '#fff' }}>Services</a>
+            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.orangeLight }}>Contact Us</a>
           </nav>
-          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: '#fff' }}>Home</a>
         </div>
       </header>
 
