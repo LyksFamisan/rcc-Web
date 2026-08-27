@@ -550,7 +550,7 @@ function ServicesPage() {
             </div>
           </div>
         </div>
-        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(255,255,255,0.58)', borderTop: '1px solid rgba(255,255,255,0.18)' }}>© 2025 RCC Colab Solutions, Inc. All rights reserved.</p>
+        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(255,255,255,0.58)', borderTop: '1px solid rgba(255,255,255,0.18)' }}>© 2026 RCC Colab Solutions, Inc. All rights reserved.</p>
       </footer>
     </div>
   )
@@ -1147,7 +1147,7 @@ export default function App() {
               </button>
             ))}
           </div>
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.58)' }}>© RCC Colab Solutions Inc. All rights reserved.</p>
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.58)' }}>© 2026 RCC Colab Solutions Inc. All rights reserved.</p>
         </div>
       </footer>
 
