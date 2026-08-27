@@ -1303,7 +1303,7 @@ export default function App() {
 
             <div className="p-6 md:p-8 space-y-7">
               {/* Intro paragraph */}
-              <p className="text-base md:text-lg leading-relaxed" style={{ color: 'rgba(18,49,92,0.78)' }}>
+              <p className="text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.86)' }}>
                 {activeService.intro}
               </p>
 
