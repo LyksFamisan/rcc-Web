@@ -1049,7 +1049,7 @@ export default function App() {
               </div>
               <iframe
                 title="RCC Colab Solutions Office"
-                src="https://maps.google.com/maps?q=Ascott+Makati+Glorietta+4,+Ayala+Center,+San+Lorenzo,+Makati+City,+Philippines&output=embed&z=17"
+                src="https://maps.google.com/maps?ll=14.5510313,121.0264059&output=embed&z=17"
                 width="100%" height="420"
                 style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
                 allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
