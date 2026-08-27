@@ -1054,6 +1054,16 @@ export default function App() {
                 style={{ border: 0, display: 'block', filter: 'invert(90%) hue-rotate(180deg) brightness(0.7) saturate(1.35) contrast(0.92)' }}
                 allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(10,36,114,0.18)', mixBlendMode: 'multiply' }} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full pointer-events-none flex flex-col items-center" aria-hidden="true">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{ background: C.orange, border: '3px solid #fff', boxShadow: '0 4px 18px rgba(4,8,32,0.5)' }}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" className="w-5 h-5">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div className="w-2 h-2 rounded-full" style={{ background: C.orange, boxShadow: '0 2px 8px rgba(4,8,32,0.5)' }} />
+              </div>
             </div>
 
             {/* Form */}
