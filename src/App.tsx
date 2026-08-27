@@ -467,12 +467,12 @@ function ServicesPage() {
           </div>
         </section>
 
-        <section id="service-expertise" className="py-24 px-6" style={{ background: C.bgDark }}>
+        <section id="service-expertise" className="py-24 px-6" style={{ background: '#fff' }}>
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Services Include</p>
-              <h2 className="text-4xl md:text-5xl font-black mb-5 text-white">Our Services Include</h2>
-              <p className="text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Services Include</h2>
+              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {SERVICE_PAGE_SOLUTIONS.map((sol, index) => (
