@@ -649,7 +649,7 @@ function ContactPage() {
 
             <form onSubmit={handleContactSend} className="contact-reveal contact-form rounded-2xl p-7 md:p-9" style={{ background: C.royal, border: '1px solid rgba(37,99,235,0.16)' }}>
               <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Send us a Message</p>
-              <h2 className="text-3xl font-black mb-2" style={{ color: C.royalDeep }}>Start a conversation.</h2>
+              <h2 className="text-3xl font-black mb-2" style={{ color: C.royalDeep }}>Send us a Message</h2>
               <p className="mb-7" style={{ color: 'rgba(10,36,114,0.66)' }}>Fill out the form below and we'll get back to you as soon as possible.</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {([['Full Name', 'name', 'Your full name', true], ['Company', 'company', 'Your company name', false], ['Contact Number', 'phone', '+63 900 000 0000', false], ['Work Email', 'email', 'you@company.com', true]] as const).map(([label, key, placeholder, required]) => (
@@ -668,6 +668,47 @@ function ContactPage() {
           </div>
         </section>
       </main>
+
+      <footer className="px-6 py-14" style={{ background: '#fff', borderTop: '1px solid rgba(10,36,114,0.12)' }}>
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div>
+            <a href="/" aria-label="RCC Colab Solutions Logo" className="inline-block mb-4">
+              <img src={logoImg} alt="RCC Colab Solutions Logo" className="object-contain" style={{ width: 100, height: 62 }} />
+            </a>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
+            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Stay Updated</h3>
+            <form className="flex gap-2" onSubmit={event => event.preventDefault()}>
+              <input type="email" required placeholder="Your email" aria-label="Your email" className="min-w-0 flex-1 px-3 py-2 rounded-lg text-sm outline-none" style={{ color: C.royalDeep, border: '1px solid rgba(10,36,114,0.16)' }} />
+              <button type="submit" className="px-4 py-2 rounded-lg text-xs font-extrabold text-white" style={{ background: C.orange }}>Subscribe</button>
+            </form>
+          </div>
+          <div>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Quick Links</h3>
+            <nav className="flex flex-col gap-2 text-sm" aria-label="Footer navigation">
+              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Home</a>
+              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>About Us</a>
+              <a href="/services" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Services</a>
+              <a href="/contactus" className="hover:text-orange-500" style={{ color: C.orange }}>Contact</a>
+            </nav>
+          </div>
+          <div>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Office Address</h3>
+            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
+            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Follow Us</h3>
+            <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="text-sm" style={{ color: C.orange }}>LinkedIn</a>
+          </div>
+          <div>
+            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
+            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
+              <a href="tel:+63286516572">+632 8651 6572</a>
+              <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
+              <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
+              <span>Business Hours Mon - Fri: 8:00 AM - 7:00 PM</span>
+            </div>
+          </div>
+        </div>
+        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(10,36,114,0.58)', borderTop: '1px solid rgba(10,36,114,0.12)' }}>© 2026 RCC Colab Solutions, Inc. All rights reserved.</p>
+      </footer>
     </div>
   )
 }
