@@ -26,7 +26,7 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
   { keywords: ['location','address','where','office','makati','find'],
     answer: "Our office is at:\n\n📍 **7/F Ascott Makati Glorietta 4**\nAyala Center San Lorenzo\nMakati City, Philippines\n\nBusiness Hours: Mon–Fri, 8:00 AM – 7:00 PM" },
   { keywords: ['contact','phone','email','reach','call'],
-    answer: "You can reach us:\n\n📞 **+632 8651 6572**\n📧 **info@rcccolabsolutions.com**\n🌐 **rcccolabsolutions.com**\n\nOr use the contact form — we reply within 24 hours." },
+    answer: "You can reach us:\n\n📞 **+632 8651 6616**\n📧 **info@rcccolabsolutions.com**\n🌐 **rcccolabsolutions.com**\n\nOr use the contact form — we reply within 24 hours." },
   { keywords: ['cloud','aws','azure','google cloud','migration'],
     answer: "Our **Cloud Solutions & Migration** covers:\n\n• Cloud strategy and readiness assessment\n• Migration to AWS, Azure, or Google Cloud\n• Cost optimization and right-sizing\n• Ongoing cloud management\n\nContact us for a free consultation!" },
   { keywords: ['rpa','automation','robot','automate'],
@@ -44,7 +44,7 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
   { keywords: ['cybersecurity','security','cyber','hack','protect'],
     answer: "Our **Cybersecurity** solutions include:\n\n• Security audits & vulnerability assessments\n• Threat monitoring & incident response\n• Compliance (ISO 27001, GDPR)\n• Data backup & disaster recovery" },
   { keywords: ['start','get started','begin','project','partner'],
-    answer: "Getting started is easy:\n\n1. **Reach out** via our contact form or call +632 8651 6572\n2. **Discovery call** – we learn your goals\n3. **Proposal** – tailored solution & timeline\n4. **Kickoff** – we start collaborating!\n\nReady? Use the contact form below!" },
+    answer: "Getting started is easy:\n\n1. **Reach out** via our contact form or call +632 8651 6616\n2. **Discovery call** – we learn your goals\n3. **Proposal** – tailored solution & timeline\n4. **Kickoff** – we start collaborating!\n\nReady? Use the contact form below!" },
 ]
 
 function getAiReply(input: string): string {
@@ -52,7 +52,7 @@ function getAiReply(input: string): string {
   for (const item of AI_RESPONSES) {
     if (item.keywords.some(k => lower.includes(k))) return item.answer
   }
-  return "Thanks for your message! For detailed assistance, reach us at **info@rcccolabsolutions.com** or **+632 8651 6572**. You can also use the contact form on this page and we'll respond within 24 hours."
+  return "Thanks for your message! For detailed assistance, reach us at **info@rcccolabsolutions.com** or **+632 8651 6616**. You can also use the contact form on this page and we'll respond within 24 hours."
 }
 
 /* ─── SERVICES WITH IMAGES + DETAIL CONTENT ─────────────── */
@@ -316,7 +316,7 @@ const SERVICE_PAGE_SOLUTIONS: Solution[] = SOLUTIONS
 
 const CONTACT_INFO = [
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>, label: '7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines' },
-  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>, label: '+632 8651 6572' },
+  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>, label: '+632 8651 6616' },
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>, label: 'info@rcccolabsolutions.com' },
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>, label: 'rcccolabsolutions.com' },
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>, label: 'Mon – Fri: 8:00 AM – 7:00 PM' },
@@ -543,7 +543,7 @@ function ServicesPage() {
           <div>
             <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
             <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
-              <a href="tel:+63286516572">+632 8651 6572</a>
+              <a href="tel:+63286516616">+632 8651 6616</a>
               <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
               <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
               <span>Business Hours Mon - Fri: 8:00 AM - 7:00 PM</span>
@@ -634,7 +634,7 @@ function ContactPage() {
               <p className="text-lg leading-relaxed mb-9" style={{ color: 'rgba(10,36,114,0.68)' }}>Whether you're looking for help with your next big project or want to join our team, we are ready to answer all your questions.</p>
               <div className="space-y-5">
                 {[
-                  ['Phone Number', '+632 8651 6572'],
+                  ['Phone Number', '+632 8651 6616'],
                   ['Email Address', 'info@rcccolabsolutions.com'],
                   ['Office Address', '7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City'],
                   ['Office Hours', 'Monday to Friday (8:00 AM - 7:00 PM)'],
@@ -700,7 +700,7 @@ function ContactPage() {
           <div>
             <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
             <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
-              <a href="tel:+63286516572">+632 8651 6572</a>
+              <a href="tel:+63286516616">+632 8651 6616</a>
               <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
               <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
               <span>Business Hours Mon - Fri: 8:00 AM - 7:00 PM</span>
@@ -946,12 +946,6 @@ export default function App() {
               We <strong className="font-bold" style={{ color: C.royalDeep }}>collaborate</strong> with your team to identify the best IT
               services and solutions that create significant value for your organization.
             </p>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {['ISO 27001 Certified', 'AWS Partner', 'Microsoft Gold', 'Google Cloud'].map((b) => (
-                <span key={b} className="px-3 py-1.5 rounded-full text-xs font-bold"
-                  style={{ background: 'rgba(21,49,125,0.08)', border: `1px solid rgba(21,49,125,0.2)`, color: C.royalDark }}>{b}</span>
-              ))}
-            </div>
             <button onClick={() => scrollTo('solutions')}
               className="px-7 py-3 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105"
               style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.05em' }}>
@@ -1395,7 +1389,7 @@ export default function App() {
                   style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.05em' }}>
                   Get a Free Consultation
                 </button>
-                <button onClick={() => setActiveService(null)}
+                <button onClick={() => { setActiveService(null); scrollTo('solutions') }}
                   className="px-7 py-3 font-bold text-sm rounded-full transition-all duration-200 hover:bg-white/10"
                   style={{ border: '1.5px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.05em' }}>
                   Close
