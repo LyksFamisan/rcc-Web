@@ -99,6 +99,9 @@
 *.safetensors        filter=lfs diff=lfs merge=lfs -text
 *.gguf               filter=lfs diff=lfs merge=lfs -text
 
+# Vercel's Git deployment does not resolve LFS pointers for this public asset.
+public/assets/data-privacy-certificate.png -filter -diff -merge text
+
 # ---------------------------------------------------------------------------
 # Databases
 # ---------------------------------------------------------------------------
