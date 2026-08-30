@@ -22,7 +22,7 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
   { keywords: ['hello','hi','hey','musta','kumusta','good morning','good afternoon'],
     answer: "Hello! I'm **RCC.Ai** 👋 Your AI assistant for RCC Colab Solutions. Ask me about our services, location, pricing, or how to get started!" },
   { keywords: ['services','offer','what do you do','solutions','provide'],
-    answer: "RCC Colab Solutions offers:\n\n• Application Modernization\n• Custom Software Development\n• Staff Augmentation\n• IT Consulting & Solution Architecture\n• Robotic Process Automation (RPA)\n• Cloud Solutions & Migration\n• System Integration\n• Managed IT Services\n• QA & Software Testing\n• POS & Kiosk Software Systems\n• Data Analytics & Business Intelligence\n\nWould you like details on any specific service?" },
+    answer: "RCC Colab Solutions offers:\n\n• Application Modernization\n• Custom Software Development\n• Staff Augmentation\n• Robotic Process Automation (RPA)\n• Cloud Solutions & Migration\n• System Integration\n• Managed IT Services\n• POS & Kiosk Software Systems\n• Data Analytics & Business Intelligence\n\nWould you like details on any specific service?" },
   { keywords: ['location','address','where','office','makati','find'],
     answer: "Our office is at:\n\n📍 **7/F Ascott Makati Glorietta 4**\nAyala Center San Lorenzo\nMakati City, Philippines\n\nBusiness Hours: Mon–Fri, 8:00 AM – 7:00 PM" },
   { keywords: ['contact','phone','email','reach','call'],
@@ -139,23 +139,6 @@ const SOLUTIONS: Solution[] = [
     ],
   },
   {
-    img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=180&fit=crop&auto=format',
-    title: 'IT Consulting & Solution Architecture',
-    desc: 'Strategic advisory that aligns your technology roadmap with your long-term business objectives.',
-    intro: 'Our IT consultants bring deep domain expertise across industries to help you make informed technology decisions. From architectural blueprints to digital transformation strategies, we guide you from vision to execution.',
-    whyTitle: 'Why Invest in IT Consulting?',
-    whyPoints: [
-      { bold: 'Strategic Alignment:', text: 'Ensure every technology investment supports your core business goals and delivers measurable ROI.' },
-      { bold: 'Risk Reduction:', text: 'Identify potential pitfalls before they become costly problems through expert assessment and planning.' },
-      { bold: 'Future-Proofing:', text: 'Build scalable, flexible architectures that evolve alongside your business and emerging technologies.' },
-    ],
-    expertise: [
-      { icon: '🏗️', title: 'Architecture Design', body: 'We design robust, scalable system architectures — microservices, event-driven, serverless — tailored to your performance and reliability requirements.' },
-      { icon: '🗺️', title: 'Technology Roadmap', body: 'A clear, prioritized plan that bridges the gap between your current state and your desired technology future, with milestones and resource planning.' },
-      { icon: '🔄', title: 'Digital Transformation', body: 'End-to-end guidance for transforming legacy processes and systems into modern, agile digital operations that compete in today\'s market.' },
-    ],
-  },
-  {
     img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=180&fit=crop&auto=format',
     title: 'Robotic Process Automation (RPA)',
     desc: 'Automate repetitive tasks to free your team for higher-value work and cut operational costs.',
@@ -224,23 +207,6 @@ const SOLUTIONS: Solution[] = [
     ],
   },
   {
-    img: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=180&fit=crop&auto=format',
-    title: 'QA & Software Testing',
-    desc: 'Comprehensive manual and automated testing that ensures quality, reliability, and performance at every release.',
-    intro: 'Quality is not an afterthought — it is a discipline. Our QA engineers embed into your development lifecycle to catch defects early, validate functionality, and ensure every release meets the highest standards of reliability, security, and performance.',
-    whyTitle: 'Why Invest in QA Testing?',
-    whyPoints: [
-      { bold: 'Prevent Costly Defects:', text: 'Bugs found in production cost 100× more to fix than those caught during development. Early QA saves significant time and money.' },
-      { bold: 'Protect Your Reputation:', text: 'A flawed product damages user trust. Rigorous testing ensures every release reflects your brand\'s commitment to quality.' },
-      { bold: 'Faster Release Cycles:', text: 'Automated test suites enable continuous delivery — shipping features faster without sacrificing confidence.' },
-    ],
-    expertise: [
-      { icon: '🧪', title: 'Manual Testing', body: 'Exploratory, functional, regression, and user acceptance testing performed by experienced QA engineers who think like real users.' },
-      { icon: '⚙️', title: 'Automated Testing', body: 'End-to-end, API, and unit test automation using Selenium, Cypress, Playwright, and Jest — integrated directly into your CI/CD pipeline.' },
-      { icon: '📈', title: 'Performance Testing', body: 'Load, stress, and scalability testing to validate that your application performs reliably under peak demand and growth scenarios.' },
-    ],
-  },
-  {
     img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=180&fit=crop&auto=format',
     title: 'POS & Kiosk Software Systems',
     desc: 'Reliable point-of-sale and self-service kiosk solutions for retail, hospitality, and service industries.',
@@ -279,7 +245,6 @@ const SOLUTIONS: Solution[] = [
 const SERVICE_PAGE_TITLES: Record<string, string> = {
   'Application Modernization': 'Application Modernization',
   'Custom Software Development': 'Software Development',
-  'IT Consulting & Solution Architecture': 'IT Strategy & Consulting',
   'Robotic Process Automation (RPA)': 'Robotics Process Automation',
   'Staff Augmentation': 'Staff Augmentation',
   'Managed IT Services': 'Support & Maintenance',
