@@ -436,7 +436,7 @@ function ServicesPage() {
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-14">
               <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Services Include</p>
-              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Services Include</h2>
+              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Services Includes</h2>
               <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-7">
@@ -942,7 +942,7 @@ export default function App() {
               <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>What We Offer</p>
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-white mb-4" style={{ color: 'white', letterSpacing: '-0.02em' }}>Our Services Include</h2>
+            <h2 className="text-3xl md:text-4xl font-white mb-4" style={{ color: 'white', letterSpacing: '-0.02em' }}>Our Services Includes</h2>
             <p className="max-w-xl mx-auto text-base" style={{ color: 'white(18,49,92,0.68)' }}>
               End-to-end technology services engineered to solve complex challenges and unlock new growth.
             </p>
