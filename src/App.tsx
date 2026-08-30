@@ -949,7 +949,7 @@ export default function App() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-7">
             {SOLUTIONS.map((sol) => (
               <div key={sol.title}
                 onClick={() => setActiveService(sol)}
@@ -958,27 +958,25 @@ export default function App() {
                 }}
                 role="button"
                 tabIndex={0}
-                className="group rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
-                style={{ background: C.royalDark, border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 4px 20px rgba(4,8,32,0.24)' }}>
-                {/* Realistic image */}
-                <div className="relative overflow-hidden" style={{ height: 180 }}>
+                className="group rounded-3xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.32)] cursor-pointer"
+                style={{ background: 'rgba(11,29,79,0.96)', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 8px 24px rgba(4,8,32,0.22)' }}>
+                <div className="relative overflow-hidden" style={{ height: 190 }}>
                   <img src={sol.img} alt={sol.title} loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     style={{ background: C.royalDark }} />
                   <div className="absolute inset-0"
-                    style={{ background: 'linear-gradient(to bottom,rgba(8,13,54,0.1) 0%,rgba(8,13,54,0.6) 100%)' }} />
-                  {/* Royal blue top accent bar */}
-                  <div className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'linear-gradient(to bottom,rgba(8,13,54,0.10) 0%,rgba(8,13,54,0.58) 100%)' }} />
+                  <div className="absolute inset-x-0 top-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{ background: `linear-gradient(90deg,${C.orange},${C.orangeLight})` }} />
                 </div>
-                <div className="flex flex-col gap-3 p-5 flex-1">
-                  <h3 className="font-bold text-sm leading-snug text-white">{sol.title}</h3>
-                  <p className="text-xs leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.8)' }}>{sol.desc}</p>
+                <div className="flex flex-col gap-3 p-5 md:p-6 flex-1">
+                  <h3 className="font-black text-xl leading-snug text-white">{sol.title}</h3>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.78)' }}>{sol.desc}</p>
                   <button onClick={() => setActiveService(sol)}
-                    className="self-center flex items-center justify-center gap-1 text-xs font-bold transition-all duration-200 mt-auto hover:gap-2"
+                    className="self-start mt-2 inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3"
                     style={{ color: C.orange }}>
                     Learn More
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </button>
                 </div>
               </div>
