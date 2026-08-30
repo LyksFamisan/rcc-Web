@@ -101,6 +101,7 @@
 
 # Vercel's Git deployment does not resolve LFS pointers for this public asset.
 public/assets/data-privacy-certificate.png -filter -diff -merge -text
+public/assets/data-privacy-certificate.jpg -filter -diff -merge -text
 
 # ---------------------------------------------------------------------------
 # Databases

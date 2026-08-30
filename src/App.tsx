@@ -4,7 +4,7 @@ const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
 const robotRabbit = assetUrl('public_rabbit.png')
 const logoImg = assetUrl('Content-Creator-Project.png')
 const heroVideo = assetUrl('hero-video.mp4')
-const dataPrivacyCertificate = assetUrl('data-privacy-certificate.png')
+const dataPrivacyCertificate = assetUrl('data-privacy-certificate.jpg')
 
 /* ─── RCC ROYAL BLUE THEME ─────────────────────────────── */
 const C = {
