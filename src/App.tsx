@@ -439,7 +439,7 @@ function ServicesPage() {
               <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Services Include</h2>
               <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-7">
               {SERVICE_PAGE_SOLUTIONS.map((sol, index) => (
                 <article key={sol.title}
                   onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)}
@@ -448,20 +448,19 @@ function ServicesPage() {
                   }}
                   role="button"
                   tabIndex={0}
-                  className="group grid md:grid-cols-[1fr_300px] overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
-                  style={{ background: C.royalDark, border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 8px 24px rgba(4,8,32,0.24)' }}>
-                  <div className="relative min-h-48 md:min-h-full md:col-start-2 overflow-hidden flex items-center justify-center" style={{ background: C.royal }}>
-                    <img src={sol.img} alt={sol.title} loading="lazy" className="w-full h-full max-h-72 object-contain p-5 transition-transform duration-500 group-hover:scale-105" />
+                  className="group overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.32)] cursor-pointer"
+                  style={{ background: 'rgba(11,29,79,0.96)', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 8px 24px rgba(4,8,32,0.24)' }}>
+                  <div className="relative overflow-hidden" style={{ height: 190 }}>
+                    <img src={sol.img} alt={sol.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom,rgba(8,13,54,0.10) 0%,rgba(8,13,54,0.58) 100%)' }} />
                     <span className="absolute top-4 right-5 text-sm font-black" style={{ color: C.orange }}>0{index + 1}</span>
                   </div>
-                  <div className="p-6 flex flex-col md:col-start-1 md:row-start-1">
+                  <div className="p-5 md:p-6 flex flex-col">
                     <h3 className="text-xl font-black mb-3 text-white">{sol.title}</h3>
                     <p className="leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.8)' }}>{sol.desc}</p>
-                    <div className="space-y-2 mb-6">
-                    </div>
-                    <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-center inline-flex items-center justify-center gap-1 text-xs font-bold transition-all duration-200 hover:gap-2 mt-auto" style={{ color: C.orange }}>
+                    <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-start inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3 mt-auto" style={{ color: C.orange }}>
                       Learn More
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                     </button>
                   </div>
                 </article>
