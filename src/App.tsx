@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import dataPrivacyCertificate from './assets/image-2.png'
 
 const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
 const robotRabbit = assetUrl('public_rabbit.png')
@@ -496,6 +497,7 @@ function ServicesPage() {
               <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>About Us</a>
               <a href="/services" className="hover:text-orange-500" style={{ color: C.orange }}>Services</a>
               <a href="/contactus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Contact</a>
+              <a href="/data-privacy" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Data Privacy</a>
             </nav>
           </div>
           <div>
@@ -653,6 +655,7 @@ function ContactPage() {
               <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>About Us</a>
               <a href="/services" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Services</a>
               <a href="/contactus" className="hover:text-orange-500" style={{ color: C.orange }}>Contact</a>
+              <a href="/data-privacy" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Data Privacy</a>
             </nav>
           </div>
           <div>
@@ -677,10 +680,50 @@ function ContactPage() {
   )
 }
 
+function DataPrivacyPage() {
+  return (
+    <div className="min-h-screen" style={{ background: '#f8fafc', color: C.royalDeep }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+          <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
+            <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
+          </a>
+          <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+          </nav>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+        </div>
+      </header>
+
+      <main className="pt-32 pb-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Data Privacy</p>
+            <h1 className="text-4xl md:text-5xl font-black" style={{ color: C.royalDeep }}>Certificate of Registration</h1>
+            <p className="mt-4 text-base leading-relaxed max-w-2xl mx-auto" style={{ color: 'rgba(10,36,114,0.72)' }}>
+              RCC Colab Solutions Inc. is registered with the National Privacy Commission in compliance with the Data Privacy Act of 2012.
+            </p>
+          </div>
+          <img
+            src={dataPrivacyCertificate}
+            alt="National Privacy Commission Certificate of Registration for RCC Colab Solutions Inc."
+            className="w-full h-auto"
+            style={{ border: '1px solid rgba(10,36,114,0.14)', boxShadow: '0 12px 36px rgba(10,36,114,0.12)' }}
+          />
+        </div>
+      </main>
+    </div>
+  )
+}
+
 export default function App() {
   if (window.location.pathname === '/aboutus' || window.location.pathname === '/aboutus/') return <AboutPage />
   if (window.location.pathname === '/services' || window.location.pathname === '/services/') return <ServicesPage />
   if (window.location.pathname === '/contactus' || window.location.pathname === '/contactus/') return <ContactPage />
+  if (window.location.pathname === '/data-privacy' || window.location.pathname === '/data-privacy/') return <DataPrivacyPage />
   const [menuOpen, setMenuOpen]         = useState(false)
   const [scrolled, setScrolled]         = useState(false)
   const [activeService, setActiveService] = useState<Solution | null>(() => {
@@ -910,6 +953,12 @@ export default function App() {
               We <strong className="font-bold" style={{ color: C.royalDeep }}>collaborate</strong> with your team to identify the best IT
               services and solutions that create significant value for your organization.
             </p>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {['ISO 27001 Certified', 'AWS Partner', 'Microsoft Gold', 'Google Cloud'].map((b) => (
+                <span key={b} className="px-3 py-1.5 rounded-full text-xs font-bold"
+                  style={{ background: 'rgba(21,49,125,0.08)', border: `1px solid rgba(21,49,125,0.2)`, color: C.royalDark }}>{b}</span>
+              ))}
+            </div>
             <button onClick={() => scrollTo('solutions')}
               className="px-7 py-3 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105"
               style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.05em' }}>
@@ -1136,8 +1185,8 @@ export default function App() {
             </div>
           </div>
           <div className="flex flex-wrap gap-6 justify-center">
-            {[{ l: 'HOME', id: 'home' }, { l: 'SOLUTIONS', id: 'solutions' }, { l: 'ABOUT US', id: 'about' }, { l: 'CONTACT US', id: 'contact' }].map(({ l, id }) => (
-              <button key={l} onClick={() => scrollTo(id)} className="text-xs font-bold tracking-widest transition-colors" style={{ color: 'rgba(255,255,255,0.72)' }}
+            {[{ l: 'HOME', id: 'home' }, { l: 'SOLUTIONS', id: 'solutions' }, { l: 'ABOUT US', id: 'about' }, { l: 'CONTACT US', id: 'contact' }, { l: 'DATA PRIVACY', id: 'data-privacy' }].map(({ l, id }) => (
+              <button key={l} onClick={() => id === 'data-privacy' ? window.location.assign('/data-privacy') : scrollTo(id)} className="text-xs font-bold tracking-widest transition-colors" style={{ color: 'rgba(255,255,255,0.72)' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.72)')}>
                 {l}
