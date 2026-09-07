@@ -896,7 +896,7 @@ export default function App() {
             style={{ fontSize: 'clamp(2.4rem,6.5vw,5rem)', maxWidth: 880, textShadow: '0 4px 80px rgba(8,13,54,0.9)', letterSpacing: '-0.03em' }}>
             Transform your Ideas into<br />
             <span style={{
-              background: `linear-gradient(90deg,${C.orange} 0%,${C.orangeLight} 50%,${C.orange} 100%)`,
+              background: 'linear-gradient(90deg,#e0f2fe 0%,#bfe8ff 35%,#8ec9ff 55%,#dff6ff 100%)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundSize: '200%',
               animation: 'shimmer 3s linear infinite',
             }}>
