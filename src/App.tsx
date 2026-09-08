@@ -27,7 +27,7 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
   { keywords: ['services','offer','what do you do','solutions','provide'],
     answer: "RCC Colab Solutions offers:\n\n• Application Modernization\n• Custom Software Development\n• Staff Augmentation\n• Robotic Process Automation (RPA)\n• Cloud Solutions & Migration\n• System Integration\n• Managed IT Services\n• POS & Kiosk Software Systems\n• Data Analytics & Business Intelligence\n\nWould you like details on any specific service?" },
   { keywords: ['location','address','where','office','makati','find'],
-    answer: "Our office is at:\n\n📍 **7/F Ascott Makati Glorietta 4**\nAyala Center San Lorenzo\nMakati City, Philippines\n\nBusiness Hours: Mon–Fri, 8:00 AM – 7:00 PM" },
+    answer: "Our office is at:\n\n**7/F Ascott Makati Glorietta 4**\nAyala Center San Lorenzo\nMakati City, Philippines\n\nBusiness Hours: Mon–Fri, 8:00 AM – 7:00 PM" },
   { keywords: ['contact','phone','email','reach','call'],
     answer: "You can reach us:\n\n📞 **+632 8651 6616**\n📧 **info@rcccolabsolutions.com**\n🌐 **rcccolabsolutions.com**\n\nOr use the contact form — we reply within 24 hours." },
   { keywords: ['cloud','aws','azure','google cloud','migration'],
@@ -92,15 +92,30 @@ function getExpertiseImage(title: string): string {
     'Web Development': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=220&fit=crop&auto=format',
     'Mobile Development': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=220&fit=crop&auto=format',
     'API & Integrations': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=220&fit=crop&auto=format',
+    'API Integration': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=220&fit=crop&auto=format',
+    'Data Integration': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=220&fit=crop&auto=format',
+    'Enterprise Integration': 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=220&fit=crop&auto=format',
     'Dedicated Teams': 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=220&fit=crop&auto=format',
     'Project-Based': 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=220&fit=crop&auto=format',
     'On-Demand': 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=220&fit=crop&auto=format',
     'Architecture Design': 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&h=220&fit=crop&auto=format',
     'Technology Roadmap': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=220&fit=crop&auto=format',
     'Digital Transformation': 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=220&fit=crop&auto=format',
+    'Cloud Strategy': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=220&fit=crop&auto=format',
+    'Migration & Deployment': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=220&fit=crop&auto=format',
+    'Cloud Management': 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=500&h=220&fit=crop&auto=format',
     'Process Discovery': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=220&fit=crop&auto=format',
     'Bot Development': 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&h=220&fit=crop&auto=format',
     'Support & Optimization': 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=500&h=220&fit=crop&auto=format',
+    '24/7 Monitoring': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=220&fit=crop&auto=format',
+    'Help Desk Support': 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=220&fit=crop&auto=format',
+    'Infrastructure Software & Frameworks': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=220&fit=crop&auto=format',
+    'POS Systems': 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=220&fit=crop&auto=format',
+    'Self-Service Kiosks': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=220&fit=crop&auto=format',
+    'Inventory Management': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=220&fit=crop&auto=format',
+    'Data Visualization': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=220&fit=crop&auto=format',
+    'Predictive Analytics': 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=500&h=220&fit=crop&auto=format',
+    'Business Reporting': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=220&fit=crop&auto=format',
   }
   return images[title] || 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&h=220&fit=crop&auto=format'
 }
@@ -222,7 +237,7 @@ const SOLUTIONS: Solution[] = [
     expertise: [
       { icon: '📡', title: '24/7 Monitoring', body: 'Round-the-clock monitoring of your network, servers, endpoints, and applications — with automated alerting and rapid incident response.' },
       { icon: '🎧', title: 'Help Desk Support', body: 'Multi-tier technical support for your end users via phone, email, and chat — ensuring fast resolution and minimal disruption to productivity.' },
-      { icon: '🖥️', title: 'Infrastructure Management', body: 'Patch management, configuration management, backup administration, and capacity planning to keep your IT environment secure and optimized.' },
+      { icon: '🖥️', title: 'Infrastructure Software & Frameworks', body: 'Patch management, configuration management, backup administration, and capacity planning to keep your IT environment secure and optimized.' },
     ],
   },
   {
@@ -316,6 +331,31 @@ const ABOUT_VALUES = [
 ]
 
 function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
+  const [subscriberEmail, setSubscriberEmail] = useState('')
+  const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+
+  const handleSubscribe = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setSubscriptionStatus('sending')
+    try {
+      const formData = new FormData()
+      formData.append('email', subscriberEmail)
+      formData.append('_subject', 'New RCC Colab Solutions Newsletter Subscriber')
+      formData.append('_captcha', 'false')
+      formData.append('_template', 'table')
+      const response = await fetch('https://formsubmit.co/lyka@rcccolabsolutions.com', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      })
+      if (!response.ok) throw new Error('Subscription failed')
+      setSubscriberEmail('')
+      setSubscriptionStatus('success')
+    } catch {
+      setSubscriptionStatus('error')
+    }
+  }
+
   return (
     <footer className="site-footer relative overflow-hidden px-6 pt-12" style={{ background: C.bgDeep, color: '#fff' }}>
       <div className="mx-auto grid max-w-6xl gap-8 pb-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1fr_1.1fr]">
@@ -326,10 +366,12 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
           </a>
           <p className="max-w-sm text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
           <h3 className="mt-6 mb-3 text-base font-black">Stay Updated</h3>
-          <form className="flex max-w-md gap-2" onSubmit={event => event.preventDefault()}>
-            <input type="email" required placeholder="Enter your email" aria-label="Enter your email" className="min-w-0 flex-1 rounded-lg px-3 py-2.5 text-sm outline-none" style={{ color: C.royalDeep, background: '#fff' }} />
-            <button type="submit" className="shrink-0 rounded-lg px-4 py-2.5 text-sm font-extrabold text-white" style={{ background: '#0eb6d5' }}>Subscribe</button>
+          <form className="flex max-w-md gap-2" onSubmit={handleSubscribe}>
+            <input type="email" required placeholder="Enter your email" aria-label="Enter your email" value={subscriberEmail} onChange={event => setSubscriberEmail(event.target.value)} className="min-w-0 flex-1 rounded-lg px-3 py-2.5 text-sm outline-none" style={{ color: C.royalDeep, background: '#fff' }} />
+            <button type="submit" disabled={subscriptionStatus === 'sending'} className="shrink-0 rounded-lg px-4 py-2.5 text-sm font-extrabold text-white disabled:opacity-60" style={{ background: '#0eb6d5' }}>{subscriptionStatus === 'sending' ? 'Sending...' : 'Subscribe'}</button>
           </form>
+          {subscriptionStatus === 'success' && <p className="mt-2 text-xs font-semibold" style={{ color: '#86efac' }}>Thanks, you're subscribed.</p>}
+          {subscriptionStatus === 'error' && <p className="mt-2 text-xs font-semibold" style={{ color: '#fca5a5' }}>Unable to subscribe. Please try again.</p>}
         </div>
         <div>
           <h3 className="mb-4 text-lg font-black">Quick Links</h3>
@@ -342,7 +384,7 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
         </div>
         <div>
           <h3 className="mb-4 text-lg font-black">Office Address</h3>
-          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>📍 7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
           <h3 className="mt-6 mb-3 text-lg font-black">Follow Us</h3>
           <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="footer-link inline-flex h-6 w-6 items-center justify-center rounded-sm text-sm font-black" aria-label="LinkedIn" style={{ background: '#fff', color: C.royalDeep }}>in</a>
         </div>
@@ -352,7 +394,7 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
             <a href="tel:+63286516616" className="footer-contact">☎ +632 8651 6616</a>
             <a href="mailto:info@rcccolabsolutions.com" className="footer-contact">✉ info@rcccolabsolutions.com</a>
             <a href="https://rcccolabsolutions.com" className="footer-contact">◎ rcccolabsolutions.com</a>
-            <span className="footer-contact">◷ Business Hours<br /><span className="pl-6">Mon - Fri: 8:00 AM - 7:00 PM</span></span>
+            <span className="footer-contact inline-flex items-start gap-2"><span aria-hidden="true">◷</span><span>Business Hours<br />Mon - Fri: 8:00 AM - 7:00 PM</span></span>
           </div>
         </div>
       </div>
@@ -369,16 +411,115 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
 }
 
 function RabbitAiFloat() {
+  const [chatOpen, setChatOpen] = useState(false)
+  const [chatInput, setChatInput] = useState('')
+  const [chatOffset, setChatOffset] = useState({ x: 0, y: 0 })
+  const [draggingChat, setDraggingChat] = useState(false)
+  const [messages, setMessages] = useState<Msg[]>([
+    { role: 'ai', text: "Hi! I'm **RCC.Ai** 👋 Your AI assistant for RCC Colab Solutions. Ask me anything about our services, location, pricing, or how to get started!" },
+  ])
+  const [aiTyping, setAiTyping] = useState(false)
+  const chatEndRef = useRef<HTMLDivElement>(null)
+  const chatDragRef = useRef({ startX: 0, startY: 0, offsetX: 0, offsetY: 0, moved: false })
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages, aiTyping])
+
+  const handleChatSend = (text?: string) => {
+    const msg = (text ?? chatInput).trim()
+    if (!msg) return
+    setMessages(current => [...current, { role: 'user', text: msg }, { role: 'ai', text: getAiReply(msg) }])
+    setChatInput('')
+    setAiTyping(false)
+  }
+
+  const handleChatPointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
+    event.currentTarget.setPointerCapture(event.pointerId)
+    chatDragRef.current = { startX: event.clientX, startY: event.clientY, offsetX: chatOffset.x, offsetY: chatOffset.y, moved: false }
+    setDraggingChat(true)
+  }
+
+  const handleChatPointerMove = (event: React.PointerEvent<HTMLButtonElement>) => {
+    if (!draggingChat) return
+    const drag = chatDragRef.current
+    const nextX = drag.offsetX + event.clientX - drag.startX
+    const nextY = drag.offsetY + event.clientY - drag.startY
+    drag.moved = Math.abs(event.clientX - drag.startX) > 4 || Math.abs(event.clientY - drag.startY) > 4
+    setChatOffset({
+      x: Math.max(-window.innerWidth + 76, Math.min(window.innerWidth - 76, nextX)),
+      y: Math.max(-window.innerHeight + 76, Math.min(window.innerHeight - 76, nextY)),
+    })
+  }
+
+  const handleChatPointerUp = (event: React.PointerEvent<HTMLButtonElement>) => {
+    event.currentTarget.releasePointerCapture(event.pointerId)
+    setDraggingChat(false)
+  }
+
+  const renderAiText = (text: string) => text.split('\n').map((line, index, lines) => {
+    const parts = line.split(/\*\*(.*?)\*\*/g)
+    return (
+      <span key={index}>
+        {parts.map((part, partIndex) => partIndex % 2 === 1
+          ? <strong key={partIndex} className="font-semibold" style={{ color: C.royalDeep }}>{part}</strong>
+          : part)}
+        {index < lines.length - 1 && <br />}
+      </span>
+    )
+  })
+
   return (
-    <div className="fixed bottom-8 right-7 z-50" aria-label="RCC AI assistant">
-      <img src={robotRabbit} alt="RCC AI assistant" className="h-16 w-16 object-contain drop-shadow-[0_0_16px_rgba(21,49,125,0.8)]" />
-    </div>
+    <>
+      <button
+        onClick={() => { if (!chatDragRef.current.moved) setChatOpen(open => !open) }}
+        onPointerDown={handleChatPointerDown}
+        onPointerMove={handleChatPointerMove}
+        onPointerUp={handleChatPointerUp}
+        aria-label="Open RCC.Ai chat"
+        className="fixed bottom-12 right-7 z-50 flex items-center justify-center rounded-full"
+        style={{ width: 60, height: 60, padding: 0, background: 'transparent', border: 'none', cursor: draggingChat ? 'grabbing' : 'grab', touchAction: 'none', transform: `translate(${chatOffset.x}px, ${chatOffset.y}px)`, filter: 'drop-shadow(0 0 16px rgba(21,49,125,.8))' }}
+      >
+        <img src={robotRabbit} alt="RCC.ai Rabbit" style={{ width: 60, height: 60, objectFit: 'contain' }} />
+      </button>
+
+      {chatOpen && (
+        <div className="fixed bottom-24 right-3 sm:right-6 z-50 rounded-2xl flex flex-col overflow-hidden" style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100vh - 96px))', minHeight: 390, background: '#fff', border: '1px solid rgba(10,36,114,0.16)', boxShadow: '0 24px 80px rgba(37,99,235,0.2)' }}>
+          <div className="flex items-center gap-2.5 px-3 py-2.5 shrink-0" style={{ background: C.orange, borderBottom: '1px solid rgba(234,88,12,0.7)' }}>
+            <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center bg-white/10"><img src={robotRabbit} alt="RCC.Ai" className="w-full h-full object-contain" /></div>
+            <div><div className="font-extrabold text-white text-base leading-tight tracking-wide">RCC.Ai</div><div className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /><span className="text-xs text-white/90">Online · Always ready</span></div></div>
+            <button onClick={() => setChatOpen(false)} aria-label="Close RCC.Ai chat" className="ml-auto w-8 h-8 rounded-lg flex items-center justify-center text-white text-xl font-bold transition-all hover:bg-white/20">×</button>
+          </div>
+
+          <div className="flex-1 overflow-y-auto bg-white px-3 py-3 space-y-3" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(21,49,125,0.3) transparent' }}>
+            {messages.map((message, index) => (
+              <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                <div className="max-w-[84%] rounded-xl px-3 py-2.5 text-sm leading-relaxed" style={message.role === 'user' ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 } : { background: '#fff', color: C.royalDeep, borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
+                  {message.role === 'ai' ? renderAiText(message.text) : message.text}
+                </div>
+              </div>
+            ))}
+            {aiTyping && <div className="flex justify-start"><div className="rounded-2xl px-4 py-3 flex gap-1.5 items-center" style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)', borderBottomLeftRadius: 4 }}>{[0, 1, 2].map(index => <span key={index} className="w-1.5 h-1.5 rounded-full" style={{ background: C.orange, opacity: 0.7, animation: `typingDot 1s ${index * 0.2}s infinite` }} />)}</div></div>}
+            <div ref={chatEndRef} />
+          </div>
+
+          <div className="px-3 pb-2 flex flex-wrap gap-1.5 shrink-0" style={{ borderTop: '1px solid rgba(29,78,216,0.18)', paddingTop: 8 }}>
+            {['Our Services', 'Location', 'Contact'].map(prompt => <button key={prompt} onClick={() => handleChatSend(prompt)} className="shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 hover:bg-orange-500/15" style={{ background: 'rgba(255,255,255,0.42)', border: `1px solid ${C.orange}`, color: C.orangeDeep, whiteSpace: 'nowrap' }}>{prompt}</button>)}
+          </div>
+
+          <div className="px-3 pb-3 pt-1 shrink-0"><div className="flex gap-2 rounded-lg px-3 py-2" style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)' }}>
+            <input type="text" value={chatInput} onChange={event => setChatInput(event.target.value)} onKeyDown={event => event.key === 'Enter' && !event.shiftKey && handleChatSend()} placeholder="Ask RCC.Ai anything…" className="flex-1 bg-transparent text-xs outline-none placeholder:text-blue-900/50" style={{ color: C.royalDeep }} />
+            <button onClick={() => handleChatSend()} aria-label="Send message" className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110" style={{ background: chatInput.trim() ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : 'rgba(255,255,255,0.08)' }}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 text-white"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" /></svg></button>
+          </div></div>
+        </div>
+      )}
+    </>
   )
 }
 
 function AboutPage() {
   return (
-    <div className="min-h-screen" style={{ background: C.bgDeep, color: C.royalDeep }}>
+    <div className="page-typography min-h-screen" style={{ background: C.bgDeep, color: C.royalDeep }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
         <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
@@ -412,21 +553,34 @@ function AboutPage() {
           </div>
         </section>
 
-        <section id="about-content" className="py-24 px-6" style={{ background: '#fff' }}>
+        <section id="about-content" className="relative overflow-hidden py-24 px-6" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f4f8ff 100%)' }}>
+          <div className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full" style={{ background: 'rgba(37,99,235,0.06)' }} />
+          <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full" style={{ background: 'rgba(14,182,213,0.06)' }} />
           <div className="max-w-6xl mx-auto">
-            <div className="max-w-2xl mb-14">
-              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Who We Are</h2>
-              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.68)' }}>Leading the future of digital transformation with innovation, expertise, and dedication.</p>
+            <div className="relative z-10 mb-14 max-w-4xl">
+              <div className="mb-4 h-1.5 w-24 rounded-full" style={{ background: 'linear-gradient(90deg,#0e7bea,#1fc6e9)' }} />
+              <h2 className="text-4xl font-black md:text-6xl" style={{ color: C.royalDeep }}>Who <span style={{ color: '#1579e8' }}>We Are</span></h2>
+              <p className="mt-4 text-lg leading-relaxed md:text-xl" style={{ color: 'rgba(10,36,114,0.68)' }}>Leading the future of digital transformation with innovation, expertise, and dedication.</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="relative z-10 mx-auto grid max-w-5xl gap-7 md:grid-cols-2">
               {[
-                ['RCC Colab Solutions', 'Driving digital transformation through cutting-edge technology solutions. Innovation First is an IT solutions provider driven by a deep commitment to driving digital transformation and operational excellence for businesses across various industries. We offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions to match your needs.'],
-                ['Expert Team', 'Dedicated professionals with extensive corporate experience. Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies. This expertise is not just theoretical but has been honed through years of corporate experience and exposure. We are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.'],
-                ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.'],
-              ].map(([title, body]) => (
-                <article key={title} className="p-7" style={{ background: C.royal, borderTop: `3px solid ${C.orange}` }}>
-                  <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
-                  <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>{body}</p>
+                ['RCC Colab Solutions', 'Driving digital transformation through cutting-edge technology solutions. Innovation First is an IT solutions provider driven by a deep commitment to driving digital transformation and operational excellence for businesses across various industries. We offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions to match your needs.', '💡', '</>'],
+                ['Expert Team', 'Dedicated professionals with extensive corporate experience. Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies. This expertise is not just theoretical but has been honed through years of corporate experience and exposure. We are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', '👥', '⚙'],
+                ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
+              ].map(([title, body, icon, illustration]) => (
+                <article key={title} className={`group relative overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)] transition-transform duration-300 hover:-translate-y-1 ${title === 'Our Commitment' ? 'md:col-span-2' : ''}`}>
+                  <div className="relative overflow-hidden px-7 pb-5 pt-6" style={{ background: title === 'Our Commitment' ? '#fff' : 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: title === 'Our Commitment' ? 0 : 70 }}>
+                    <div className="absolute -right-12 -top-16 h-40 w-40 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                    <span className="relative mb-4 flex h-16 w-16 items-center justify-center rounded-full text-3xl" style={{ background: title === 'Our Commitment' ? 'linear-gradient(135deg,#1641b4,#1d55d6)' : 'linear-gradient(135deg,#16c9f2,#1676df)', boxShadow: '0 8px 18px rgba(0,0,0,0.18)', marginLeft: 'auto', marginRight: 'auto' }}>{icon}</span>
+                    <h3 className={`relative text-xl font-black leading-tight text-center md:text-2xl ${title === 'Our Commitment' ? '' : 'text-white'}`} style={title === 'Our Commitment' ? { color: C.royalDeep } : undefined}>{title}</h3>
+                    {title !== 'Our Commitment' && <div className="mx-auto mt-4 h-1.5 w-20 rounded-full" style={{ background: '#16c9f2' }} />}
+                    {(title === 'RCC Colab Solutions' || title === 'Expert Team') && (
+                      <div className="mt-4 text-3xl" aria-hidden="true">{illustration}</div>
+                    )}
+                  </div>
+                  <div className={`relative px-7 pb-8 pt-6 ${title === 'Our Commitment' ? 'md:px-16 md:pb-12' : 'min-h-[330px]'}`}>
+                    <p className={`relative z-10 leading-relaxed ${title === 'Our Commitment' ? 'mx-auto max-w-4xl text-center text-lg' : ''} ${title === 'Expert Team' ? 'about-expert-copy' : ''}`} style={{ color: title === 'Expert Team' ? '#5d6878' : 'rgba(10,36,114,0.82)' }}>{body}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -464,7 +618,7 @@ function AboutPage() {
                   <span className="h-3 w-3 rounded-full" style={{ background: accent }} />
                   <span className="h-1 w-7 rounded-full" style={{ background: accent, opacity: 0.65 }} />
                 </div>
-                <p className="text-lg leading-relaxed md:text-xl" style={{ color: 'rgba(255,255,255,0.9)' }}>{body}</p>
+                <p className="text-lg leading-relaxed md:text-xl" style={{ color: 'rgba(255,255,255,0.9)', textAlign: 'justify' }}>{body}</p>
               </article>
             ))}
           </div>
@@ -523,7 +677,7 @@ function ServicesPage() {
   }, [])
 
   return (
-    <div className="min-h-screen" style={{ background: C.bgDark, color: '#fff' }}>
+    <div className="page-typography min-h-screen" style={{ background: C.bgDark, color: '#fff' }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
         <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
@@ -549,7 +703,7 @@ function ServicesPage() {
           <div className="page-hero-content relative z-10 w-full max-w-none text-left">
             <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Our Services</p>
             <h1 className="text-6xl md:text-8xl font-black text-white max-w-5xl leading-none">Our Services</h1>
-            <p className="mt-7 max-w-4xl text-xl md:text-2xl leading-relaxed" style={{ color: '#fff' }}>We offer a comprehensive range of business support services designed to help companies operate more efficiently, with each solution carefully tailored to meet your unique goals and operational needs.</p>
+            <p className="mt-7 max-w-4xl text-xl md:text-2xl leading-relaxed" style={{ color: '#fff', textAlign: 'justify' }}>We offer a comprehensive range of business support services designed to help companies operate more efficiently, with each solution carefully tailored to meet your unique goals and operational needs.</p>
             <a href="#service-expertise" className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full text-sm font-extrabold text-white transition-transform duration-200 hover:scale-105" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 28px rgba(249,115,22,0.28)` }}>
               Explore Our Expertise
               <span aria-hidden="true">→</span>
@@ -581,7 +735,7 @@ function ServicesPage() {
                   </div>
                   <div className="p-5 md:p-6 flex flex-col">
                     <h3 className="text-xl font-black mb-3" style={{ color: C.royalDeep }}>{sol.title}</h3>
-                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)' }}>{sol.desc}</p>
+                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify', textIndent: 0 }}>{sol.desc}</p>
                     <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-start inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3 mt-auto" style={{ color: C.orange }}>
                       Learn More
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -661,7 +815,7 @@ function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: '#fff', color: C.royalDeep }}>
+    <div className="page-typography min-h-screen" style={{ background: '#fff', color: C.royalDeep }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
         <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" aria-label="RCC Colab Solutions home"><img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} /></a>
@@ -737,6 +891,108 @@ function ContactPage() {
     </div>
   )
 }
+
+const PRIVACY_POLICY_SECTIONS = [
+  {
+    title: 'Introduction',
+    paragraphs: [
+      'We, RCC Colab Solutions Inc., hold the confidentiality of the personal data you have entrusted us with in the highest regard. This Privacy Policy is our commitment to value and protect your personal data in accordance with the Data Privacy Act of 2012 (DPA), the National Privacy Commission (NPC), and other relevant laws of the Philippines. We are deeply committed to ensuring your data is secure and always protected.',
+      "RCC Colab Solutions Inc.'s policy is about our commitment to respecting and upholding your data privacy rights. We ensure that all personal data collected from our data subjects—clients, employees, and other third parties—is processed according to the general principles of transparency, legitimate purpose, and proportionality espoused in the Data Privacy Act.",
+      'As a personal data processor, the Company is committed to implementing fair information practices. This Privacy Policy explains how we handle your personal data and the steps you can take if you wish to modify our use of your personal data or ask us to cease using it.',
+    ],
+  },
+  {
+    title: 'Objectives',
+    points: [
+      'Ensure fair and lawful processing of the personal data of data subjects, including employees, clients, customers, shareholders, and other individuals.',
+      'Ensure the confidentiality, integrity, and availability of personal data under the control of the Company.',
+      'Comply with the statutory obligations set forth under the Data Privacy Act and the regulations of the National Privacy Commission (NPC).',
+    ],
+  },
+  {
+    title: 'Scope',
+    paragraphs: [
+      'All personnel of RCC Colab Solutions, regardless of the type of employment or contractual arrangement, are bound by the terms set out in this Policy. This policy also extends to consultants or employees of third parties who have a contractual obligation with the Company, including subcontracting and outsourcing arrangements.',
+    ],
+  },
+  {
+    title: 'Definitions',
+    paragraphs: [
+      'The Data Privacy Act of 2012, or DPA, refers to Republic Act No. 10173. A data subject is an individual whose personal, sensitive, or privileged information is processed.',
+      'The Company refers to RCC Colab Solutions Inc.',
+    ],
+    points: [
+      'Personal Data collectively refers to Personal, Sensitive, and Privileged Information.',
+      "Personal Information refers to any information, whether recorded in a material form or not, from which an individual's identity can be reasonably and directly ascertained.",
+      'Personal data breach refers to a security breach that would lead to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to personal data transmitted, stored, or otherwise processed.',
+      'Processing refers to any operation or set of operations performed upon Personal Data, including collection, recording, organization, storage, updating or modification, retrieval, consultation, use, consolidation, blocking, erasure, or destruction of data.',
+      'A Security Incident is an event or occurrence that tends to affect data protection or may compromise the availability, integrity, and confidentiality of Personal Data.',
+      'Sensitive Personal Information refers to Personal Data protected under applicable privacy laws and regulations.',
+      'Information and communications systems generate, send, receive, store, or otherwise process electronic data messages or documents, including computer systems and related procedures.',
+    ],
+  },
+  {
+    title: 'Policies',
+    paragraphs: [
+      "The Company shall establish a regulatory-compliant organizational framework to protect the rights of its data subjects and maintain the confidentiality, integrity, and availability of personal data. This framework shall ensure that the Company's personal data processing systems are reasonably secured, protected, selectively accessible, and processed or utilized for valid purposes only, with internal measures for detecting and monitoring breaches and security incidents.",
+    ],
+  },
+  {
+    title: 'Organizational Security Measures',
+    points: [
+      'Management Oversight. Senior Management shall have overall oversight on compliance with the Act and the implementation of this Policy and related policies. The VP for Operations shall incorporate compliance into daily operations and supervise the Data Protection Officer.',
+      'Data Protection Officer. The Data Protection Officer (DPO) is responsible for helping ensure the Company’s compliance with applicable laws and regulations and enforcing this policy to protect data privacy and security. The DPO serves as a primary point of contact for data subjects.',
+    ],
+  },
+  {
+    title: 'Data Privacy Principles',
+    paragraphs: ['All Processing of Personal Data within the Company should be conducted in compliance with the following data privacy principles as espoused in the Data Privacy Act:'],
+    points: [
+      'Transparency. The Data Subject must be aware of the nature, purpose, and extent of the Processing of Personal Data by the Company, including the risks and safeguards involved, the identity of persons and entities engaged in processing, the rights of the Data Subject, and how these can be exercised.',
+      "Fair and Lawful Processing. The Company's Processing of Personal Data shall be matched with a declared and specified purpose that must not be contrary to law, morals, or public policy. Personal data must not be misused, and appropriate measures shall be implemented to prevent misuse that can harm a data subject.",
+      'Proportionality. The Processing of Personal Data shall be sufficient, relevant, necessary, and not excessive for a declared and specified purpose. Personal Data shall be processed only if the purpose cannot reasonably be fulfilled by other means.',
+    ],
+  },
+  {
+    title: 'Data Processing Records',
+    paragraphs: [
+      'The Company’s Personal Data Processing activities shall always be maintained. With the cooperation of all concerned business and service units involved in Processing Personal Data, the DPO shall ensure that these records are kept up to date. These records shall include, at a minimum:',
+    ],
+    points: [
+      'Information about the purpose of processing personal data, including any intended future processing or data sharing.',
+      'A description of all categories of Data Subjects, Personal Data, and recipients of such Personal Data involved in the processing.',
+      'A general description of the organizational, physical, and technical security measures in place within the Company.',
+      'A description of the information flow from collection up to disposal of personal data, including processing done in between and the manner and extent of processing.',
+      'Personal data will be kept in our facilities in the Philippines for five (5) years after the contract period unless you request that it be deleted immediately from our systems, databases, and hard copies. Once deleted, your personal data will no longer be searchable or included in anonymous searches and will be removed from storage locations.',
+    ],
+  },
+  {
+    title: 'Security Measures',
+    paragraphs: [
+      'We have taken reasonable and appropriate security measures to maintain personal data availability, integrity, and confidentiality and protect your data against unauthorized access, alteration, disclosure, or destruction. These measures include internal reviews of our data collection, storage, and processing practices, as well as physical security measures. Access to personal data is restricted to personnel who need that information to perform their functions.',
+    ],
+  },
+  {
+    title: 'Data Breaches',
+    paragraphs: [
+      'We will comply with the relevant provisions of rules and circulars on handling personal data security breaches, including notifying you or the National Privacy Commission where an unauthorized person has acquired sensitive personal information or information that may be used to enable identity fraud and is likely to give rise to serious harm to the affected data subject. Under applicable law, not all personal data breaches are identifiable.',
+    ],
+  },
+  {
+    title: 'Breach Reports',
+    paragraphs: [
+      'All Security Incidents and Personal Data breaches shall be documented through written reports, including those not covered by notification requirements. In the case of Personal Data breaches, a report shall include the facts surrounding an incident, its effects, and the remedial actions taken by the Company. These reports shall be made available when requested by the National Privacy Commission.',
+    ],
+  },
+  {
+    title: 'Changes',
+    paragraphs: ['This Privacy Policy may be amended and updated from time to time. The amended and updated Privacy Policy will be available on our website.'],
+  },
+  {
+    title: 'Rights of the Data Subject',
+    paragraphs: ['You may exercise your rights, including the right to access, modify, erase, and object to processing your personal data within a reasonable time after such request. For inquiries, feedback, or complaints about this Privacy Policy, you may reach out to RCC Colab through a written letter or email.'],
+  },
+]
 
 function DataPrivacyPage() {
   const [activeDownload, setActiveDownload] = useState<'certificate' | 'cor'>('certificate')
@@ -826,6 +1082,36 @@ function DataPrivacyPage() {
               />
             </div>
           </div>
+
+          <article className="mt-12 rounded-3xl border bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)] md:p-12" style={{ borderColor: 'rgba(21,49,125,0.1)' }}>
+            <div className="mb-10 border-b pb-8" style={{ borderColor: 'rgba(21,49,125,0.12)' }}>
+              <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.22em]" style={{ color: C.orange }}>RCC Colab Solutions Inc.</p>
+              <h2 className="text-3xl font-black md:text-4xl" style={{ color: C.royalDeep }}>Data Privacy Policy</h2>
+              <p className="mt-4 text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>Our commitment to protecting personal data and respecting the rights of every data subject.</p>
+            </div>
+
+            <div className="space-y-9 text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.82)' }}>
+              {PRIVACY_POLICY_SECTIONS.map(section => (
+                <section key={section.title}>
+                  <h3 className="mb-3 text-xl font-extrabold" style={{ color: C.royalDeep }}>{section.title}</h3>
+                  {section.paragraphs?.map(paragraph => <p key={paragraph} className="mb-3 last:mb-0">{paragraph}</p>)}
+                  {section.points && (
+                    <ol className="ml-5 list-decimal space-y-3 marker:font-bold marker:text-orange-600">
+                      {section.points.map(point => <li key={point} className="pl-2">{point}</li>)}
+                    </ol>
+                  )}
+                </section>
+              ))}
+
+              <section className="border-t pt-8" style={{ borderColor: 'rgba(21,49,125,0.12)' }}>
+                <h3 className="mb-3 text-xl font-extrabold" style={{ color: C.royalDeep }}>How to Contact Us</h3>
+                <p><strong>RCC Colab Solutions, Inc.</strong></p>
+                <p>Address: 7th Floor Ascott Makati, Glorietta 4, Ayala Center, Makati City, 1224, Philippines</p>
+                <p>Email address: <a href="mailto:dpo@rcccolabsolutions.com" className="font-semibold underline" style={{ color: C.orangeDeep }}>dpo@rcccolabsolutions.com</a></p>
+                <p>Business hours: 8:00 AM to 5:00 PM, Monday to Friday</p>
+              </section>
+            </div>
+          </article>
         </div>
       </main>
       <RabbitAiFloat />
@@ -1158,16 +1444,16 @@ export default function App() {
             <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>
               Who We Are
             </h2>
-            <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)' }}>
+            <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
               RCC Colab Solutions Inc. offers end-to-end personalized business solutions, understanding that
               each company has unique needs and goals. We help businesses unlock their full potential through
               emerging and cutting-edge solutions.
             </p>
-            <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)' }}>
+            <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
               Whether you're a startup or an established company, we're eager to enhance your digital presence,
               streamline operations, and improve customer engagement through innovative software solutions.
             </p>
-            <p className="leading-relaxed mb-8" style={{ color: 'rgba(10,36,114,0.72)' }}>
+            <p className="leading-relaxed mb-8" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
               We <strong className="font-bold" style={{ color: C.royalDeep }}>collaborate</strong> with your team to identify the best IT
               services and solutions that create significant value for your organization.
             </p>
@@ -1193,18 +1479,18 @@ export default function App() {
       </section>
 
       {/* ══ SOLUTIONS ════════════════════════════════════════ */}
-      <section ref={solutionsRef} id="solutions" className="scroll-reveal py-24 px-6 relative" style={{ background: C.bgDark, color: '#fff' }}>
+      <section ref={solutionsRef} id="solutions" className="services-offer-section scroll-reveal py-24 px-6 relative" style={{ background: C.bgDark, color: '#fff' }}>
         <div className="absolute inset-0 pointer-events-none opacity-30"
           style={{ backgroundImage: `linear-gradient(rgba(21,49,125,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(21,49,125,0.15) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,transparent,${C.orange})` }} />
-              <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>What We Offer</p>
+              <p className="text-base font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>What We Offer</p>
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-white mb-4" style={{ color: 'white', letterSpacing: '-0.02em' }}>Our Services Includes</h2>
-            <p className="max-w-xl mx-auto text-base" style={{ color: 'white(18,49,92,0.68)' }}>
+            <h2 className="services-offer-heading text-3xl md:text-4xl mb-4" style={{ color: 'white' }}>Our Services Includes</h2>
+            <p className="services-offer-intro max-w-xl mx-auto">
               End-to-end technology services engineered to solve complex challenges and unlock new growth.
             </p>
           </div>
@@ -1230,8 +1516,8 @@ export default function App() {
                     style={{ background: `linear-gradient(90deg,${C.orange},${C.orangeLight})` }} />
                 </div>
                 <div className="flex flex-col gap-3 p-5 md:p-6 flex-1">
-                  <h3 className="font-black text-xl leading-snug text-white">{sol.title}</h3>
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.78)' }}>{sol.desc}</p>
+                  <h3 className="services-offer-card-title text-xl leading-snug text-white">{sol.title}</h3>
+                  <p className="services-offer-card-desc flex-1">{sol.desc}</p>
                   <button onClick={() => setActiveService(sol)}
                     className="self-start mt-2 inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3"
                     style={{ color: C.orange }}>
@@ -1246,16 +1532,12 @@ export default function App() {
       </section>
 
       {/* ══ CTA BANNER ══════════════════════════════════════ */}
-      <section className="py-20 px-6 text-center relative overflow-hidden" style={{ background: C.royal }}>
-        <div className="absolute inset-0 opacity-20"
-          style={{ backgroundImage: `radial-gradient(circle at 15% 50%,${C.orange} 0%,transparent 50%),radial-gradient(circle at 85% 50%,${C.orangeDeep} 0%,transparent 50%)` }} />
-        <div className="absolute inset-0 pointer-events-none opacity-8"
-          style={{ backgroundImage: `linear-gradient(rgba(21,49,125,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(21,49,125,0.3) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
+      <section className="py-20 px-6 text-center relative overflow-hidden" style={{ background: '#fff' }}>
         <div className="relative max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight" style={{ letterSpacing: '-0.02em' }}>
-            Optimize Your IT Infrastructure,<br />Grow Your Business Today
+          <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>
+            Optimize IT &amp; Software Solutions,<br />Grow Your Business Today
           </h2>
-          <p className="mb-10 text-base max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <p className="mb-10 text-base max-w-xl mx-auto" style={{ color: 'rgba(21,49,125,0.68)' }}>
             Partner with RCC Colab Solutions and let us handle the complexity while you focus on what matters most.
           </p>
           <button onClick={() => scrollTo('contact')}
@@ -1468,7 +1750,7 @@ export default function App() {
 
           {/* Quick prompts */}
           <div className="px-3 pb-2 flex flex-wrap gap-1.5 shrink-0" style={{ borderTop: '1px solid rgba(29,78,216,0.18)', paddingTop: 8 }}>
-            {['Our Services','Location','Get Quote','Contact'].map(q => (
+            {['Our Services','Location','Contact'].map(q => (
               <button key={q} onClick={() => handleChatSend(q)}
                 className="shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 hover:bg-orange-500/15"
                 style={{ background: 'rgba(255,255,255,0.42)', border: `1px solid ${C.orange}`, color: C.orangeDeep, whiteSpace: 'nowrap' }}>
@@ -1509,7 +1791,7 @@ export default function App() {
         >
           <div
             className="relative w-full h-full overflow-y-auto rounded-none"
-                style={{ background: C.royal, border: '1.5px solid rgba(37,99,235,0.22)', boxShadow: '0 32px 80px rgba(37,99,235,0.22)' }}
+                style={{ background: '#fff', border: '1.5px solid rgba(21,49,125,0.16)', boxShadow: '0 32px 80px rgba(21,49,125,0.22)' }}
             onClick={e => e.stopPropagation()}
           >
             {/* Hero image */}
@@ -1532,7 +1814,7 @@ export default function App() {
               </button>
               {/* Title overlay */}
               <div className="absolute bottom-5 left-6">
-                <h2 className="text-2xl md:text-3xl font-black text-white leading-tight"
+                <h2 className="service-detail-title text-2xl md:text-3xl font-black text-white leading-tight"
                   style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8)', letterSpacing: '-0.02em' }}>
                   {activeService.title}
                 </h2>
@@ -1541,17 +1823,17 @@ export default function App() {
 
             <div className="p-6 md:p-8 space-y-7">
               {/* Intro paragraph */}
-              <p className="text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.86)' }}>
+              <p className="service-detail-intro text-base md:text-lg leading-relaxed" style={{ color: 'rgba(21,49,125,0.82)', textAlign: 'justify' }}>
                 {activeService.intro}
               </p>
 
               {/* Why card */}
               <div className="rounded-xl p-5"
-                style={{ background: 'rgba(255,255,255,0.62)', border: '1px solid rgba(37,99,235,0.18)', borderLeft: `4px solid ${C.orange}` }}>
+                style={{ background: '#fff', border: '1px solid rgba(21,49,125,0.14)', borderLeft: `4px solid ${C.orange}` }}>
                 <h3 className="font-extrabold text-lg mb-4" style={{ color: C.royalDeep }}>{activeService.whyTitle}</h3>
                 <ul className="space-y-3">
                   {activeService.whyPoints.map((pt, i) => (
-                    <li key={i} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: 'rgba(18,49,92,0.78)' }}>
+                    <li key={i} className="flex items-start gap-3 text-base leading-relaxed" style={{ color: 'rgba(21,49,125,0.82)', textAlign: 'justify', textIndent: '1rem' }}>
                       <svg viewBox="0 0 24 24" fill="none" stroke={C.orange} strokeWidth="2.5" className="w-4 h-4 shrink-0 mt-0.5">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                       </svg>
@@ -1570,16 +1852,21 @@ export default function App() {
                 <div className="grid sm:grid-cols-3 gap-4">
                   {activeService.expertise.map((ex, i) => (
                     <div key={i} className="rounded-xl p-5 flex flex-col gap-3 overflow-hidden"
-                      style={{ background: 'rgba(255,255,255,0.62)', border: `1px solid rgba(37,99,235,0.15)`, borderTop: `3px solid ${C.orange}` }}>
+                      style={{ background: '#fff', border: `1px solid rgba(21,49,125,0.14)`, borderTop: `3px solid ${C.orange}` }}>
                       <div className="relative -mx-5 -mt-5 h-28 overflow-hidden">
                         <img src={getExpertiseImage(ex.title)} alt={ex.title} loading="lazy" className="w-full h-full object-cover" />
                         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom,rgba(8,13,54,0.08),rgba(8,13,54,0.7))' }} />
+                        {['POS Systems', 'Self-Service Kiosks', 'Inventory Management'].includes(ex.title) && (
+                          <span className="absolute right-3 top-3 rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white" style={{ background: 'rgba(21,49,125,0.88)', border: `1px solid ${C.orange}` }}>
+                            Software + Hardware
+                          </span>
+                        )}
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="text-xl">{ex.icon}</span>
                         <span className="text-sm font-extrabold uppercase tracking-widest" style={{ color: C.orange }}>{ex.title}</span>
                       </div>
-                      <p className="text-sm leading-relaxed" style={{ color: 'rgba(18,49,92,0.72)' }}>{ex.body}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: 'rgba(21,49,125,0.78)', textAlign: 'justify', textIndent: 0 }}>{ex.body}</p>
                     </div>
                   ))}
                 </div>
@@ -1594,7 +1881,7 @@ export default function App() {
                 </button>
                 <button onClick={() => { setActiveService(null); scrollTo('solutions') }}
                   className="px-7 py-3 font-bold text-sm rounded-full transition-all duration-200 hover:bg-white/10"
-                  style={{ border: '1.5px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.05em' }}>
+                  style={{ border: '1.5px solid rgba(21,49,125,0.2)', color: 'rgba(21,49,125,0.72)', letterSpacing: '0.05em' }}>
                   Close
                 </button>
               </div>
