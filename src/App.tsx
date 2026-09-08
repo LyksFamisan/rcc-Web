@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import corSeal from './assets/COR Seal.jpg'
 
 const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
 const robotRabbit = assetUrl('public_rabbit.png')
@@ -11,11 +12,11 @@ const C = {
   orange:      '#f97316',
   orangeDeep:  '#ea580c',
   orangeLight: '#fdba74',
-  royal:       '#15317d',
-  royalDark:   '#102766',
-  royalDeep:   '#15317d',
-  bgDark:      '#15317d',
-  bgDeep:      '#15317d',
+  royal:       'rgb(24, 90, 188)',
+  royalDark:   'rgb(24, 90, 188)',
+  royalDeep:   'rgb(24, 90, 188)',
+  bgDark:      'rgb(24, 90, 188)',
+  bgDeep:      'rgb(24, 90, 188)',
 }
 
 /* ─── RCC.Ai KNOWLEDGE BASE ─────────────────────────────── */
@@ -449,16 +450,16 @@ function ServicesPage() {
                   }}
                   role="button"
                   tabIndex={0}
-                  className="group overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.32)] cursor-pointer"
-                  style={{ background: 'rgba(11,29,79,0.96)', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 8px 24px rgba(4,8,32,0.24)' }}>
+                  className="group overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.12)] cursor-pointer"
+                  style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.12)', boxShadow: '0 8px 24px rgba(4,8,32,0.08)' }}>
                   <div className="relative overflow-hidden" style={{ height: 190 }}>
                     <img src={sol.img} alt={sol.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom,rgba(8,13,54,0.10) 0%,rgba(8,13,54,0.58) 100%)' }} />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom,rgba(255,255,255,0.05) 0%,rgba(10,36,114,0.18) 100%)' }} />
                     <span className="absolute top-4 right-5 text-sm font-black" style={{ color: C.orange }}>0{index + 1}</span>
                   </div>
                   <div className="p-5 md:p-6 flex flex-col">
-                    <h3 className="text-xl font-black mb-3 text-white">{sol.title}</h3>
-                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.8)' }}>{sol.desc}</p>
+                    <h3 className="text-xl font-black mb-3" style={{ color: C.royalDeep }}>{sol.title}</h3>
+                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)' }}>{sol.desc}</p>
                     <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-start inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3 mt-auto" style={{ color: C.orange }}>
                       Learn More
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -681,8 +682,10 @@ function ContactPage() {
 }
 
 function DataPrivacyPage() {
+  const [activeDownload, setActiveDownload] = useState<'certificate' | 'cor'>('certificate')
+
   return (
-    <div className="min-h-screen" style={{ background: '#f8fafc', color: C.royalDeep }}>
+    <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%)', color: C.royalDeep }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
@@ -700,19 +703,69 @@ function DataPrivacyPage() {
 
       <main className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Data Privacy</p>
-            <h1 className="text-4xl md:text-5xl font-black" style={{ color: C.royalDeep }}>Certificate of Registration</h1>
-            <p className="mt-4 text-base leading-relaxed max-w-2xl mx-auto" style={{ color: 'rgba(10,36,114,0.72)' }}>
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-xs font-extrabold tracking-[0.22em] uppercase" style={{ color: C.orange }}>Data Privacy</p>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight" style={{ color: C.royalDeep }}>Certificate of Registration</h1>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>
               RCC Colab Solutions Inc. is registered with the National Privacy Commission in compliance with the Data Privacy Act of 2012.
             </p>
           </div>
-          <img
-            src={dataPrivacyCertificate}
-            alt="National Privacy Commission Certificate of Registration for RCC Colab Solutions Inc."
-            className="w-full h-auto"
-            style={{ border: '1px solid rgba(10,36,114,0.14)', boxShadow: '0 12px 36px rgba(10,36,114,0.12)' }}
-          />
+
+          <div className="mb-8 flex flex-wrap justify-center gap-4" onMouseLeave={() => setActiveDownload('certificate')}>
+            <a
+              href={dataPrivacyCertificate}
+              download="RCC-Colab-Data-Privacy-Certificate.jpg"
+              onMouseEnter={() => setActiveDownload('certificate')}
+              className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-extrabold transition hover:scale-[1.02]"
+              style={{
+                background: activeDownload === 'certificate' ? `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})` : 'transparent',
+                color: activeDownload === 'certificate' ? '#fff' : C.royalDeep,
+                border: activeDownload === 'certificate' ? '1px solid transparent' : '1px solid rgba(21,49,125,0.25)',
+                boxShadow: activeDownload === 'certificate' ? '0 12px 28px rgba(249,115,22,0.28)' : 'none',
+                letterSpacing: '0.08em',
+                minWidth: 270,
+              }}
+            >
+              Download Certificate
+            </a>
+            <a
+              href={corSeal}
+              download="RCC-Colab-COR-Seal.jpg"
+              onMouseEnter={() => setActiveDownload('cor')}
+              className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-extrabold transition hover:-translate-y-0.5"
+              style={{
+                background: activeDownload === 'cor' ? `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})` : 'rgba(255,255,255,0.8)',
+                color: activeDownload === 'cor' ? '#fff' : C.royalDeep,
+                border: '1px solid rgba(21,49,125,0.25)',
+                boxShadow: activeDownload === 'cor' ? '0 12px 28px rgba(249,115,22,0.28)' : 'none',
+                letterSpacing: '0.08em',
+                minWidth: 270,
+              }}
+            >
+              Download COR Seal
+            </a>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)]" style={{ borderColor: 'rgba(10,36,114,0.1)' }}>
+              <div className="mb-4 text-center text-xs font-extrabold uppercase tracking-[0.18em]" style={{ color: C.orange }}>Official Seal</div>
+              <div className="flex h-full min-h-[220px] items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 p-4" style={{ borderColor: 'rgba(10,36,114,0.08)' }}>
+                <img src={corSeal} alt="COR Seal" className="h-auto max-h-[220px] w-auto object-contain" />
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)]" style={{ borderColor: 'rgba(10,36,114,0.1)' }}>
+              <div className="border-b border-slate-200 bg-slate-50 px-5 py-4 text-xs font-extrabold uppercase tracking-[0.18em]" style={{ color: C.royalDeep }}>
+                National Privacy Commission Registration
+              </div>
+              <img
+                src={dataPrivacyCertificate}
+                alt="National Privacy Commission Certificate of Registration for RCC Colab Solutions Inc."
+                className="block w-full h-auto"
+                style={{ background: '#fff' }}
+              />
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -724,7 +777,8 @@ export default function App() {
   if (window.location.pathname === '/services' || window.location.pathname === '/services/') return <ServicesPage />
   if (window.location.pathname === '/contactus' || window.location.pathname === '/contactus/') return <ContactPage />
   if (window.location.pathname === '/data-privacy' || window.location.pathname === '/data-privacy/') return <DataPrivacyPage />
-  const [menuOpen, setMenuOpen]         = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [activeHeroButton, setActiveHeroButton] = useState<'start' | 'services'>('start')
   const [scrolled, setScrolled]         = useState(false)
   const [activeService, setActiveService] = useState<Solution | null>(() => {
     const serviceTitle = new URLSearchParams(window.location.search).get('service')
@@ -896,9 +950,8 @@ export default function App() {
             style={{ fontSize: 'clamp(2.4rem,6.5vw,5rem)', maxWidth: 880, textShadow: '0 4px 80px rgba(8,13,54,0.9)', letterSpacing: '-0.03em' }}>
             Transform your Ideas into<br />
             <span style={{
-              background: 'linear-gradient(90deg,#e0f2fe 0%,#bfe8ff 35%,#8ec9ff 55%,#dff6ff 100%)',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundSize: '200%',
-              animation: 'shimmer 3s linear infinite',
+              color: '#2696B6',
+              textShadow: '0 0 28px rgba(38, 150, 182, 0.28)',
             }}>
               Powerful Software Solutions
             </span>
@@ -909,15 +962,29 @@ export default function App() {
             cutting-edge software that drives growth across the Philippines and beyond.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button onClick={() => scrollTo('about')}
-              className="px-10 py-4 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105 hover:shadow-2xl"
-              style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 36px rgba(21,49,125,0.55)`, letterSpacing: '0.07em' }}>
+          <div className="flex flex-wrap gap-4 justify-center" onMouseLeave={() => setActiveHeroButton('start')}>
+            <button onMouseEnter={() => setActiveHeroButton('start')} onClick={() => scrollTo('about')}
+              className="px-10 py-4 font-extrabold text-sm rounded-full transition-all duration-200 hover:scale-105 hover:shadow-2xl"
+              style={{
+                background: activeHeroButton === 'start' ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : 'transparent',
+                color: activeHeroButton === 'start' ? '#fff' : '#fff',
+                border: activeHeroButton === 'start' ? '2px solid transparent' : `2px solid rgba(255,255,255,0.5)`,
+                boxShadow: activeHeroButton === 'start' ? `0 8px 36px rgba(21,49,125,0.55)` : 'none',
+                backdropFilter: activeHeroButton === 'start' ? 'none' : 'blur(10px)',
+                letterSpacing: '0.07em',
+              }}>
               GET STARTED TODAY
             </button>
-            <button onClick={() => scrollTo('solutions')}
-              className="px-10 py-4 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:bg-white/15"
-              style={{ border: `2px solid rgba(255,255,255,0.5)`, background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(10px)', letterSpacing: '0.07em' }}>
+            <button onMouseEnter={() => setActiveHeroButton('services')} onClick={() => scrollTo('solutions')}
+              className="px-10 py-4 font-extrabold text-sm rounded-full transition-all duration-200 hover:scale-105"
+              style={{
+                background: activeHeroButton === 'services' ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : 'rgba(255,255,255,0.06)',
+                color: '#fff',
+                border: activeHeroButton === 'services' ? '2px solid transparent' : `2px solid rgba(255,255,255,0.5)`,
+                boxShadow: activeHeroButton === 'services' ? `0 8px 36px rgba(21,49,125,0.55)` : 'none',
+                backdropFilter: 'blur(10px)',
+                letterSpacing: '0.07em',
+              }}>
               OUR SERVICES
             </button>
           </div>
@@ -953,12 +1020,6 @@ export default function App() {
               We <strong className="font-bold" style={{ color: C.royalDeep }}>collaborate</strong> with your team to identify the best IT
               services and solutions that create significant value for your organization.
             </p>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {['ISO 27001 Certified', 'AWS Partner', 'Microsoft Gold', 'Google Cloud'].map((b) => (
-                <span key={b} className="px-3 py-1.5 rounded-full text-xs font-bold"
-                  style={{ background: 'rgba(21,49,125,0.08)', border: `1px solid rgba(21,49,125,0.2)`, color: C.royalDark }}>{b}</span>
-              ))}
-            </div>
             <button onClick={() => scrollTo('solutions')}
               className="px-7 py-3 font-extrabold text-white text-sm rounded-full transition-all duration-200 hover:scale-105"
               style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.05em' }}>
