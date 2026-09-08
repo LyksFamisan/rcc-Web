@@ -165,6 +165,10 @@ a {
   letter-spacing: -0.02em;
 }
 
+.home-hero-content {
+  transform: translateY(24px);
+}
+
 .hero-description {
   font-family: 'Poppins', 'Inter', sans-serif;
   font-weight: 400;
@@ -439,6 +443,10 @@ a {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .home-hero-content {
+    transform: translateY(24px);
   }
 
   .lyka-app .group,

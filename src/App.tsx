@@ -1082,7 +1082,7 @@ export default function App() {
         {/* Royal blue radial glow */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2, background: 'radial-gradient(ellipse at 50% 60%, rgba(21,49,125,0.4) 0%, transparent 70%)' }} />
 
-        <div className="page-hero-content relative flex flex-col items-center justify-center text-center px-6"
+        <div className="home-hero-content page-hero-content relative flex flex-col items-center justify-center text-center px-6"
           style={{ zIndex: 4, minHeight: '100vh', paddingTop: 72 }}>
 
           <h1 className="hero-heading font-black text-white mb-5 leading-none"
