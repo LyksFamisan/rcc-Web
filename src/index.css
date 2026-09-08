@@ -16,6 +16,13 @@
   font-family: 'Poppins', 'Inter', sans-serif;
 }
 
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -344,6 +351,70 @@ a {
 
   .lyka-app .rounded-2xl {
     border-radius: 14px;
+  }
+
+  .page-hero-content,
+  .contact-hero-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .page-hero-content h1,
+  .contact-hero-content h1 {
+    max-width: 100%;
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+    line-height: 0.98;
+    overflow-wrap: anywhere;
+  }
+
+  .page-hero-content p,
+  .contact-hero-content p {
+    max-width: 100%;
+    font-size: clamp(1rem, 4.5vw, 1.35rem);
+    line-height: 1.45;
+  }
+
+  .page-hero-content a,
+  .contact-hero-content a {
+    max-width: 100%;
+  }
+
+  .site-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .site-footer > div:first-child {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .site-footer .inline-flex.items-center.gap-4 {
+    align-items: flex-start;
+  }
+
+  .site-footer .inline-flex.items-center.gap-4 span {
+    max-width: 12rem;
+    font-size: 1rem;
+  }
+
+  .site-footer form {
+    width: 100%;
+  }
+
+  .site-footer form input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-footer > div:last-child > div {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .fixed.bottom-8.right-7 {
+    right: 1rem;
+    bottom: 1rem;
   }
 }
 
