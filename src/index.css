@@ -416,6 +416,14 @@ a {
     right: 1rem;
     bottom: 1rem;
   }
+
+  header.fixed {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .site-footer {
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
