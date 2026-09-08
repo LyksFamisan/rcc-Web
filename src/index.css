@@ -97,7 +97,7 @@ a {
 }
 
 .lyka-app header {
-  background: rgba(255, 255, 255, 0.88) !important;
+  background: #fff !important;
   border-bottom-color: var(--lyka-line) !important;
   box-shadow: 0 8px 30px rgba(18, 49, 92, 0.08) !important;
   backdrop-filter: blur(16px);
