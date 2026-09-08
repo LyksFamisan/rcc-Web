@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -12,6 +13,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: 'Poppins', 'Inter', sans-serif;
 }
 
 html {
@@ -22,7 +24,7 @@ body,
 body *,
 .lyka-app,
 .lyka-app * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', 'Inter', sans-serif;
 }
 
 body {
@@ -139,6 +141,142 @@ a {
   border-color: rgba(37, 99, 235, 0.36) !important;
 }
 
+.hero-title-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-heading {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-description {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.018em;
+  line-height: 1.45;
+}
+
+.hero-description-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: heroDescriptionReveal 520ms cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.page-hero-content > * {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: pageHeroContentReveal 700ms cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.page-hero-content > *:nth-child(1) { animation-delay: 120ms; }
+.page-hero-content > *:nth-child(2) { animation-delay: 260ms; }
+.page-hero-content > *:nth-child(3) { animation-delay: 420ms; }
+.page-hero-content > *:nth-child(4) { animation-delay: 580ms; }
+
+.service-card-reveal-left,
+.service-card-reveal-right {
+  opacity: 0;
+  animation-duration: 700ms;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+  animation-fill-mode: forwards;
+}
+
+.service-card-reveal-left {
+  animation-name: serviceCardRevealLeft;
+}
+
+.service-card-reveal-right {
+  animation-name: serviceCardRevealRight;
+}
+
+.service-card-hidden {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms cubic-bezier(.22, 1, .36, 1), transform 800ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes heroDescriptionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pageHeroContentReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes serviceCardRevealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes serviceCardRevealRight {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-title-letter,
+.hero-title-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(22px) scale(0.96);
+  animation: heroTextReveal 620ms cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.hero-title-word {
+  margin-right: 0.22em;
+}
+
+.hero-title-word:last-child {
+  margin-right: 0;
+}
+
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .lyka-app footer {
   background: #15317d !important;
 }
@@ -176,6 +314,20 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-title-letter,
+  .hero-title-word,
+  .hero-description-word,
+  .page-hero-content > *,
+  .service-card-reveal-left,
+  .service-card-reveal-right,
+  .service-card-hidden,
+  .scroll-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .lyka-app .group,
   .lyka-app .group:hover {
     transition: none;

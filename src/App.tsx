@@ -5,6 +5,7 @@ const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
 const robotRabbit = assetUrl('public_rabbit.png')
 const logoImg = assetUrl('Content-Creator-Project.png')
 const heroVideo = assetUrl('hero-video.mp4')
+const contactHeroVideo = new URL('./assets/Modern Artificial Intelligence Video.mp4', import.meta.url).href
 const dataPrivacyCertificate = assetUrl('data-privacy-certificate.jpg')
 
 /* ─── RCC ROYAL BLUE THEME ─────────────────────────────── */
@@ -12,11 +13,11 @@ const C = {
   orange:      '#f97316',
   orangeDeep:  '#ea580c',
   orangeLight: '#fdba74',
-  royal:       'rgb(24, 90, 188)',
-  royalDark:   'rgb(24, 90, 188)',
-  royalDeep:   'rgb(24, 90, 188)',
-  bgDark:      'rgb(24, 90, 188)',
-  bgDeep:      'rgb(24, 90, 188)',
+  royal:       '#15317d',
+  royalDark:   '#15317d',
+  royalDeep:   '#15317d',
+  bgDark:      '#15317d',
+  bgDeep:      '#15317d',
 }
 
 /* ─── RCC.Ai KNOWLEDGE BASE ─────────────────────────────── */
@@ -317,13 +318,13 @@ function AboutPage() {
       </header>
 
       <main>
-        <section className="relative overflow-hidden pt-40 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})` }}>
+        <section className="relative min-h-screen overflow-hidden pt-52 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})`, minHeight: '100vh' }}>
           <video autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 w-full h-full object-cover">
             <source src={heroVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="absolute inset-0 opacity-25" style={{ backgroundImage: `linear-gradient(rgba(103,232,249,0.2) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,0.2) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
-          <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="page-hero-content relative z-10 max-w-6xl mx-auto">
             <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>About Us</p>
             <h1 className="text-5xl md:text-7xl font-black text-white max-w-5xl leading-none">Leading the future of <span className="md:whitespace-nowrap">digital transformation.</span></h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Innovation, expertise, and dedication for businesses ready to move forward.</p>
@@ -352,15 +353,38 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="py-24 px-6" style={{ background: C.bgDark }}>
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+        <section className="relative overflow-hidden py-24 px-6" style={{ background: C.bgDark }}>
+          <video autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 h-full w-full object-cover">
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0" style={{ background: 'rgba(21, 49, 125, 0.82)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(21,49,125,0.92), rgba(21,49,125,0.64), rgba(21,49,125,0.88))' }} />
+
+          <div className="relative z-10 mx-auto grid max-w-6xl gap-14 md:grid-cols-2 md:gap-16">
             {[
-              ['Vision', 'We envision becoming a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth.'],
-              ['Mission', 'Our mission is to empower businesses and individuals with scalable, cutting-edge technology solutions that drive innovation, transform industries, and create lasting value.'],
-            ].map(([title, body]) => (
-              <article key={title} className="p-8" style={{ background: 'rgba(37,99,235,0.14)', border: '1px solid rgba(103,232,249,0.2)' }}>
-                <h2 className="text-3xl font-black mb-4 text-white">{title}</h2>
-                <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>{body}</p>
+              {
+                title: 'Vision',
+                body: 'We envision becoming a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth and contributing to economic development.',
+                accent: '#ff941f',
+                position: 'left',
+              },
+              {
+                title: 'Mission',
+                body: 'Our mission is to empower businesses and individuals by delivering scalable, cutting-edge technology solutions that drive innovation, transform industries, and create lasting value. We are committed to making a positive impact on our people, clients, communities, and the environment, fostering a future where technology enables sustainable growth and meaningful progress.',
+                accent: '#20c5e8',
+                position: 'right',
+              },
+            ].map(({ title, body, accent, position }) => (
+              <article key={title} className="relative px-2 py-8 md:px-6 md:py-6">
+                <span className="absolute top-0 h-16 w-16" style={{ [position === 'left' ? 'left' : 'right']: 0, borderTop: `4px solid ${accent}`, borderLeft: position === 'left' ? `4px solid ${accent}` : undefined, borderRight: position === 'right' ? `4px solid ${accent}` : undefined, borderTopLeftRadius: position === 'left' ? 24 : undefined, borderTopRightRadius: position === 'right' ? 24 : undefined }} />
+                <span className="absolute bottom-0 h-16 w-16" style={{ [position === 'left' ? 'right' : 'left']: 0, borderBottom: `4px solid ${accent}`, borderRight: position === 'left' ? `4px solid ${accent}` : undefined, borderLeft: position === 'right' ? `4px solid ${accent}` : undefined, borderBottomRightRadius: position === 'left' ? 24 : undefined, borderBottomLeftRadius: position === 'right' ? 24 : undefined }} />
+                <h2 className="mb-6 text-5xl font-black md:text-6xl" style={{ color: accent }}>{title}</h2>
+                <div className="mb-8 flex items-center gap-3" style={{ color: accent }}>
+                  <span className="h-1 w-12 rounded-full" style={{ background: accent }} />
+                  <span className="h-3 w-3 rounded-full" style={{ background: accent }} />
+                  <span className="h-1 w-7 rounded-full" style={{ background: accent, opacity: 0.65 }} />
+                </div>
+                <p className="text-lg leading-relaxed md:text-xl" style={{ color: 'rgba(255,255,255,0.9)' }}>{body}</p>
               </article>
             ))}
           </div>
@@ -399,6 +423,22 @@ function AboutPage() {
 }
 
 function ServicesPage() {
+  const serviceSectionRef = useRef<HTMLElement>(null)
+  const [serviceCardsVisible, setServiceCardsVisible] = useState(false)
+
+  useEffect(() => {
+    const serviceSection = serviceSectionRef.current
+    if (!serviceSection) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setServiceCardsVisible(true)
+        observer.disconnect()
+      }
+    }, { threshold: 0.14 })
+    observer.observe(serviceSection)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="min-h-screen" style={{ background: C.bgDark, color: '#fff' }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
@@ -417,27 +457,21 @@ function ServicesPage() {
       </header>
 
       <main>
-        <section className="relative overflow-hidden pt-40 pb-24 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})` }}>
+        <section className="relative min-h-screen overflow-hidden pt-52 pb-24 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})`, minHeight: '100vh' }}>
           <video autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 w-full h-full object-cover">
             <source src={heroVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
+          <div className="absolute inset-0" style={{ background: 'rgba(21,49,125,0.9)' }} />
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.22) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
-          <div className="relative z-10 max-w-6xl mx-auto">
-            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Our Services</p>
-            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Our Services</h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>We offer a comprehensive range of business support services designed to help companies operate more efficiently, with each solution carefully tailored to meet your unique goals and operational needs.</p>
-            <a href="#service-expertise" className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full text-sm font-extrabold text-white transition-transform duration-200 hover:scale-105" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 28px rgba(249,115,22,0.28)` }}>
-              Explore Our Expertise
-              <span aria-hidden="true">→</span>
-            </a>
+          <div className="page-hero-content relative z-10 mx-auto max-w-4xl text-center">
+            <h1 className="text-5xl font-black leading-none text-white md:text-7xl">Our Services</h1>
+            <p className="mx-auto mt-7 max-w-3xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>Comprehensive solutions designed to transform your business and drive innovation.</p>
           </div>
         </section>
 
-        <section id="service-expertise" className="py-24 px-6" style={{ background: '#fff' }}>
+        <section ref={serviceSectionRef} id="service-expertise" className="py-24 px-6" style={{ background: '#fff' }}>
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Services Include</p>
               <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Services Includes</h2>
               <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
             </div>
@@ -450,8 +484,8 @@ function ServicesPage() {
                   }}
                   role="button"
                   tabIndex={0}
-                  className="group overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.12)] cursor-pointer"
-                  style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.12)', boxShadow: '0 8px 24px rgba(4,8,32,0.08)' }}>
+                  className={`${serviceCardsVisible ? (index % 2 === 0 ? 'service-card-reveal-left' : 'service-card-reveal-right') : 'service-card-hidden'} group overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.12)] cursor-pointer`}
+                  style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.12)', boxShadow: '0 8px 24px rgba(4,8,32,0.08)', animationDelay: `${index * 100}ms` }}>
                   <div className="relative overflow-hidden" style={{ height: 190 }}>
                     <img src={sol.img} alt={sol.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom,rgba(255,255,255,0.05) 0%,rgba(10,36,114,0.18) 100%)' }} />
@@ -583,8 +617,8 @@ function ContactPage() {
       </header>
 
       <main>
-        <section className="relative overflow-hidden pt-40 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})` }}>
-          <video autoPlay muted loop playsInline aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={heroVideo} type="video/mp4" /></video>
+        <section className="relative min-h-screen overflow-hidden pt-52 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})`, minHeight: '100vh' }}>
+          <video autoPlay muted loop playsInline aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={contactHeroVideo} type="video/mp4" /></video>
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="contact-hero-content relative z-10 max-w-6xl mx-auto">
             <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Contact Us</p>
@@ -750,7 +784,10 @@ function DataPrivacyPage() {
             <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.06)]" style={{ borderColor: 'rgba(10,36,114,0.1)' }}>
               <div className="mb-4 text-center text-xs font-extrabold uppercase tracking-[0.18em]" style={{ color: C.orange }}>Official Seal</div>
               <div className="flex h-full min-h-[220px] items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 p-4" style={{ borderColor: 'rgba(10,36,114,0.08)' }}>
-                <img src={corSeal} alt="COR Seal" className="h-auto max-h-[220px] w-auto object-contain" />
+                <div className="flex flex-col items-center justify-center gap-3">
+                  <img src={corSeal} alt="COR Seal" className="h-auto object-contain" style={{ maxHeight: 170, width: '100%', maxWidth: 170, filter: 'drop-shadow(0 10px 24px rgba(10,36,114,0.12))' }} />
+                  <div className="text-xl font-extrabold" style={{ color: '#2696B6' }}>COR Seal</div>
+                </div>
               </div>
             </div>
 
@@ -779,6 +816,7 @@ export default function App() {
   if (window.location.pathname === '/data-privacy' || window.location.pathname === '/data-privacy/') return <DataPrivacyPage />
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeHeroButton, setActiveHeroButton] = useState<'start' | 'services'>('start')
+  const [solutionsVisible, setSolutionsVisible] = useState(false)
   const [scrolled, setScrolled]         = useState(false)
   const [activeService, setActiveService] = useState<Solution | null>(() => {
     const serviceTitle = new URLSearchParams(window.location.search).get('service')
@@ -796,6 +834,7 @@ export default function App() {
   const [aiTyping, setAiTyping]     = useState(false)
   const chatEndRef                  = useRef<HTMLDivElement>(null)
   const formRef                     = useRef<HTMLFormElement>(null)
+  const solutionsRef               = useRef<HTMLElement>(null)
   const chatDragRef                 = useRef({ startX: 0, startY: 0, offsetX: 0, offsetY: 0, moved: false })
 
   useEffect(() => {
@@ -807,6 +846,33 @@ export default function App() {
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, aiTyping])
+
+  useEffect(() => {
+    const solutionsSection = solutionsRef.current
+    if (!solutionsSection) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setSolutionsVisible(true)
+        observer.disconnect()
+      }
+    }, { threshold: 0.14 })
+    observer.observe(solutionsSection)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const revealElements = document.querySelectorAll('.scroll-reveal')
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-reveal-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12 })
+    revealElements.forEach(element => observer.observe(element))
+    return () => observer.disconnect()
+  }, [])
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -943,23 +1009,35 @@ export default function App() {
         {/* Royal blue radial glow */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2, background: 'radial-gradient(ellipse at 50% 60%, rgba(21,49,125,0.4) 0%, transparent 70%)' }} />
 
-        <div className="relative flex flex-col items-center justify-center text-center px-6"
+        <div className="page-hero-content relative flex flex-col items-center justify-center text-center px-6"
           style={{ zIndex: 4, minHeight: '100vh', paddingTop: 72 }}>
 
-          <h1 className="font-black text-white mb-5 leading-none"
-            style={{ fontSize: 'clamp(2.4rem,6.5vw,5rem)', maxWidth: 880, textShadow: '0 4px 80px rgba(8,13,54,0.9)', letterSpacing: '-0.03em' }}>
-            Transform your Ideas into<br />
-            <span style={{
-              color: '#2696B6',
-              textShadow: '0 0 28px rgba(38, 150, 182, 0.28)',
-            }}>
-              Powerful Software Solutions
+          <h1 className="hero-heading font-black text-white mb-5 leading-none"
+            style={{ fontSize: 'clamp(2.4rem,5.8vw,4.7rem)', maxWidth: 1120, textShadow: '0 4px 80px rgba(8,13,54,0.9)', letterSpacing: '-0.02em' }}>
+            <span className="hero-title-line" aria-label="Transform your Ideas into">
+              {'Transform your Ideas into'.split('').map((character, index) => (
+                <span key={`${character}-${index}`} className="hero-title-letter" style={{ animationDelay: `${index * 35}ms` }} aria-hidden="true">
+                  {character === ' ' ? '\u00a0' : character}
+                </span>
+              ))}
+            </span>
+            <br />
+            <span className="hero-title-line hero-title-accent" aria-label="Powerful Software Solutions" style={{ color: '#25C7EC', textShadow: '0 0 28px rgba(37, 199, 236, 0.3)' }}>
+              {'Powerful Software Solutions'.split(' ').map((word, index) => (
+                <span key={word} className="hero-title-word" style={{ animationDelay: `${900 + index * 140}ms` }} aria-hidden="true">
+                  {word}
+                </span>
+              ))}
             </span>
           </h1>
 
-          <p className="text-white/55 mb-10 text-base md:text-xl leading-relaxed" style={{ maxWidth: 580 }}>
-            Empowering businesses with reliable IT services, cybersecurity, and
-            cutting-edge software that drives growth across the Philippines and beyond.
+          <p className="hero-description mb-10 text-base md:text-xl leading-relaxed" style={{ maxWidth: 760, color: '#F4F4F4' }} aria-label="Empowering businesses with reliable IT services, cybersecurity, and cutting-edge software that drives growth across the Philippines and beyond.">
+            {'Empowering businesses with reliable IT services, cybersecurity, and cutting-edge software that drives growth across the Philippines and beyond.'.split(' ').map((word, index) => (
+              <span key={`${word}-${index}`} aria-hidden="true">
+                <span className="hero-description-word" style={{ animationDelay: `${1500 + index * 45}ms` }}>{word}</span>
+                {index < 17 ? ' ' : ''}
+              </span>
+            ))}
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center" onMouseLeave={() => setActiveHeroButton('start')}>
@@ -992,7 +1070,7 @@ export default function App() {
       </section>
 
       {/* ══ ABOUT ════════════════════════════════════════════ */}
-      <section id="about" className="py-24 px-6 relative overflow-hidden" style={{ background: '#fff', color: '#0a2472' }}>
+      <section id="about" className="scroll-reveal py-24 px-6 relative overflow-hidden" style={{ background: '#fff', color: '#0a2472' }}>
         <div className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
           style={{ background: `radial-gradient(circle at top right,rgba(21,49,125,0.08),transparent 70%)` }} />
         <div className="absolute bottom-0 left-0 w-80 h-80 pointer-events-none"
@@ -1034,15 +1112,15 @@ export default function App() {
             <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&h=240&fit=crop&auto=format"
               alt="Technology development" className="rounded-2xl w-full object-cover"
               style={{ height: 148, border: '1px solid rgba(21,49,125,0.15)' }} />
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=240&fit=crop&auto=format"
-              alt="Server infrastructure" className="rounded-2xl w-full object-cover"
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=240&fit=crop&auto=format"
+              alt="Programmer working on software code" className="rounded-2xl w-full object-cover"
               style={{ height: 148, border: '1px solid rgba(21,49,125,0.15)' }} />
           </div>
         </div>
       </section>
 
       {/* ══ SOLUTIONS ════════════════════════════════════════ */}
-      <section id="solutions" className="py-24 px-6 relative" style={{ background: C.bgDark, color: '#fff' }}>
+      <section ref={solutionsRef} id="solutions" className="scroll-reveal py-24 px-6 relative" style={{ background: C.bgDark, color: '#fff' }}>
         <div className="absolute inset-0 pointer-events-none opacity-30"
           style={{ backgroundImage: `linear-gradient(rgba(21,49,125,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(21,49,125,0.15) 1px,transparent 1px)`, backgroundSize: '48px 48px' }} />
         <div className="max-w-7xl mx-auto relative">
@@ -1059,7 +1137,7 @@ export default function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-7">
-            {SOLUTIONS.map((sol) => (
+            {SOLUTIONS.map((sol, index) => (
               <div key={sol.title}
                 onClick={() => setActiveService(sol)}
                 onKeyDown={(event) => {
@@ -1067,8 +1145,8 @@ export default function App() {
                 }}
                 role="button"
                 tabIndex={0}
-                className="group rounded-3xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.32)] cursor-pointer"
-                style={{ background: 'rgba(11,29,79,0.96)', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 8px 24px rgba(4,8,32,0.22)' }}>
+                className={`${solutionsVisible ? (index % 2 === 0 ? 'service-card-reveal-left' : 'service-card-reveal-right') : 'service-card-hidden'} group rounded-3xl flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.32)] cursor-pointer`}
+                style={{ background: 'rgba(11,29,79,0.96)', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 8px 24px rgba(4,8,32,0.22)', animationDelay: `${index * 100}ms` }}>
                 <div className="relative overflow-hidden" style={{ height: 190 }}>
                   <img src={sol.img} alt={sol.title} loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -1116,7 +1194,7 @@ export default function App() {
       </section>
 
       {/* ══ CONTACT ═════════════════════════════════════════ */}
-      <section id="contact" className="py-24 px-6 relative" style={{ background: '#fff', color: C.royalDeep }}>
+      <section id="contact" className="scroll-reveal py-24 px-6 relative" style={{ background: '#fff', color: C.royalDeep }}>
         <div className="absolute inset-0 pointer-events-none opacity-20"
           style={{ backgroundImage: `radial-gradient(circle at 80% 20%,${C.orange} 0%,transparent 45%)` }} />
         <div className="max-w-6xl mx-auto relative">
