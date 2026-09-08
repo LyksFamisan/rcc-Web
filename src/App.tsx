@@ -40,6 +40,22 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
     answer: "Pricing is customized based on project scope. We offer:\n\n• **Project-based** – fixed scope & cost\n• **Time & Material** – flexible & iterative\n• **Staff Augmentation** – dedicated resources\n\nContact us for a free quote!" },
   { keywords: ['about','company','who','rcc','colab','history'],
     answer: "**RCC Colab Solutions Inc.** offers end-to-end personalized business solutions, helping businesses unlock their full potential through emerging and cutting-edge technology.\n\nWe collaborate with your team to identify the best IT services that create significant value for your organization." },
+  { keywords: ['vision'],
+    answer: "Our vision is to become a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth and contributing to economic development." },
+  { keywords: ['mission'],
+    answer: "Our mission is to empower businesses and individuals by delivering scalable, cutting-edge technology solutions that drive innovation, transform industries, and create lasting value. We are committed to making a positive impact on our people, clients, communities, and the environment." },
+  { keywords: ['values','accountability','collaboration','excellence','sustainability'],
+    answer: "Our core values are **Accountability, Collaboration, Excellence, and Sustainability**. They guide how we work, serve clients, improve our solutions, and contribute responsibly to the community and environment." },
+  { keywords: ['privacy','data privacy','npc','national privacy commission','cor seal','certificate','registration'],
+    answer: "RCC Colab Solutions Inc. is registered with the National Privacy Commission in compliance with the Data Privacy Act of 2012. You can view and download the registration certificate and COR Seal on the **Data Privacy** page." },
+  { keywords: ['terms','terms of use','copyright','link to your website'],
+    answer: "The website Terms of Use explain ownership of website content, permitted use, information accuracy, updates to website conditions, linking rules, and liability for external links. Open **Terms of Use** in the footer to read the complete policy." },
+  { keywords: ['linkedin','social media','follow'],
+    answer: "You can follow RCC Colab Solutions on LinkedIn through the LinkedIn link in the website footer." },
+  { keywords: ['team','expert','dedicated professionals','commitment'],
+    answer: "RCC Colab Solutions has a dedicated team with corporate experience and expertise in cutting-edge technologies. The team focuses on excellent service, efficiency, agility, and profitability for clients." },
+  { keywords: ['what makes us different','competitive edge','different'],
+    answer: "RCC Colab Solutions delivers integrated innovation and seamless solutions through an agile, responsive organization. We adjust to market shifts and implement solutions quickly because every business has unique goals and challenges." },
   { keywords: ['ceo','founder','leader','leadership'],
     answer: "RCC Colab Solutions is led by a team committed to helping businesses simplify complexity through practical, innovative technology solutions. Ask us how we can help your organization grow." },
   { keywords: ['hours','open','schedule','time','available'],
@@ -55,7 +71,7 @@ function getAiReply(input: string): string {
   for (const item of AI_RESPONSES) {
     if (item.keywords.some(k => lower.includes(k))) return item.answer
   }
-  return "Thanks for your message! For detailed assistance, reach us at **info@rcccolabsolutions.com** or **+632 8651 6616**. You can also use the contact form on this page and we'll respond within 24 hours."
+  return "I can answer questions about the RCC Colab Solutions website, including our services, company, vision, mission, core values, office, contact details, Data Privacy, Terms of Use, and how to get started. Please ask a website-related question, such as **“What services do you offer?”** or **“How can I contact RCC?”**"
 }
 
 /* ─── SERVICES WITH IMAGES + DETAIL CONTENT ─────────────── */
@@ -293,17 +309,78 @@ const CONTACT_INFO = [
 type Msg = { role: 'user' | 'ai'; text: string }
 
 const ABOUT_VALUES = [
-  { title: 'Accountability', body: 'We take ownership of responsibilities, honor our commitments, and deliver results and value with integrity and dedication.' },
-  { title: 'Collaboration', body: 'Our team embraces teamwork and open communication to achieve common goals. The best solutions emerge when diverse perspectives unite.' },
-  { title: 'Excellence', body: "We continuously improve to surpass expectations and set the bar for quality and innovation. Excellence is our standard in everything we deliver." },
-  { title: 'Sustainability', body: 'We integrate sustainable practices into everyday operations so our growth contributes positively to the world around us.' },
+  { title: 'Accountability', body: 'We take ownership of responsibilities, honoring commitments, and delivering results and value with integrity and dedication. Our accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
+  { title: 'Collaboration', body: 'Our team embraces teamwork and open communication to achieve common goals. We believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
+  { title: 'Excellence', body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation. Excellence is not just our goal, it's our standard in everything we deliver." },
+  { title: 'Sustainability', body: 'We integrate sustainable practices into everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.' },
 ]
+
+function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
+  return (
+    <footer className="site-footer relative overflow-hidden px-6 pt-12" style={{ background: C.bgDeep, color: '#fff' }}>
+      <div className="mx-auto grid max-w-6xl gap-8 pb-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1fr_1.1fr]">
+        <div>
+          <a href="/" aria-label="RCC Colab Solutions home" className="mb-5 inline-flex items-center gap-4">
+            <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 92, height: 62, filter: 'brightness(0) invert(1)' }} />
+            <span className="text-xl font-extrabold">RCC Colab Solutions</span>
+          </a>
+          <p className="max-w-sm text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
+          <h3 className="mt-6 mb-3 text-base font-black">Stay Updated</h3>
+          <form className="flex max-w-md gap-2" onSubmit={event => event.preventDefault()}>
+            <input type="email" required placeholder="Enter your email" aria-label="Enter your email" className="min-w-0 flex-1 rounded-lg px-3 py-2.5 text-sm outline-none" style={{ color: C.royalDeep, background: '#fff' }} />
+            <button type="submit" className="shrink-0 rounded-lg px-4 py-2.5 text-sm font-extrabold text-white" style={{ background: '#0eb6d5' }}>Subscribe</button>
+          </form>
+        </div>
+        <div>
+          <h3 className="mb-4 text-lg font-black">Quick Links</h3>
+          <nav className="flex flex-col gap-3 text-sm" aria-label="Footer navigation">
+            <a href="/" className="footer-link">Home</a>
+            <a href="/aboutus" className="footer-link">About Us</a>
+            <a href="/services" className="footer-link">Services</a>
+            <a href="/contactus" className="footer-link">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h3 className="mb-4 text-lg font-black">Office Address</h3>
+          <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>📍 7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
+          <h3 className="mt-6 mb-3 text-lg font-black">Follow Us</h3>
+          <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="footer-link inline-flex h-6 w-6 items-center justify-center rounded-sm text-sm font-black" aria-label="LinkedIn" style={{ background: '#fff', color: C.royalDeep }}>in</a>
+        </div>
+        <div>
+          <h3 className="mb-4 text-lg font-black">Get In Touch</h3>
+          <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.82)' }}>
+            <a href="tel:+63286516616" className="footer-contact">☎ +632 8651 6616</a>
+            <a href="mailto:info@rcccolabsolutions.com" className="footer-contact">✉ info@rcccolabsolutions.com</a>
+            <a href="https://rcccolabsolutions.com" className="footer-contact">◎ rcccolabsolutions.com</a>
+            <span className="footer-contact">◷ Business Hours<br /><span className="pl-6">Mon - Fri: 8:00 AM - 7:00 PM</span></span>
+          </div>
+        </div>
+      </div>
+      <div className="border-t py-6" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 gap-y-3 text-sm" style={{ color: 'rgba(255,255,255,0.82)' }}>
+          <span>© 2026 RCC Colab Solutions, Inc. All rights reserved.</span>
+          <a href="/terms-of-use" className="footer-link">Terms of Use</a>
+          <a href="/data-privacy" className="footer-link">Privacy Policy</a>
+        </div>
+      </div>
+      {showRabbit && <img src={robotRabbit} alt="RCC assistant" className="absolute bottom-12 right-8 h-16 w-16 object-contain" />}
+    </footer>
+  )
+}
+
+function RabbitAiFloat() {
+  return (
+    <div className="fixed bottom-8 right-7 z-50" aria-label="RCC AI assistant">
+      <img src={robotRabbit} alt="RCC AI assistant" className="h-16 w-16 object-contain drop-shadow-[0_0_16px_rgba(21,49,125,0.8)]" />
+    </div>
+  )
+}
 
 function AboutPage() {
   return (
     <div className="min-h-screen" style={{ background: C.bgDeep, color: C.royalDeep }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+        <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
@@ -324,25 +401,28 @@ function AboutPage() {
           </video>
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="absolute inset-0 opacity-25" style={{ backgroundImage: `linear-gradient(rgba(103,232,249,0.2) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,0.2) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
-          <div className="page-hero-content relative z-10 max-w-6xl mx-auto">
+          <div className="page-hero-content relative z-10 w-full max-w-none text-left">
             <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>About Us</p>
-            <h1 className="text-5xl md:text-7xl font-black text-white max-w-5xl leading-none">Leading the future of <span className="md:whitespace-nowrap">digital transformation.</span></h1>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Innovation, expertise, and dedication for businesses ready to move forward.</p>
+            <h1 className="text-6xl md:text-8xl font-black text-white max-w-6xl leading-none">Leading the future of <span className="md:whitespace-nowrap">digital transformation.</span></h1>
+            <p className="mt-7 max-w-3xl text-xl md:text-2xl leading-relaxed" style={{ color: '#F4F4F4' }}>Innovation, expertise, and dedication for businesses ready to move forward.</p>
+            <a href="#about-content" className="mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110" style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`, border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 10px 28px rgba(249,115,22,0.3)' }}>
+              Learn About Us
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </a>
           </div>
         </section>
 
-        <section className="py-24 px-6" style={{ background: '#fff' }}>
+        <section id="about-content" className="py-24 px-6" style={{ background: '#fff' }}>
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-14">
-              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Who We Are</p>
-              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Technology with purpose.</h2>
-              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.68)' }}>RCC Colab Solutions is an IT solutions provider driven by a deep commitment to digital transformation and operational excellence.</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Who We Are</h2>
+              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.68)' }}>Leading the future of digital transformation with innovation, expertise, and dedication.</p>
             </div>
             <div className="grid md:grid-cols-3 gap-5">
               {[
-                ['RCC Colab Solutions', 'End-to-end personalized services with a solution-driven approach to unlock your full potential.'],
-                ['Expert Team', 'Dedicated professionals with extensive corporate experience and expertise in cutting-edge technologies.'],
-                ['Our Commitment', 'We serve clients across industries and tackle challenging projects with the right technology solutions.'],
+                ['RCC Colab Solutions', 'Driving digital transformation through cutting-edge technology solutions. Innovation First is an IT solutions provider driven by a deep commitment to driving digital transformation and operational excellence for businesses across various industries. We offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions to match your needs.'],
+                ['Expert Team', 'Dedicated professionals with extensive corporate experience. Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies. This expertise is not just theoretical but has been honed through years of corporate experience and exposure. We are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.'],
+                ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.'],
               ].map(([title, body]) => (
                 <article key={title} className="p-7" style={{ background: C.royal, borderTop: `3px solid ${C.orange}` }}>
                   <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
@@ -394,8 +474,8 @@ function AboutPage() {
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-12">
               <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Core Values</p>
-              <h2 className="text-4xl font-black mb-4" style={{ color: C.royalDeep }}>How we work.</h2>
-              <p style={{ color: 'rgba(10,36,114,0.62)' }}>The principles that guide our work and define our commitment to excellence.</p>
+              <h2 className="text-4xl font-black mb-4" style={{ color: C.royalDeep }}>Our Core Values</h2>
+              <p style={{ color: 'rgba(10,36,114,0.62)' }}>The fundamental principles that guide our work and define our commitment to excellence.</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {ABOUT_VALUES.map((value, index) => (
@@ -409,15 +489,18 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="py-24 px-6 text-center" style={{ background: C.royal }}>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orangeLight }}>What Makes Us Different?</p>
-            <h2 className="text-4xl font-black text-white mb-5">Integrated innovation. Seamless solutions.</h2>
-            <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>Our agile organization delivers measurable impact, adjusts quickly to market shifts, and understands that every business has unique goals and challenges.</p>
-            <a href="/#contact" className="inline-block mt-8 px-8 py-3 font-extrabold text-white text-sm rounded-full" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})` }}>LET'S WORK TOGETHER</a>
+        <section className="px-6 py-16" style={{ background: '#fff' }}>
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl px-6 py-16 text-center shadow-[0_18px_45px_rgba(21,49,125,0.2)] md:px-12" style={{ background: 'linear-gradient(135deg, #15317d 0%, #2456d2 100%)' }}>
+            <div className="absolute inset-0 opacity-20" style={{ background: 'radial-gradient(circle at 10% 15%, rgba(255,255,255,0.18), transparent 35%), radial-gradient(circle at 90% 85%, rgba(255,255,255,0.12), transparent 40%)' }} />
+            <div className="relative z-10 mx-auto max-w-4xl">
+              <h2 className="mb-8 text-3xl font-black leading-tight text-white md:text-5xl">What Makes Us <span style={{ color: C.orange }}>Different?</span></h2>
+              <p className="mx-auto max-w-4xl text-lg leading-relaxed" style={{ color: '#F4F4F4' }}>RCC Colab Solutions' competitive edge in the IT and Consulting Services industry lies in our capability to deliver integrated innovation and seamless solutions to our clients. Our organization is designed to be agile and responsive to fulfill our commitment to the utmost measurable impact for our clients. This allows us to adjust to market shifts and implement new solutions quickly as we understand that each business is unique, with its specific goals and challenges.</p>
+            </div>
           </div>
         </section>
       </main>
+      <SiteFooter />
+      <RabbitAiFloat />
     </div>
   )
 }
@@ -442,7 +525,7 @@ function ServicesPage() {
   return (
     <div className="min-h-screen" style={{ background: C.bgDark, color: '#fff' }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+        <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
@@ -461,11 +544,16 @@ function ServicesPage() {
           <video autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 w-full h-full object-cover">
             <source src={heroVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0" style={{ background: 'rgba(21,49,125,0.9)' }} />
+          <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.22) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
-          <div className="page-hero-content relative z-10 mx-auto max-w-4xl text-center">
-            <h1 className="text-5xl font-black leading-none text-white md:text-7xl">Our Services</h1>
-            <p className="mx-auto mt-7 max-w-3xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>Comprehensive solutions designed to transform your business and drive innovation.</p>
+          <div className="page-hero-content relative z-10 w-full max-w-none text-left">
+            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Our Services</p>
+            <h1 className="text-6xl md:text-8xl font-black text-white max-w-5xl leading-none">Our Services</h1>
+            <p className="mt-7 max-w-4xl text-xl md:text-2xl leading-relaxed" style={{ color: '#fff' }}>We offer a comprehensive range of business support services designed to help companies operate more efficiently, with each solution carefully tailored to meet your unique goals and operational needs.</p>
+            <a href="#service-expertise" className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full text-sm font-extrabold text-white transition-transform duration-200 hover:scale-105" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 28px rgba(249,115,22,0.28)` }}>
+              Explore Our Expertise
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </section>
 
@@ -505,54 +593,25 @@ function ServicesPage() {
           </div>
         </section>
 
-        <section className="py-24 px-6 text-center" style={{ background: C.royal }}>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-black text-white mb-5">Ready to Transform Your Business?</h2>
-            <p className="leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>Let's discuss how our services can help you achieve your goals and drive innovation.</p>
-            <a href="/#contact" className="inline-flex items-center gap-2 mt-8 px-8 py-3 rounded-full font-extrabold text-white text-sm transition-transform duration-200 hover:scale-105" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})` }}>
-              Get Started Today
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </section>
-      </main>
-
-      <footer className="px-6 py-14" style={{ background: '#fff', borderTop: '1px solid rgba(10,36,114,0.12)' }}>
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div>
-            <a href="/" aria-label="RCC Colab Solutions Logo" className="inline-block mb-4">
-              <img src={logoImg} alt="RCC Colab Solutions Logo" className="object-contain" style={{ width: 100, height: 62 }} />
-            </a>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
-          </div>
-          <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Quick Links</h3>
-            <nav className="flex flex-col gap-2 text-sm" aria-label="Footer navigation">
-              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Home</a>
-              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>About Us</a>
-              <a href="/services" className="hover:text-orange-500" style={{ color: C.orange }}>Services</a>
-              <a href="/contactus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Contact</a>
-              <a href="/data-privacy" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Data Privacy</a>
-            </nav>
-          </div>
-          <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Office Address</h3>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
-            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Follow Us</h3>
-            <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="text-sm" style={{ color: C.orange }}>LinkedIn</a>
-          </div>
-          <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
-            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
-              <a href="tel:+63286516616">+632 8651 6616</a>
-              <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
-              <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
-              <span>Business Hours Mon - Fri: 8:00 AM - 7:00 PM</span>
+        <section className="px-6 py-16" style={{ background: '#f8fafc' }}>
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl px-6 py-14 text-center md:px-12" style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`, color: '#fff' }}>
+            <div className="absolute -right-12 -top-16 h-32 w-32 rounded-full" style={{ background: 'rgba(255,255,255,0.12)' }} />
+            <div className="absolute -bottom-16 -left-12 h-32 w-32 rounded-full" style={{ background: 'rgba(255,255,255,0.12)' }} />
+            <div className="relative z-10 mx-auto max-w-3xl">
+              <h2 className="text-3xl font-black leading-tight md:text-5xl">Ready to Transform Your Business?</h2>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: 'rgba(255,255,255,0.9)' }}>Let's discuss how our services can help you achieve your goals and drive innovation.</p>
+              <a href="#services-footer" onClick={(event) => { event.preventDefault(); document.getElementById('services-footer')?.scrollIntoView({ behavior: 'smooth' }) }} className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 font-extrabold text-sm transition-transform duration-200 hover:scale-105" style={{ color: C.orangeDeep }}>
+                Get Started Today
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
-        </div>
-        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(10,36,114,0.58)', borderTop: '1px solid rgba(10,36,114,0.12)' }}>© 2026 RCC Colab Solutions, Inc. All rights reserved.</p>
-      </footer>
+        </section>
+
+      </main>
+
+      <div id="services-footer"><SiteFooter /></div>
+      <RabbitAiFloat />
     </div>
   )
 }
@@ -604,7 +663,7 @@ function ContactPage() {
   return (
     <div className="min-h-screen" style={{ background: '#fff', color: C.royalDeep }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+        <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" aria-label="RCC Colab Solutions home"><img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} /></a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
             <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
@@ -617,17 +676,20 @@ function ContactPage() {
       </header>
 
       <main>
-        <section className="relative min-h-screen overflow-hidden pt-52 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})`, minHeight: '100vh' }}>
+        <section className="relative min-h-screen overflow-hidden pt-52 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})`, minHeight: 'calc(100svh - var(--header-height))' }}>
           <video autoPlay muted loop playsInline aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={contactHeroVideo} type="video/mp4" /></video>
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
-          <div className="contact-hero-content relative z-10 max-w-6xl mx-auto">
-            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Contact Us</p>
-            <h1 className="text-5xl md:text-7xl font-black text-white max-w-3xl leading-none">Contact Us</h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>Let's Connect</p>
+          <div className="contact-hero-content relative z-10 w-full max-w-none text-left">
+            <h1 className="text-6xl md:text-8xl font-black text-white max-w-5xl leading-none">Contact Us</h1>
+            <p className="mt-7 max-w-3xl text-xl md:text-2xl leading-relaxed" style={{ color: '#F4F4F4' }}>Let's Connect</p>
+            <a href="#contact-content" className="mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110" style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`, border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 10px 28px rgba(249,115,22,0.3)' }}>
+              Get In Touch
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </a>
           </div>
         </section>
 
-        <section ref={contactRevealRef} className="py-24 px-6" style={{ background: '#fff' }}>
+        <section id="contact-content" ref={contactRevealRef} className="py-24 px-6" style={{ background: '#fff' }}>
           <div className="max-w-6xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
             <div className="contact-reveal">
               <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Get in Touch</p>
@@ -670,47 +732,8 @@ function ContactPage() {
         </section>
       </main>
 
-      <footer className="px-6 py-14" style={{ background: '#fff', borderTop: '1px solid rgba(10,36,114,0.12)' }}>
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div>
-            <a href="/" aria-label="RCC Colab Solutions Logo" className="inline-block mb-4">
-              <img src={logoImg} alt="RCC Colab Solutions Logo" className="object-contain" style={{ width: 100, height: 62 }} />
-            </a>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
-            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Stay Updated</h3>
-            <form className="flex gap-2" onSubmit={event => event.preventDefault()}>
-              <input type="email" required placeholder="Your email" aria-label="Your email" className="min-w-0 flex-1 px-3 py-2 rounded-lg text-sm outline-none" style={{ color: C.royalDeep, border: '1px solid rgba(10,36,114,0.16)' }} />
-              <button type="submit" className="px-4 py-2 rounded-lg text-xs font-extrabold text-white" style={{ background: C.orange }}>Subscribe</button>
-            </form>
-          </div>
-          <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Quick Links</h3>
-            <nav className="flex flex-col gap-2 text-sm" aria-label="Footer navigation">
-              <a href="/" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Home</a>
-              <a href="/aboutus" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>About Us</a>
-              <a href="/services" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Services</a>
-              <a href="/contactus" className="hover:text-orange-500" style={{ color: C.orange }}>Contact</a>
-              <a href="/data-privacy" className="hover:text-orange-500" style={{ color: 'rgba(10,36,114,0.72)' }}>Data Privacy</a>
-            </nav>
-          </div>
-          <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Office Address</h3>
-            <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines</p>
-            <h3 className="font-black mt-6 mb-3" style={{ color: C.royalDeep }}>Follow Us</h3>
-            <a href="https://www.linkedin.com/company/rcc-colab-solutions-inc/?viewAsMember=true" className="text-sm" style={{ color: C.orange }}>LinkedIn</a>
-          </div>
-          <div>
-            <h3 className="font-black mb-4" style={{ color: C.royalDeep }}>Get In Touch</h3>
-            <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(10,36,114,0.72)' }}>
-              <a href="tel:+63286516616">+632 8651 6616</a>
-              <a href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>
-              <a href="https://rcccolabsolutions.com">rcccolabsolutions.com</a>
-              <span>Business Hours Mon - Fri: 8:00 AM - 7:00 PM</span>
-            </div>
-          </div>
-        </div>
-        <p className="max-w-6xl mx-auto mt-12 pt-6 text-xs" style={{ color: 'rgba(10,36,114,0.58)', borderTop: '1px solid rgba(10,36,114,0.12)' }}>© 2026 RCC Colab Solutions, Inc. All rights reserved.</p>
-      </footer>
+      <SiteFooter />
+      <RabbitAiFloat />
     </div>
   )
 }
@@ -721,7 +744,7 @@ function DataPrivacyPage() {
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%)', color: C.royalDeep }}>
       <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+        <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home">
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
@@ -805,6 +828,60 @@ function DataPrivacyPage() {
           </div>
         </div>
       </main>
+      <RabbitAiFloat />
+    </div>
+  )
+}
+
+function TermsOfUsePage() {
+  const terms = [
+    'This website is operated by RCC Colab Solutions Inc. (hereinafter called “the Company”).',
+    'Copyrights and any other rights of all texts, graphics, images, logos, etc., included in this website belong to the Company, the original authors, or other rights holders. Duplication, reproduction, modification, deletion, transmission, distribution, etc., of the data on this website without the permission of the Company are prohibited by copyright laws, except in cases that the copyright laws allow.',
+    'We diligently strive to ensure that the information on this website is accurate and up to date. While we make no guarantees of its completeness, we want you to trust that we are committed to providing reliable information. Also, we assume no responsibility for any incorrect or unlisted details on this website.',
+    'Please note that we reserve the right to change the contents/use conditions of this website, which may include but are not limited to, adding or removing features, updating or modifying content, or changing the terms of use. We also reserve the right to change, postpone, discontinue, or terminate the products/services on this website without notice.',
+    'If you would like to link to this website, we have a clear policy in place. Please get in touch with us at info@rcccolabsolutions.com so that we can confirm the purpose and contents of your website. We may decline linking from a website that is deemed inappropriate, as we strive to maintain a safe and respectful online environment.',
+    'As a general rule, links to this website should be on the home page: https://www.rcccolabsolutions.com',
+    'The Company will not be liable for any links to this website. We assume no responsibility for any damage caused by using information on this site.',
+  ]
+
+  return (
+    <div className="min-h-screen" style={{ background: '#f7f9ff', color: C.royalDeep }}>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: '#fff', borderBottom: '1px solid rgba(10,36,114,0.08)', boxShadow: '0 2px 24px rgba(10,36,114,0.12)' }}>
+        <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+          <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home"><img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} /></a>
+          <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
+            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+          </nav>
+          <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
+        </div>
+      </header>
+
+      <main className="px-6 pb-20 pt-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 rounded-3xl px-6 py-14 text-center text-white shadow-[0_20px_50px_rgba(21,49,125,0.2)] md:px-12" style={{ background: `linear-gradient(135deg, ${C.royalDeep}, #2456d2)` }}>
+            <p className="mb-4 text-xs font-extrabold uppercase tracking-[0.24em]" style={{ color: C.orangeLight }}>RCC Colab Solutions</p>
+            <h1 className="text-4xl font-black md:text-6xl">Terms of Use</h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>Please review the terms that govern the use of this website.</p>
+          </div>
+
+          <article className="rounded-3xl border bg-white p-6 shadow-[0_16px_45px_rgba(21,49,125,0.08)] md:p-12" style={{ borderColor: 'rgba(21,49,125,0.12)' }}>
+            <ol className="space-y-7 text-base leading-relaxed md:text-lg" style={{ color: 'rgba(10,36,114,0.82)' }}>
+              {terms.map((term, index) => (
+                <li key={index} className="flex gap-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-black text-white" style={{ background: C.royalDeep }}>{index + 1}</span>
+                  <p>{term}</p>
+                </li>
+              ))}
+            </ol>
+          </article>
+        </div>
+      </main>
+
+      <SiteFooter />
+      <RabbitAiFloat />
     </div>
   )
 }
@@ -814,6 +891,7 @@ export default function App() {
   if (window.location.pathname === '/services' || window.location.pathname === '/services/') return <ServicesPage />
   if (window.location.pathname === '/contactus' || window.location.pathname === '/contactus/') return <ContactPage />
   if (window.location.pathname === '/data-privacy' || window.location.pathname === '/data-privacy/') return <DataPrivacyPage />
+  if (window.location.pathname === '/terms-of-use' || window.location.pathname === '/terms-of-use/') return <TermsOfUsePage />
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeHeroButton, setActiveHeroButton] = useState<'start' | 'services'>('start')
   const [solutionsVisible, setSolutionsVisible] = useState(false)
@@ -961,7 +1039,7 @@ export default function App() {
           borderBottom: '1px solid rgba(10,36,114,0.08)',
           boxShadow: scrolled ? '0 2px 24px rgba(10,36,114,0.12)' : '0 1px 12px rgba(10,36,114,0.06)',
         }}>
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
+        <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <button onClick={() => scrollTo('home')} className="flex items-center gap-3 group shrink-0">
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </button>
@@ -1001,11 +1079,6 @@ export default function App() {
         {/* Royal blue tinted overlay */}
         <div className="absolute inset-0" style={{ zIndex: 1, background: 'rgba(8,13,54,0.18)' }} />
         <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(8,13,54,0.06) 0%, rgba(8,13,54,0.36) 100%)' }} />
-        {/* Animated scanline */}
-        <div className="absolute left-0 right-0 h-px opacity-30 pointer-events-none"
-          style={{ zIndex: 3, top: '42%', background: `linear-gradient(90deg,transparent,${C.orange},transparent)`, animation: 'scanline 5s ease-in-out infinite' }} />
-        {/* Royal blue bottom line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ zIndex: 3, background: `linear-gradient(90deg,transparent,${C.orange},transparent)` }} />
         {/* Royal blue radial glow */}
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2, background: 'radial-gradient(ellipse at 50% 60%, rgba(21,49,125,0.4) 0%, transparent 70%)' }} />
 
@@ -1193,6 +1266,21 @@ export default function App() {
         </div>
       </section>
 
+      <section className="scroll-reveal px-6 py-16" style={{ background: '#f8fafc' }}>
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl px-6 py-14 text-center md:px-12" style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`, color: '#fff' }}>
+          <div className="absolute -right-12 -top-16 h-32 w-32 rounded-full" style={{ background: 'rgba(255,255,255,0.12)' }} />
+          <div className="absolute -bottom-16 -left-12 h-32 w-32 rounded-full" style={{ background: 'rgba(255,255,255,0.12)' }} />
+          <div className="relative z-10 mx-auto max-w-3xl">
+            <h2 className="text-3xl font-black leading-tight md:text-5xl">
+              The success of our clients<br />is our success too! <span aria-hidden="true">🏆</span>
+            </h2>
+            <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: 'rgba(255,255,255,0.9)' }}>
+              In this digital era, we have a dedicated team ready to serve our client's needs and ensure complexities are simplified and solutions are flexible.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ══ CONTACT ═════════════════════════════════════════ */}
       <section id="contact" className="scroll-reveal py-24 px-6 relative" style={{ background: '#fff', color: C.royalDeep }}>
         <div className="absolute inset-0 pointer-events-none opacity-20"
@@ -1201,23 +1289,11 @@ export default function App() {
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,transparent,${C.orange})` }} />
-              <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>Reach Out</p>
+              <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>Let's Collaborate</p>
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
             <h2 className="text-3xl md:text-4xl font-black mb-3" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>Get In Touch</h2>
             <p className="text-base max-w-lg mx-auto" style={{ color: 'rgba(10,36,114,0.62)' }}>Ready to simplify your IT complexity? Let's start a conversation.</p>
-          </div>
-
-          {/* Info cards */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {CONTACT_INFO.map((item) => (
-              <div key={item.label} className="flex items-start gap-3 rounded-xl p-4"
-                style={{ background: '#f8fafc', border: '1px solid rgba(10,36,114,0.1)' }}>
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(21,49,125,0.1)', color: C.royalDark }}>{item.icon}</div>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>{item.label}</p>
-              </div>
-            ))}
           </div>
 
           {/* Map + Form */}
@@ -1311,30 +1387,7 @@ export default function App() {
       </section>
 
       {/* ══ FOOTER ══════════════════════════════════════════ */}
-      <footer style={{ background: C.bgDeep, borderTop: `1px solid rgba(37,99,235,0.18)` }} className="px-6 py-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="rounded-full overflow-hidden flex items-center justify-center"
-              style={{ width: 44, height: 44, background: '#fff', padding: 3 }}>
-              <img src={logoImg} alt="RCC Colab Solutions" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <div className="font-extrabold text-xs tracking-widest text-white">RCC COLAB SOLUTIONS</div>
-              <div className="text-xs font-bold" style={{ color: C.orange }}>End-to-End IT Solutions</div>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-6 justify-center">
-            {[{ l: 'HOME', id: 'home' }, { l: 'SOLUTIONS', id: 'solutions' }, { l: 'ABOUT US', id: 'about' }, { l: 'CONTACT US', id: 'contact' }, { l: 'DATA PRIVACY', id: 'data-privacy' }].map(({ l, id }) => (
-              <button key={l} onClick={() => id === 'data-privacy' ? window.location.assign('/data-privacy') : scrollTo(id)} className="text-xs font-bold tracking-widest transition-colors" style={{ color: 'rgba(255,255,255,0.72)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.72)')}>
-                {l}
-              </button>
-            ))}
-          </div>
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.58)' }}>© 2026 RCC Colab Solutions Inc. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* ══ RCC.Ai FLOATING CHAT ════════════════════════════ */}
       <button
@@ -1387,14 +1440,14 @@ export default function App() {
           </div>
 
           {/* Messages */}
-              <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3"
-                style={{ scrollbarWidth: 'thin', scrollbarColor: `rgba(21,49,125,0.3) transparent` }}>
+              <div className="flex-1 overflow-y-auto bg-white px-3 py-3 space-y-3"
+                style={{ background: '#fff', scrollbarWidth: 'thin', scrollbarColor: `rgba(21,49,125,0.3) transparent` }}>
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className="max-w-[84%] rounded-xl px-3 py-2.5 text-sm leading-relaxed"
                   style={m.role === 'user'
                     ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 }
-                    : { background: '#fff', color: C.royalDeep, borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
+                    : { background: '#fff', color: '#15317d', borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
                   {m.role === 'ai' ? renderAiText(m.text) : m.text}
                 </div>
               </div>

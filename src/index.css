@@ -56,6 +56,7 @@ a {
 }
 
 :root {
+  --header-height: 88px;
   --lyka-ink: #15317d;
   --lyka-blue: #15317d;
   --lyka-sky: #15317d;
@@ -145,6 +146,10 @@ a {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.hero-title-accent {
+  margin-top: 0.12em;
 }
 
 .hero-heading {
@@ -281,7 +286,36 @@ a {
   background: #15317d !important;
 }
 
+.site-footer .footer-link,
+.site-footer .footer-contact {
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 180ms ease;
+}
+
+.site-footer h3 {
+  font-size: 1rem;
+}
+
+.site-footer input::placeholder {
+  color: rgba(21, 49, 125, 0.5);
+}
+
+@media (max-width: 640px) {
+  .site-footer .ml-auto {
+    margin-left: 0;
+  }
+}
+
+.site-footer .footer-link:hover,
+.site-footer .footer-contact:hover {
+  color: #0eb6d5;
+}
+
 @media (max-width: 767px) {
+  :root {
+    --header-height: 68px;
+  }
+
   .lyka-app header > div {
     min-height: 68px;
   }
