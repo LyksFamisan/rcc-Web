@@ -875,12 +875,12 @@ export default function App() {
 
       {/* ══ HERO ════════════════════════════════════════════ */}
       <section id="home" className="relative w-full overflow-hidden" style={{ minHeight: '100vh' }}>
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ zIndex: 0 }}>
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ zIndex: 0, filter: 'brightness(1.08) contrast(1.08) saturate(1.05)' }}>
           <source src={heroVideo} type="video/mp4" />
         </video>
         {/* Royal blue tinted overlay */}
-        <div className="absolute inset-0" style={{ zIndex: 1, background: 'rgba(8,13,54,0.28)' }} />
-        <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(8,13,54,0.08) 0%, rgba(8,13,54,0.62) 100%)' }} />
+        <div className="absolute inset-0" style={{ zIndex: 1, background: 'rgba(8,13,54,0.18)' }} />
+        <div className="absolute inset-0" style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(8,13,54,0.06) 0%, rgba(8,13,54,0.36) 100%)' }} />
         {/* Animated scanline */}
         <div className="absolute left-0 right-0 h-px opacity-30 pointer-events-none"
           style={{ zIndex: 3, top: '42%', background: `linear-gradient(90deg,transparent,${C.orange},transparent)`, animation: 'scanline 5s ease-in-out infinite' }} />
