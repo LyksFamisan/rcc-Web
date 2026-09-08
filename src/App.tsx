@@ -831,7 +831,7 @@ function ContactPage() {
 
       <main>
         <section className="relative min-h-screen overflow-hidden pt-52 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})`, minHeight: 'calc(100svh - var(--header-height))' }}>
-          <video autoPlay muted loop playsInline aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={contactHeroVideo} type="video/mp4" /></video>
+          <video autoPlay muted loop playsInline preload="auto" poster="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&h=900&fit=crop&auto=format" aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={contactHeroVideo} type="video/mp4" /></video>
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="contact-hero-content relative z-10 w-full max-w-none text-left">
             <h1 className="text-6xl md:text-8xl font-black text-white max-w-5xl leading-none">Contact Us</h1>
