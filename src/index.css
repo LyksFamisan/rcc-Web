@@ -221,6 +221,23 @@ a {
 .about-expert-copy {
   font-size: 1.125rem;
   line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: 0;
+}
+
+.about-company-copy {
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: 0;
+}
+
+.core-value-copy {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+  word-spacing: normal;
+  letter-spacing: 0;
 }
 
 .service-detail-title {
@@ -282,12 +299,13 @@ a {
 
 .vision-mission-copy {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.125rem;
+  font-size: 0.95rem;
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.55;
+  line-height: 1.5;
   text-align: justify;
   text-justify: inter-word;
+  text-align-last: left;
   hyphens: auto;
   overflow-wrap: break-word;
   word-spacing: 0;

@@ -333,9 +333,9 @@ const CONTACT_INFO = [
 type Msg = { role: 'user' | 'ai'; text: string }
 
 const ABOUT_VALUES = [
-  { title: 'Accountability', artwork: valueArtwork.accountability, body: 'We take ownership of responsibilities, honoring commitments, and delivering results and value with integrity and dedication. Our accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
-  { title: 'Collaboration', artwork: valueArtwork.collaboration, body: 'Our team embraces teamwork and open communication to achieve common goals. We believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
-  { title: 'Excellence', artwork: valueArtwork.excellence, body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation. Excellence is not just our goal, it's our standard in everything we deliver." },
+  { title: 'Accountability', artwork: valueArtwork.accountability, body: 'We take ownership of responsibilities,honoring commitments,and delivering results and value with integrity and dedication.\n\nOur accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
+  { title: 'Collaboration', artwork: valueArtwork.collaboration, body: 'Our team embraces teamwork and open communication to achieve common goals.\n\nWe believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
+  { title: 'Excellence', artwork: valueArtwork.excellence, body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation.\n\nExcellence is not just our goal, it's our standard in everything we deliver." },
   { title: 'Sustainability', artwork: valueArtwork.sustainability, body: 'We integrate sustainable practices into everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.' },
 ]
 
@@ -573,8 +573,8 @@ function AboutPage() {
             </div>
             <div className="relative z-10 mx-auto grid max-w-5xl gap-7 md:grid-cols-2">
               {[
-                ['RCC Colab Solutions', 'Driving digital transformation through cutting-edge technology solutions. Innovation First is an IT solutions provider driven by a deep commitment to driving digital transformation and operational excellence for businesses across various industries. We offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions to match your needs.', '💡', '</>'],
-                ['Expert Team', 'Dedicated professionals with extensive corporate experience. Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies. This expertise is not just theoretical but has been honed through years of corporate experience and exposure. We are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', '👥', '⚙'],
+                ['RCC Colab Solutions', 'Driving digital transformation through cutting-edge technology solutions.\n\nInnovation First is an IT solutions provider driven by a deep commitment to driving digital transformation and operational excellence for businesses across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions to match your needs.', '💡', '</>'],
+                ['Expert Team', 'Dedicated professionals with extensive corporate experience.\n\nOur team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies.\n\nThis expertise is not just theoretical but has been honed through years of corporate experience and exposure.\n\nWe are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', '👥', '⚙'],
                 ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
               ].map(([title, body, icon, illustration]) => (
                 <article key={title} className={`group relative overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)] transition-transform duration-300 hover:-translate-y-1 ${title === 'Our Commitment' ? 'md:col-span-2' : ''}`}>
@@ -588,7 +588,7 @@ function AboutPage() {
                     )}
                   </div>
                   <div className={`relative px-7 pb-8 pt-6 ${title === 'Our Commitment' ? 'md:px-16 md:pb-12' : 'min-h-[330px]'}`}>
-                    <p className={`relative z-10 leading-relaxed ${title === 'Our Commitment' ? 'mx-auto max-w-4xl text-center text-lg' : ''} ${title === 'Expert Team' ? 'about-expert-copy' : ''}`} style={{ color: title === 'Expert Team' ? '#5d6878' : 'rgba(10,36,114,0.82)' }}>{body}</p>
+                    <p className={`relative z-10 leading-relaxed ${title === 'Our Commitment' ? 'mx-auto max-w-4xl text-center text-lg' : ''} ${title === 'Expert Team' ? 'about-expert-copy whitespace-pre-line' : ''} ${title === 'RCC Colab Solutions' ? 'about-company-copy whitespace-pre-line' : ''}`} style={{ color: 'rgba(10,36,114,0.82)' }}>{body}</p>
                   </div>
                 </article>
               ))}
@@ -639,7 +639,7 @@ function AboutPage() {
               <h2 className="text-4xl font-black mb-4" style={{ color: C.royalDeep }}>Our Core Values</h2>
               <p style={{ color: 'rgba(10,36,114,0.62)' }}>The fundamental principles that guide our work and define our commitment to excellence.</p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-5">
               {ABOUT_VALUES.map((value, index) => (
                 <article key={value.title} className="overflow-hidden rounded-3xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)]" style={{ border: '1px solid rgba(37,99,235,0.12)' }}>
                   <div className="px-6 pb-7 pt-6 text-center text-white" style={{ background: 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: 70 }}>
@@ -648,7 +648,7 @@ function AboutPage() {
                     <div className="mx-auto mt-5 h-2 w-28 rounded-full" style={{ background: '#16c9f2' }} />
                   </div>
                   <div className="min-h-[330px] p-7">
-                    <p className="text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.78)' }}>{value.body}</p>
+                    <p className="core-value-copy whitespace-pre-line text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.78)' }}>{value.body}</p>
                   </div>
                 </article>
               ))}
