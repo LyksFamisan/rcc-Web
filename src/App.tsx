@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
+import accountabilityArtwork from './assets/Accountability .png'
+import collaborationArtwork from './assets/Collaboration.png'
+import excellenceArtwork from './assets/Excellence.png'
+import sustainabilityArtwork from './assets/Sustainability.png'
 const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
 const robotRabbit = assetUrl('public_rabbit.png')
 const logoImg = assetUrl('Content-Creator-Project.png')
@@ -6,6 +10,12 @@ const heroVideo = assetUrl('hero-video.mp4')
 const contactHeroVideo = assetUrl('contact-hero.mp4')
 const corSeal = assetUrl('cor-seal.jpg')
 const dataPrivacyCertificate = assetUrl('data-privacy-certificate.jpg')
+const valueArtwork = {
+  accountability: accountabilityArtwork,
+  collaboration: collaborationArtwork,
+  excellence: excellenceArtwork,
+  sustainability: sustainabilityArtwork,
+}
 
 /* ─── RCC ROYAL BLUE THEME ─────────────────────────────── */
 const C = {
@@ -323,10 +333,10 @@ const CONTACT_INFO = [
 type Msg = { role: 'user' | 'ai'; text: string }
 
 const ABOUT_VALUES = [
-  { title: 'Accountability', body: 'We take ownership of responsibilities, honoring commitments, and delivering results and value with integrity and dedication. Our accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
-  { title: 'Collaboration', body: 'Our team embraces teamwork and open communication to achieve common goals. We believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
-  { title: 'Excellence', body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation. Excellence is not just our goal, it's our standard in everything we deliver." },
-  { title: 'Sustainability', body: 'We integrate sustainable practices into everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.' },
+  { title: 'Accountability', artwork: valueArtwork.accountability, body: 'We take ownership of responsibilities, honoring commitments, and delivering results and value with integrity and dedication. Our accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
+  { title: 'Collaboration', artwork: valueArtwork.collaboration, body: 'Our team embraces teamwork and open communication to achieve common goals. We believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
+  { title: 'Excellence', artwork: valueArtwork.excellence, body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation. Excellence is not just our goal, it's our standard in everything we deliver." },
+  { title: 'Sustainability', artwork: valueArtwork.sustainability, body: 'We integrate sustainable practices into everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.' },
 ]
 
 function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
@@ -393,7 +403,7 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
             <a href="tel:+63286516616" className="footer-contact">☎ +632 8651 6616</a>
             <a href="mailto:info@rcccolabsolutions.com" className="footer-contact">✉ info@rcccolabsolutions.com</a>
             <a href="https://rcccolabsolutions.com" className="footer-contact">◎ rcccolabsolutions.com</a>
-            <span className="footer-contact inline-flex items-start gap-2"><span aria-hidden="true">◷</span><span>Business Hours<br />Mon - Fri: 8:00 AM - 7:00 PM</span></span>
+            <span className="footer-contact inline-flex items-start gap-2"><span aria-hidden="true">◷</span><span>Business Hours<br />Mon - Fri: 8:00 AM- 7:00PM</span></span>
           </div>
         </div>
       </div>
@@ -617,7 +627,7 @@ function AboutPage() {
                   <span className="h-3 w-3 rounded-full" style={{ background: accent }} />
                   <span className="h-1 w-7 rounded-full" style={{ background: accent, opacity: 0.65 }} />
                 </div>
-                <p className="text-lg leading-relaxed md:text-xl" style={{ color: 'rgba(255,255,255,0.9)', textAlign: 'justify' }}>{body}</p>
+                <p className="vision-mission-copy text-lg leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>{body}</p>
               </article>
             ))}
           </div>
@@ -626,16 +636,20 @@ function AboutPage() {
         <section className="py-24 px-6" style={{ background: '#fff' }}>
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-12">
-              <p className="text-xs font-extrabold tracking-widest uppercase mb-3" style={{ color: C.orange }}>Our Core Values</p>
               <h2 className="text-4xl font-black mb-4" style={{ color: C.royalDeep }}>Our Core Values</h2>
               <p style={{ color: 'rgba(10,36,114,0.62)' }}>The fundamental principles that guide our work and define our commitment to excellence.</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {ABOUT_VALUES.map((value, index) => (
-                <article key={value.title} className="p-6" style={{ border: '1px solid rgba(37,99,235,0.16)', background: index % 2 ? C.royal : '#fff' }}>
-                  <div className="text-3xl font-black mb-5" style={{ color: C.orange }}>0{index + 1}</div>
-                  <h3 className="text-lg font-bold mb-3" style={{ color: index % 2 ? '#fff' : C.royalDeep }}>{value.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: index % 2 ? 'rgba(255,255,255,0.78)' : 'rgba(10,36,114,0.64)' }}>{value.body}</p>
+                <article key={value.title} className="overflow-hidden rounded-3xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)]" style={{ border: '1px solid rgba(37,99,235,0.12)' }}>
+                  <div className="px-6 pb-7 pt-6 text-center text-white" style={{ background: 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: 70 }}>
+                    <img src={value.artwork} alt="" className="mx-auto mb-4 h-36 w-full max-w-[260px] object-contain" />
+                    <h3 className="text-lg font-bold">{value.title}</h3>
+                    <div className="mx-auto mt-5 h-2 w-28 rounded-full" style={{ background: '#16c9f2' }} />
+                  </div>
+                  <div className="min-h-[330px] p-7">
+                    <p className="text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.78)' }}>{value.body}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -647,7 +661,7 @@ function AboutPage() {
             <div className="absolute inset-0 opacity-20" style={{ background: 'radial-gradient(circle at 10% 15%, rgba(255,255,255,0.18), transparent 35%), radial-gradient(circle at 90% 85%, rgba(255,255,255,0.12), transparent 40%)' }} />
             <div className="relative z-10 mx-auto max-w-4xl">
               <h2 className="mb-8 text-3xl font-black leading-tight text-white md:text-5xl">What Makes Us <span style={{ color: C.orange }}>Different?</span></h2>
-              <p className="mx-auto max-w-4xl text-lg leading-relaxed" style={{ color: '#F4F4F4' }}>RCC Colab Solutions' competitive edge in the IT and Consulting Services industry lies in our capability to deliver integrated innovation and seamless solutions to our clients. Our organization is designed to be agile and responsive to fulfill our commitment to the utmost measurable impact for our clients. This allows us to adjust to market shifts and implement new solutions quickly as we understand that each business is unique, with its specific goals and challenges.</p>
+              <p className="different-copy mx-auto max-w-4xl" style={{ color: '#F4F4F4' }}>RCC Colab Solutions' competitive edge in the IT and Consulting Services industry lies in our capability to deliver integrated innovation and seamless solutions to our clients. Our organization is designed to be agile and responsive to fulfill our commitment to the utmost measurable impact for our clients. This allows us to adjust to market shifts and implement new solutions quickly as we understand that each business is unique, with its specific goals and challenges.</p>
             </div>
           </div>
         </section>
@@ -830,10 +844,10 @@ function ContactPage() {
 
       <main>
         <section className="relative min-h-screen overflow-hidden pt-52 pb-28 px-6" style={{ background: `linear-gradient(135deg,${C.bgDark},${C.bgDeep})`, minHeight: 'calc(100svh - var(--header-height))' }}>
-          <video autoPlay muted loop playsInline preload="auto" poster="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&h=900&fit=crop&auto=format" aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={contactHeroVideo} type="video/mp4" /></video>
+          <video autoPlay muted loop playsInline preload="auto" aria-hidden="true" className="contact-hero-video absolute inset-0 w-full h-full object-cover"><source src={contactHeroVideo} type="video/mp4" /></video>
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="contact-hero-content relative z-10 w-full max-w-none text-left">
-            <h1 className="text-6xl md:text-8xl font-black text-white max-w-5xl leading-none">Contact Us</h1>
+            <h1 className="text-6xl md:text-7xl font-black text-white max-w-5xl leading-none">Contact Us</h1>
             <p className="mt-7 max-w-3xl text-xl md:text-2xl leading-relaxed" style={{ color: '#F4F4F4' }}>Let's Connect</p>
             <a href="#contact-content" className="mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110" style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`, border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 10px 28px rgba(249,115,22,0.3)' }}>
               Get In Touch
@@ -1016,7 +1030,7 @@ function DataPrivacyPage() {
       <main className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-10 text-center">
-            <p className="mb-3 text-xs font-extrabold tracking-[0.22em] uppercase" style={{ color: C.orange }}>Data Privacy</p>
+            <p className="mb-3 text-sm font-extrabold tracking-[0.22em] uppercase" style={{ color: C.orange }}>Data Privacy</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tight" style={{ color: C.royalDeep }}>Certificate of Registration</h1>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>
               RCC Colab Solutions Inc. is registered with the National Privacy Commission in compliance with the Data Privacy Act of 2012.
@@ -1107,7 +1121,7 @@ function DataPrivacyPage() {
                 <p><strong>RCC Colab Solutions, Inc.</strong></p>
                 <p>Address: 7th Floor Ascott Makati, Glorietta 4, Ayala Center, Makati City, 1224, Philippines</p>
                 <p>Email address: <a href="mailto:dpo@rcccolabsolutions.com" className="font-semibold underline" style={{ color: C.orangeDeep }}>dpo@rcccolabsolutions.com</a></p>
-                <p>Business hours: 8:00 AM to 5:00 PM, Monday to Friday</p>
+                <p>Business Hours<br />Mon - Fri: 8:00 AM- 7:00PM</p>
               </section>
             </div>
           </article>
@@ -1185,6 +1199,7 @@ export default function App() {
     const serviceTitle = new URLSearchParams(window.location.search).get('service')
     return SOLUTIONS.find(solution => solution.title === serviceTitle || SERVICE_PAGE_TITLES[solution.title] === serviceTitle) ?? null
   })
+  const [activeModalButton, setActiveModalButton] = useState<'consultation' | 'close'>('consultation')
   const [form, setForm]             = useState({ firstName: '', lastName: '', email: '', company: '', message: '' })
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle')
   const [chatOpen, setChatOpen]     = useState(false)
@@ -1874,13 +1889,27 @@ export default function App() {
               {/* CTA */}
               <div className="pt-2 flex flex-wrap gap-3">
                 <button onClick={() => { setActiveService(null); scrollTo('contact') }}
-                  className="px-7 py-3 font-extrabold text-white text-base rounded-full transition-all duration-200 hover:scale-105"
-                  style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 6px 24px rgba(21,49,125,0.4)`, letterSpacing: '0.05em' }}>
+                  onMouseEnter={() => setActiveModalButton('consultation')}
+                  className="px-7 py-3 font-extrabold text-base rounded-full transition-all duration-200 hover:scale-105"
+                  style={{
+                    background: activeModalButton === 'consultation' ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : '#fff',
+                    color: activeModalButton === 'consultation' ? '#fff' : C.royalDeep,
+                    border: `1.5px solid ${activeModalButton === 'consultation' ? 'transparent' : 'rgba(21,49,125,0.2)'}`,
+                    boxShadow: activeModalButton === 'consultation' ? `0 6px 24px rgba(21,49,125,0.4)` : 'none',
+                    letterSpacing: '0.05em',
+                  }}>
                   Get a Free Consultation
                 </button>
                 <button onClick={() => { setActiveService(null); scrollTo('solutions') }}
-                  className="px-7 py-3 font-bold text-sm rounded-full transition-all duration-200 hover:bg-white/10"
-                  style={{ border: '1.5px solid rgba(21,49,125,0.2)', color: 'rgba(21,49,125,0.72)', letterSpacing: '0.05em' }}>
+                  onMouseEnter={() => setActiveModalButton('close')}
+                  className="px-7 py-3 font-bold text-sm rounded-full transition-all duration-200 hover:scale-105"
+                  style={{
+                    background: activeModalButton === 'close' ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : '#fff',
+                    border: `1.5px solid ${activeModalButton === 'close' ? 'transparent' : 'rgba(21,49,125,0.2)'}`,
+                    color: activeModalButton === 'close' ? '#fff' : 'rgba(21,49,125,0.72)',
+                    boxShadow: activeModalButton === 'close' ? `0 6px 24px rgba(21,49,125,0.4)` : 'none',
+                    letterSpacing: '0.05em',
+                  }}>
                   Close
                 </button>
               </div>

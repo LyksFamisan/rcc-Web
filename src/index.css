@@ -109,6 +109,14 @@ a {
   font-weight: 400;
 }
 
+.page-typography main p:not(.page-hero-content p):not(.contact-hero-content p),
+.page-typography main li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
 /* Normalize legacy inline blue values to the current royal-blue palette. */
 [style*="#3b82f6"],
 [style*="#2563eb"],
@@ -261,6 +269,28 @@ a {
   opacity: 0;
   transform: translateY(10px);
   animation: heroDescriptionReveal 520ms cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.different-copy {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+.vision-mission-copy {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-spacing: 0;
 }
 
 .page-hero-content > * {
