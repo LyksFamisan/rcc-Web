@@ -728,7 +728,7 @@ function ServicesPage() {
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-14">
               <h2 className="text-4xl md:text-5xl font-black mb-5" style={{ color: C.royalDeep }}>Our Services Includes</h2>
-              <p className="text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
+              <p className="services-copy text-lg leading-relaxed" style={{ color: 'rgba(10,36,114,0.72)' }}>From modernization and development to automation and support, our specialists bring practical expertise to every stage of your technology journey.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-7">
               {SERVICE_PAGE_SOLUTIONS.map((sol, index) => (
@@ -748,7 +748,7 @@ function ServicesPage() {
                   </div>
                   <div className="p-5 md:p-6 flex flex-col">
                     <h3 className="text-xl font-black mb-3" style={{ color: C.royalDeep }}>{sol.title}</h3>
-                    <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify', textIndent: 0 }}>{sol.desc}</p>
+                    <p className="services-copy leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textIndent: 0 }}>{sol.desc}</p>
                     <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-start inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3 mt-auto" style={{ color: C.orange }}>
                       Learn More
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -766,7 +766,7 @@ function ServicesPage() {
             <div className="absolute -bottom-16 -left-12 h-32 w-32 rounded-full" style={{ background: 'rgba(255,255,255,0.12)' }} />
             <div className="relative z-10 mx-auto max-w-3xl">
               <h2 className="text-3xl font-black leading-tight md:text-5xl">Ready to Transform Your Business?</h2>
-              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: 'rgba(255,255,255,0.9)' }}>Let's discuss how our services can help you achieve your goals and drive innovation.</p>
+              <p className="services-copy mx-auto mt-6 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: 'rgba(255,255,255,0.9)' }}>Let's discuss how our services can help you achieve your goals and drive innovation.</p>
               <a href="#services-footer" onClick={(event) => { event.preventDefault(); document.getElementById('services-footer')?.scrollIntoView({ behavior: 'smooth' }) }} className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3 font-extrabold text-sm transition-transform duration-200 hover:scale-105" style={{ color: C.orangeDeep }}>
                 Get Started Today
                 <span aria-hidden="true">→</span>
@@ -1585,7 +1585,7 @@ export default function App() {
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,transparent,${C.orange})` }} />
-              <p className="text-xs font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>Let's Collaborate</p>
+              <p className="text-lg font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>Let's Collaborate</p>
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
             <h2 className="text-3xl md:text-4xl font-black mb-3" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>Get In Touch</h2>

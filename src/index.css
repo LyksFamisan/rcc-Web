@@ -218,6 +218,13 @@ a {
   color: rgba(255, 255, 255, 0.78);
 }
 
+.services-copy {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0;
+}
+
 .about-expert-copy {
   font-size: 1.125rem;
   line-height: 1.5;
@@ -235,8 +242,10 @@ a {
 .core-value-copy {
   font-size: 0.95rem;
   line-height: 1.5;
-  text-align: left;
-  word-spacing: normal;
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0;
   letter-spacing: 0;
 }
 
