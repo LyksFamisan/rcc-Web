@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import accountabilityArtwork from './assets/Accountability .png'
+import accountabilityArtwork from './assets/Accountability.png'
 import collaborationArtwork from './assets/Collaboration.png'
 import excellenceArtwork from './assets/Excellence.png'
 import sustainabilityArtwork from './assets/Sustainability.png'
@@ -81,24 +81,6 @@ function getAiReply(input: string): string {
     if (item.keywords.some(k => lower.includes(k))) return item.answer
   }
   return "I can answer questions about the RCC Colab Solutions website, including our services, company, vision, mission, core values, office, contact details, Data Privacy, Terms of Use, and how to get started. Please ask a website-related question, such as **“What services do you offer?”** or **“How can I contact RCC?”**"
-}
-
-function renderCardIcon(icon: string) {
-  const shared = {
-    className: 'flex h-8 w-8 items-center justify-center rounded-md bg-[#0f1f52] text-[0.9rem] font-black tracking-[-0.12em] text-white shadow-inner',
-    'aria-hidden': true,
-  }
-
-  switch (icon) {
-    case 'spark':
-      return <span {...shared}>in</span>
-    case 'team':
-      return <span {...shared}>in</span>
-    case 'target':
-      return <span {...shared}>in</span>
-    default:
-      return <span {...shared}>in</span>
-  }
 }
 
 /* ─── SERVICES WITH IMAGES + DETAIL CONTENT ─────────────── */
@@ -591,14 +573,14 @@ function AboutPage() {
             </div>
             <div className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
               {[
-                ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', 'spark'],
-                ['Expert Team', 'Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies.\n\nThis expertise is not just theoretical but has been honed through years of corporate experience and exposure.\n\nWe are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', 'team'],
-                ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', 'target'],
-              ].map(([title, body, icon]) => (
+                ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', '💡', '</>'],
+                ['Expert Team', 'Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies.\n\nThis expertise is not just theoretical but has been honed through years of corporate experience and exposure.\n\nWe are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', '👥', '⚙'],
+                ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
+              ].map(([title, body, icon, illustration]) => (
                 <article key={title} className={`group relative overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)] transition-transform duration-300 hover:-translate-y-1 ${title === 'Our Commitment' ? 'md:col-span-2' : ''}`}>
                   <div className="relative overflow-hidden px-7 pb-5 pt-6" style={{ background: title === 'Our Commitment' ? '#fff' : 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: title === 'Our Commitment' ? 0 : 70 }}>
                     <div className="absolute -right-12 -top-16 h-40 w-40 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
-                    <span className="relative mb-4 flex h-16 w-16 items-center justify-center rounded-full text-white" style={{ background: title === 'Our Commitment' ? 'linear-gradient(135deg,#1641b4,#1d55d6)' : 'linear-gradient(135deg,#16c9f2,#1676df)', boxShadow: '0 8px 18px rgba(0,0,0,0.18)', marginLeft: 'auto', marginRight: 'auto' }}>{renderCardIcon(icon)}</span>
+                    <span className="relative mb-4 flex h-16 w-16 items-center justify-center rounded-full text-3xl" style={{ background: title === 'Our Commitment' ? 'linear-gradient(135deg,#1641b4,#1d55d6)' : 'linear-gradient(135deg,#16c9f2,#1676df)', boxShadow: '0 8px 18px rgba(0,0,0,0.18)', marginLeft: 'auto', marginRight: 'auto' }}>{icon}</span>
                     <h3 className={`relative text-xl font-black leading-tight text-center md:text-2xl ${title === 'Our Commitment' ? '' : 'text-white'}`} style={title === 'Our Commitment' ? { color: C.royalDeep } : undefined}>{title}</h3>
                     {title !== 'Our Commitment' && <div className="mx-auto mt-4 h-1.5 w-20 rounded-full" style={{ background: '#16c9f2' }} />}
                   </div>
