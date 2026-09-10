@@ -17,6 +17,39 @@ const valueArtwork = {
   sustainability: sustainabilityArtwork,
 }
 
+const valueIconSvg = {
+  Accountability: (
+    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-full w-full">
+      <rect x="8" y="12" width="48" height="40" rx="8" fill="rgba(255,255,255,0.24)" stroke="rgba(255,255,255,0.72)" strokeWidth="1.5" />
+      <path d="M22 42V30h20v12M18 28h28" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M26 25V20h12v5" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M32 36v-6M29 33h6" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+    </svg>
+  ),
+  Collaboration: (
+    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-full w-full">
+      <rect x="8" y="12" width="48" height="40" rx="8" fill="rgba(255,255,255,0.24)" stroke="rgba(255,255,255,0.72)" strokeWidth="1.5" />
+      <circle cx="24" cy="28" r="6" fill="white" opacity="0.9" />
+      <circle cx="40" cy="28" r="6" fill="white" opacity="0.9" />
+      <circle cx="32" cy="22" r="6" fill="white" opacity="0.9" />
+      <path d="M18 40c2.5-4 7-6 14-6s11.5 2 14 6" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  ),
+  Excellence: (
+    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-full w-full">
+      <rect x="8" y="12" width="48" height="40" rx="8" fill="rgba(255,255,255,0.24)" stroke="rgba(255,255,255,0.72)" strokeWidth="1.5" />
+      <path d="M32 19l5 10 11 1-8 7 3 11-11-6-11 6 3-11-8-7 11-1 5-10Z" fill="white" opacity="0.9" />
+    </svg>
+  ),
+  Sustainability: (
+    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-full w-full">
+      <rect x="8" y="12" width="48" height="40" rx="8" fill="rgba(255,255,255,0.24)" stroke="rgba(255,255,255,0.72)" strokeWidth="1.5" />
+      <path d="M22 38c3-8 11-12 20-14-2 6-6 11-11 15-2 2-4 3-9 4Z" fill="white" opacity="0.9" />
+      <path d="M28 24c5-5 14-7 22-5-2 8-7 13-13 17-5 3-10 3-15 1 2-5 4-9 6-13Z" fill="white" opacity="0.8" />
+      <path d="M24 42c6-1 9-4 11-8" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+    </svg>
+  ),
+}
 /* ─── RCC ROYAL BLUE THEME ─────────────────────────────── */
 const C = {
   orange:      '#f97316',
@@ -640,7 +673,9 @@ function AboutPage() {
               {ABOUT_VALUES.map((value, index) => (
                 <article key={value.title} className="overflow-hidden rounded-3xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)]" style={{ border: '1px solid rgba(37,99,235,0.12)' }}>
                   <div className="px-2 pb-2 pt-2 text-center text-white" style={{ background: 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: 42 }}>
-                    <img src={value.artwork} alt="" className="mx-auto mb-1 h-16 w-full max-w-[140px] object-contain" />
+                    <div className="mx-auto mb-1 flex h-16 w-[140px] items-center justify-center rounded-md border border-white/25 bg-white/5 p-1">
+                      {valueIconSvg[value.title as keyof typeof valueIconSvg]}
+                    </div>
                     <h3 className="text-lg font-bold md:text-xl">{value.title}</h3>
                     <div className="mx-auto mt-2 h-2 w-14 rounded-full" style={{ background: '#16c9f2' }} />
                   </div>
