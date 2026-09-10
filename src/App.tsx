@@ -50,7 +50,7 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
   { keywords: ['about','company','who','rcc','colab','history'],
     answer: "**RCC Colab Solutions Inc.** offers end-to-end personalized business solutions, helping businesses unlock their full potential through emerging and cutting-edge technology.\n\nWe collaborate with your team to identify the best IT services that create significant value for your organization." },
   { keywords: ['vision'],
-    answer: "Our vision is to become a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth and contributing to economic development." },
+    answer: "Our vision is to become a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth while contributing to economic development." },
   { keywords: ['mission'],
     answer: "Our mission is to empower businesses and individuals by delivering scalable, cutting-edge technology solutions that drive innovation, transform industries, and create lasting value. We are committed to making a positive impact on our people, clients, communities, and the environment." },
   { keywords: ['values','accountability','collaboration','excellence','sustainability'],
@@ -81,6 +81,24 @@ function getAiReply(input: string): string {
     if (item.keywords.some(k => lower.includes(k))) return item.answer
   }
   return "I can answer questions about the RCC Colab Solutions website, including our services, company, vision, mission, core values, office, contact details, Data Privacy, Terms of Use, and how to get started. Please ask a website-related question, such as **“What services do you offer?”** or **“How can I contact RCC?”**"
+}
+
+function renderCardIcon(icon: string) {
+  const shared = {
+    className: 'flex h-8 w-8 items-center justify-center rounded-md bg-[#0f1f52] text-[0.9rem] font-black tracking-[-0.12em] text-white shadow-inner',
+    'aria-hidden': true,
+  }
+
+  switch (icon) {
+    case 'spark':
+      return <span {...shared}>in</span>
+    case 'team':
+      return <span {...shared}>in</span>
+    case 'target':
+      return <span {...shared}>in</span>
+    default:
+      return <span {...shared}>in</span>
+  }
 }
 
 /* ─── SERVICES WITH IMAGES + DETAIL CONTENT ─────────────── */
@@ -333,7 +351,7 @@ const CONTACT_INFO = [
 type Msg = { role: 'user' | 'ai'; text: string }
 
 const ABOUT_VALUES = [
-  { title: 'Accountability', artwork: valueArtwork.accountability, body: 'We take ownership of responsibilities,honoring commitments,and delivering results and value with integrity and dedication.\n\nOur accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
+  { title: 'Accountability', artwork: valueArtwork.accountability, body: 'We take ownership of responsibilities, honoring commitments, and delivering results and value with integrity and dedication.\n\nOur accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
   { title: 'Collaboration', artwork: valueArtwork.collaboration, body: 'Our team embraces teamwork and open communication to achieve common goals.\n\nWe believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
   { title: 'Excellence', artwork: valueArtwork.excellence, body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation.\n\nExcellence is not just our goal, it's our standard in everything we deliver." },
   { title: 'Sustainability', artwork: valueArtwork.sustainability, body: 'We integrate sustainable practices into everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.' },
@@ -401,7 +419,7 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
           <h3 className="mb-4 text-lg font-black">Get In Touch</h3>
           <div className="flex flex-col gap-3 text-sm" style={{ color: 'rgba(255,255,255,0.82)' }}>
             <a href="tel:+63286516616" className="footer-contact">☎ +632 8651 6616</a>
-            <a href="mailto:info@rcccolabsolutions.com" className="footer-contact">✉ info@rcccolabsolutions.com</a>
+            <span className="footer-contact inline-flex items-center gap-2"><span aria-hidden="true">✉</span><a href="mailto:info@rcccolabsolutions.com" className="footer-contact">info@rcccolabsolutions.com</a></span>
             <a href="https://rcccolabsolutions.com" className="footer-contact">◎ rcccolabsolutions.com</a>
             <span className="footer-contact inline-flex items-start gap-2"><span aria-hidden="true">◷</span><span>Business Hours<br />Mon - Fri: 8:00 AM- 7:00PM</span></span>
           </div>
@@ -562,30 +580,27 @@ function AboutPage() {
           </div>
         </section>
 
-        <section id="about-content" className="relative overflow-hidden py-24 px-6" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f4f8ff 100%)' }}>
+        <section id="about-content" className="relative overflow-hidden py-12 px-6" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f4f8ff 100%)' }}>
           <div className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full" style={{ background: 'rgba(37,99,235,0.06)' }} />
           <div className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full" style={{ background: 'rgba(14,182,213,0.06)' }} />
           <div className="max-w-6xl mx-auto">
-            <div className="relative z-10 mb-14 max-w-4xl">
+            <div className="relative z-10 mb-6 max-w-4xl">
               <div className="mb-4 h-1.5 w-24 rounded-full" style={{ background: 'linear-gradient(90deg,#0e7bea,#1fc6e9)' }} />
               <h2 className="text-4xl font-black md:text-6xl" style={{ color: C.royalDeep }}>Who <span style={{ color: '#1579e8' }}>We Are</span></h2>
               <p className="mt-4 text-lg leading-relaxed md:text-xl" style={{ color: 'rgba(10,36,114,0.68)' }}>Leading the future of digital transformation with innovation, expertise, and dedication.</p>
             </div>
-            <div className="relative z-10 mx-auto grid max-w-5xl gap-7 md:grid-cols-2">
+            <div className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
               {[
-                ['RCC Colab Solutions', 'Driving digital transformation through cutting-edge technology solutions.\n\nInnovation First is an IT solutions provider driven by a deep commitment to driving digital transformation and operational excellence for businesses across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions to match your needs.', '💡', '</>'],
-                ['Expert Team', 'Dedicated professionals with extensive corporate experience.\n\nOur team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies.\n\nThis expertise is not just theoretical but has been honed through years of corporate experience and exposure.\n\nWe are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', '👥', '⚙'],
-                ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
-              ].map(([title, body, icon, illustration]) => (
+                ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', 'spark'],
+                ['Expert Team', 'Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies.\n\nThis expertise is not just theoretical but has been honed through years of corporate experience and exposure.\n\nWe are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', 'team'],
+                ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', 'target'],
+              ].map(([title, body, icon]) => (
                 <article key={title} className={`group relative overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)] transition-transform duration-300 hover:-translate-y-1 ${title === 'Our Commitment' ? 'md:col-span-2' : ''}`}>
                   <div className="relative overflow-hidden px-7 pb-5 pt-6" style={{ background: title === 'Our Commitment' ? '#fff' : 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: title === 'Our Commitment' ? 0 : 70 }}>
                     <div className="absolute -right-12 -top-16 h-40 w-40 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }} />
-                    <span className="relative mb-4 flex h-16 w-16 items-center justify-center rounded-full text-3xl" style={{ background: title === 'Our Commitment' ? 'linear-gradient(135deg,#1641b4,#1d55d6)' : 'linear-gradient(135deg,#16c9f2,#1676df)', boxShadow: '0 8px 18px rgba(0,0,0,0.18)', marginLeft: 'auto', marginRight: 'auto' }}>{icon}</span>
+                    <span className="relative mb-4 flex h-16 w-16 items-center justify-center rounded-full text-white" style={{ background: title === 'Our Commitment' ? 'linear-gradient(135deg,#1641b4,#1d55d6)' : 'linear-gradient(135deg,#16c9f2,#1676df)', boxShadow: '0 8px 18px rgba(0,0,0,0.18)', marginLeft: 'auto', marginRight: 'auto' }}>{renderCardIcon(icon)}</span>
                     <h3 className={`relative text-xl font-black leading-tight text-center md:text-2xl ${title === 'Our Commitment' ? '' : 'text-white'}`} style={title === 'Our Commitment' ? { color: C.royalDeep } : undefined}>{title}</h3>
                     {title !== 'Our Commitment' && <div className="mx-auto mt-4 h-1.5 w-20 rounded-full" style={{ background: '#16c9f2' }} />}
-                    {(title === 'RCC Colab Solutions' || title === 'Expert Team') && (
-                      <div className="mt-4 text-3xl" aria-hidden="true">{illustration}</div>
-                    )}
                   </div>
                   <div className={`relative px-7 pb-8 pt-6 ${title === 'Our Commitment' ? 'md:px-16 md:pb-12' : 'min-h-[330px]'}`}>
                     <p className={`relative z-10 leading-relaxed ${title === 'Our Commitment' ? 'mx-auto max-w-4xl text-center text-lg' : ''} ${title === 'Expert Team' ? 'about-expert-copy whitespace-pre-line' : ''} ${title === 'RCC Colab Solutions' ? 'about-company-copy whitespace-pre-line' : ''}`} style={{ color: 'rgba(10,36,114,0.82)' }}>{body}</p>
@@ -596,18 +611,18 @@ function AboutPage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden py-24 px-6" style={{ background: C.bgDark }}>
+        <section className="relative overflow-hidden py-12 px-6" style={{ background: C.bgDark }}>
           <video autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 h-full w-full object-cover">
             <source src={heroVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0" style={{ background: 'rgba(21, 49, 125, 0.82)' }} />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(21,49,125,0.92), rgba(21,49,125,0.64), rgba(21,49,125,0.88))' }} />
 
-          <div className="relative z-10 mx-auto grid max-w-6xl gap-14 md:grid-cols-2 md:gap-16">
+          <div className="relative z-10 mx-auto grid max-w-6xl gap-6 md:grid-cols-2 md:gap-8">
             {[
               {
                 title: 'Vision',
-                body: 'We envision becoming a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth and contributing to economic development.',
+                body: 'We envision becoming a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth while contributing to economic development.',
                 accent: '#ff941f',
                 position: 'left',
               },
@@ -642,13 +657,13 @@ function AboutPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-5">
               {ABOUT_VALUES.map((value, index) => (
                 <article key={value.title} className="overflow-hidden rounded-3xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)]" style={{ border: '1px solid rgba(37,99,235,0.12)' }}>
-                  <div className="px-6 pb-7 pt-6 text-center text-white" style={{ background: 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: 70 }}>
-                    <img src={value.artwork} alt="" className="mx-auto mb-4 h-36 w-full max-w-[260px] object-contain" />
-                    <h3 className="text-lg font-bold">{value.title}</h3>
-                    <div className="mx-auto mt-5 h-2 w-28 rounded-full" style={{ background: '#16c9f2' }} />
+                  <div className="px-2 pb-2 pt-2 text-center text-white" style={{ background: 'linear-gradient(135deg,#173c85 0%,#1268c9 72%,#0e9be3 100%)', borderBottomRightRadius: 42 }}>
+                    <img src={value.artwork} alt="" className="mx-auto mb-1 h-16 w-full max-w-[140px] object-contain" />
+                    <h3 className="text-lg font-bold md:text-xl">{value.title}</h3>
+                    <div className="mx-auto mt-2 h-2 w-14 rounded-full" style={{ background: '#16c9f2' }} />
                   </div>
-                  <div className="min-h-[330px] p-7">
-                    <p className="core-value-copy whitespace-pre-line text-base leading-relaxed" style={{ color: 'rgba(10,36,114,0.78)' }}>{value.body}</p>
+                  <div className="min-h-[200px] p-2.5">
+                    <p className={`core-value-copy whitespace-pre-line text-base leading-relaxed ${value.title === 'Excellence' ? 'excellence-copy' : ''} ${value.title === 'Accountability' ? 'accountability-copy' : ''}`} style={{ color: 'rgba(10,36,114,0.78)' }}>{value.body}</p>
                   </div>
                 </article>
               ))}
@@ -657,11 +672,11 @@ function AboutPage() {
         </section>
 
         <section className="px-6 py-16" style={{ background: '#fff' }}>
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl px-6 py-16 text-center shadow-[0_18px_45px_rgba(21,49,125,0.2)] md:px-12" style={{ background: 'linear-gradient(135deg, #15317d 0%, #2456d2 100%)' }}>
+          <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl px-5 py-12 text-center shadow-[0_18px_45px_rgba(21,49,125,0.2)] md:px-8" style={{ background: 'linear-gradient(135deg, #15317d 0%, #2456d2 100%)' }}>
             <div className="absolute inset-0 opacity-20" style={{ background: 'radial-gradient(circle at 10% 15%, rgba(255,255,255,0.18), transparent 35%), radial-gradient(circle at 90% 85%, rgba(255,255,255,0.12), transparent 40%)' }} />
-            <div className="relative z-10 mx-auto max-w-4xl">
-              <h2 className="mb-8 text-3xl font-black leading-tight text-white md:text-5xl">What Makes Us <span style={{ color: C.orange }}>Different?</span></h2>
-              <p className="different-copy mx-auto max-w-4xl" style={{ color: '#F4F4F4' }}>RCC Colab Solutions' competitive edge in the IT and Consulting Services industry lies in our capability to deliver integrated innovation and seamless solutions to our clients. Our organization is designed to be agile and responsive to fulfill our commitment to the utmost measurable impact for our clients. This allows us to adjust to market shifts and implement new solutions quickly as we understand that each business is unique, with its specific goals and challenges.</p>
+            <div className="relative z-10 mx-auto max-w-3xl">
+              <h2 className="mb-6 text-4xl font-black leading-tight text-white md:text-5xl">What Makes Us <span style={{ color: C.orange }}>Different?</span></h2>
+              <p className="different-copy mx-auto max-w-3xl text-lg leading-relaxed md:text-xl" style={{ color: '#F4F4F4' }}>RCC Colab Solutions' competitive edge in the IT and Consulting Services industry lies in our capability to deliver integrated innovation and seamless solutions to our clients. Our organization is designed to be agile and responsive to fulfill our commitment to the utmost measurable impact for our clients. This allows us to adjust to market shifts and implement new solutions quickly as we understand that each business is unique, with its specific goals and challenges.</p>
             </div>
           </div>
         </section>
