@@ -22,6 +22,7 @@ import krakenDArtwork from './assets/krakenD.png'
 import hakuraArtwork from './assets/Hakura.png'
 import kongArtwork from './assets/Kong.png'
 import apigeeArtwork from './assets/apigee.png'
+import amazonApiArtwork from './assets/amazonapi.png'
 import tykArtwork from './assets/Tyk.png'
 import seleniumArtwork from './assets/Se.png'
 import testNgArtwork from './assets/TestNG.png'
@@ -212,16 +213,16 @@ const SOLUTIONS: Solution[] = [
     img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=180&fit=crop&auto=format',
     title: 'Custom Software Development',
     desc: 'Bespoke web, mobile, and enterprise software designed around your exact workflows and business goals.',
-    intro: 'Every business is unique, and off-the-shelf software rarely fits perfectly. We design and build custom solutions from the ground up — tailored to your processes, your users, and your growth trajectory.',
+    intro: 'Every business is unique, and off the shelf software rarely fits perfectly. We design and build custom solutions from the ground up tailored to your processes, your users, and your growth trajectory.',
     whyTitle: 'Why Choose Custom Software?',
     whyPoints: [
       { bold: 'Perfect Fit:', text: 'Software built around your exact workflows eliminates workarounds and boosts team productivity from day one.' },
-      { bold: 'Scalability:', text: 'Custom solutions grow with your business — no licensing bottlenecks, no feature gaps, no vendor lock-in.' },
+      { bold: 'Scalability:', text: 'Custom solutions grow with your business no licensing bottlenecks, no feature gaps, no vendor lock-in.' },
       { bold: 'Competitive Edge:', text: 'Proprietary software becomes a strategic asset that competitors simply cannot replicate.' },
     ],
     expertise: [
       { icon: '🌐', title: 'Web Development', body: 'From dynamic web apps to enterprise portals, we build responsive, high-performance web solutions using React, Angular, Vue, and modern backend frameworks.' },
-      { icon: '📱', title: 'Mobile Development', body: 'Native iOS and Android apps, plus cross-platform solutions with React Native and Flutter — built for performance and delightful user experiences.' },
+      { icon: '📱', title: 'Mobile Development', body: 'Native iOS and Android apps, plus cross-platform solutions with React Native and Flutter built for performance and delightful user experiences.' },
       { icon: '🔗', title: 'API & Integrations', body: 'We design robust RESTful and GraphQL APIs and integrate third-party services to unify your technology ecosystem.' },
     ],
   },
@@ -229,7 +230,7 @@ const SOLUTIONS: Solution[] = [
     img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=180&fit=crop&auto=format',
     title: 'Staff Augmentation',
     desc: 'Extend your team with vetted senior engineers, QA specialists, and solution architects on demand.',
-    intro: 'Scale your technology team quickly and cost-effectively with pre-vetted professionals who integrate seamlessly into your workflows. Our staff augmentation model gives you the talent you need, exactly when you need it.',
+    intro: 'Scale your technology team quickly and cost effectively with pre vetted professionals who integrate seamlessly into your workflows. Our staff augmentation model gives you the talent you need, exactly when you need it.',
     whyTitle: 'Why Staff Augmentation?',
     whyPoints: [
       { bold: 'Speed to Hire:', text: 'Bypass lengthy recruitment cycles. Our pre-vetted talent pool means you can onboard skilled professionals within days.' },
@@ -237,7 +238,7 @@ const SOLUTIONS: Solution[] = [
       { bold: 'Seamless Integration:', text: 'Our professionals work within your tools, culture, and processes as natural extensions of your existing team.' },
     ],
     expertise: [
-      { icon: '👥', title: 'Dedicated Teams', body: 'Full cross-functional teams — developers, QA, designers, and project managers — dedicated exclusively to your project for as long as you need.' },
+      { icon: '👥', title: 'Dedicated Teams', body: 'Full cross functional teams of developers, QA, designers, and project managers dedicated exclusively to your project for as long as you need.' },
       { icon: '📋', title: 'Project-Based', body: 'Bring in specialized experts for a defined scope and timeline. Ideal for product launches, migrations, and critical feature releases.' },
       { icon: '⚡', title: 'On-Demand', body: 'Flexible resource allocation that scales up or down based on your current sprint demands and business priorities.' },
     ],
@@ -246,11 +247,11 @@ const SOLUTIONS: Solution[] = [
     img: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=180&fit=crop&auto=format',
     title: 'Robotic Process Automation (RPA)',
     desc: 'Automate repetitive tasks to free your team for higher-value work and cut operational costs.',
-    intro: 'RPA uses software robots to replicate human interactions with digital systems — completing repetitive, rule-based tasks faster, more accurately, and around the clock. We help you identify, design, deploy, and manage automation at scale.',
+    intro: 'RPA uses software robots to replicate human interactions with digital systems completing repetitive, rule based tasks faster, more accurately, and around the clock. We help you identify, design, deploy, and manage automation at scale.',
     whyTitle: 'Why Implement RPA?',
     whyPoints: [
       { bold: 'Dramatic Efficiency Gains:', text: 'Software bots complete tasks up to 10× faster than manual processing, dramatically increasing throughput without adding headcount.' },
-      { bold: 'Near-Zero Error Rate:', text: 'Eliminate human error in data entry, processing, and reporting — ensuring consistent, accurate outputs every time.' },
+      { bold: 'Near-Zero Error Rate:', text: 'Eliminate human error in data entry, processing, and reporting ensuring consistent, accurate outputs every time.' },
       { bold: 'Rapid ROI:', text: 'Most RPA implementations achieve full return on investment within 6–12 months through labor savings and error reduction.' },
     ],
     expertise: [
@@ -263,16 +264,16 @@ const SOLUTIONS: Solution[] = [
     img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=180&fit=crop&auto=format',
     title: 'Cloud Solutions & Migration',
     desc: 'Seamless cloud strategy, migration, and optimization across AWS, Azure, and Google Cloud.',
-    intro: 'The cloud unlocks agility, resilience, and cost savings that on-premise infrastructure simply cannot match. We guide your organization through every phase — from assessing readiness to migrating workloads to optimizing cloud spend.',
+    intro: 'The cloud unlocks agility, resilience, and cost savings that on premise infrastructure simply cannot match. We guide your organization through every phase from assessing readiness to migrating workloads to optimizing cloud spend.',
     whyTitle: 'Why Move to the Cloud?',
     whyPoints: [
-      { bold: 'Elastic Scalability:', text: 'Scale resources up or down in minutes to match demand — pay only for what you use, when you use it.' },
+      { bold: 'Elastic Scalability:', text: 'Scale resources up or down in minutes to match demand pay only for what you use, when you use it.' },
       { bold: 'Business Continuity:', text: 'Built-in redundancy, automated backups, and global availability zones protect your operations from unexpected disruptions.' },
-      { bold: 'Innovation Velocity:', text: 'Access cutting-edge services — AI/ML, serverless, containers — that accelerate development and time to market.' },
+      { bold: 'Innovation Velocity:', text: 'Access cutting-edge services AI/ML, serverless, containers that accelerate development and time to market.' },
     ],
     expertise: [
-      { icon: '☁️', title: 'Cloud Strategy', body: 'A tailored cloud adoption plan — choosing the right platforms (AWS, Azure, GCP), deployment models (public, private, hybrid), and migration priorities for your business.' },
-      { icon: '🚀', title: 'Migration & Deployment', body: 'Lift-and-shift, re-platforming, or full re-architecture migrations executed with minimal downtime and maximum security.' },
+      { icon: '☁️', title: 'Cloud Strategy', body: 'A tailored cloud adoption plan choosing the right platforms (AWS, Azure, GCP), deployment models (public, private, hybrid), and migration priorities for your business.' },
+      { icon: '🚀', title: 'Migration & Deployment', body: 'Lift and shift, re platforming, or full re architecture migrations executed with minimal downtime and maximum security.' },
       { icon: '⚙️', title: 'Cloud Management', body: 'Ongoing FinOps, performance monitoring, security posture management, and optimization to keep your cloud environment lean and resilient.' },
     ],
   },
@@ -280,7 +281,7 @@ const SOLUTIONS: Solution[] = [
     img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=180&fit=crop&auto=format',
     title: 'System Integration',
     desc: 'Connect your applications, APIs, and data sources into a unified ecosystem that eliminates silos.',
-    intro: 'Disconnected systems create inefficiencies, data inconsistencies, and missed opportunities. Our system integration services create seamless data flows between your applications, enabling real-time visibility and operational harmony across your entire technology landscape.',
+    intro: 'Disconnected systems create inefficiencies, data inconsistencies, and missed opportunities. Our system integration services create seamless data flows between your applications, enabling real time visibility and operational harmony across your entire technology landscape.',
     whyTitle: 'Why System Integration?',
     whyPoints: [
       { bold: 'Eliminate Data Silos:', text: 'Break down information barriers so every team works from a single, consistent source of truth.' },
@@ -394,10 +395,9 @@ type TechStackItem = {
 const TECH_STACK: TechStackItem[] = [
   { label: 'Front-End', icon: '</>', title: 'Front-End Development', body: 'We create responsive, accessible, and engaging interfaces using modern front-end frameworks and design systems.', technologies: [{ name: 'Android', image: androidArtwork }, { name: 'iOS', image: iosArtwork }, { name: 'Flutter', image: flutterArtwork }, { name: 'React', image: reactArtwork }, { name: 'Angular', image: angularArtwork }, { name: 'HTML & CSS', image: htmlCssArtwork }] },
   { label: 'Back-End', icon: '≡', title: 'Back-End Development', body: 'We build secure, scalable APIs and backend services that keep your applications reliable as your business grows.', technologies: [{ name: 'Graph', image: graphArtwork }, { name: 'Java', image: javaArtwork }, { name: 'Node', image: nodeArtwork }, { name: 'Scala', image: scalaArtwork }, { name: 'Spark', image: sparkArtwork }, { name: 'Spring', image: springArtwork }] },
-  { label: 'Low-Code', icon: '</>', title: 'Low-Code Solutions', body: 'We accelerate delivery with low-code platforms that simplify workflows, automate processes, and help teams launch solutions faster.', technologies: [{ name: 'Appian', image: appianArtwork }, { name: 'Claris', image: clarisArtwork }, { name: 'Adobe', image: adobeArtwork }] },
-  { label: 'API', icon: '☁', title: 'API & Integrations', body: 'We connect applications, platforms, and data through dependable APIs and integrations built for seamless information flow.', technologies: [{ name: 'KrakenD', image: krakenDArtwork }, { name: 'Hakura', image: hakuraArtwork }, { name: 'Kong', image: kongArtwork }, { name: 'Apigee', image: apigeeArtwork }, { name: 'Tyk', image: tykArtwork }] },
+  { label: 'API', icon: '☁', title: 'API & Integrations', body: 'We connect applications, platforms, and data through dependable APIs and integrations built for seamless information flow.', technologies: [{ name: 'KrakenD', image: krakenDArtwork }, { name: 'Hakura', image: hakuraArtwork }, { name: 'Kong', image: kongArtwork }, { name: 'Amazon API', image: amazonApiArtwork }, { name: 'Tyk', image: tykArtwork }] },
   { label: 'Automated Testing', icon: '⚙', title: 'Automated Testing', body: 'We improve quality and release confidence through automated testing across unit, integration, system, and acceptance levels.', technologies: [{ name: 'Selenium', image: seleniumArtwork }, { name: 'TestNG', image: testNgArtwork }, { name: 'pytest', image: pytestArtwork }] },
-  { label: 'DevOps', icon: '∞', title: 'DevOps & Delivery', body: 'We streamline development and operations with CI/CD, cloud infrastructure, monitoring, and reliable deployment practices.', technologies: [{ name: 'Maven', image: mavenArtwork }, { name: 'OpenShift', image: openShiftArtwork }, { name: 'GitLab', image: gitLabArtwork }, { name: 'SonarQube', image: sonarArtwork }, { name: 'Jenkins', image: jenkinsArtwork }] },
+  { label: 'DevOps', icon: '∞', title: 'DevOps & Delivery', body: 'We streamline development and operations with CI/CD, cloud infrastructure, monitoring, and reliable deployment practices.', technologies: [{ name: 'GitLab', image: gitLabArtwork }, { name: 'SonarQube', image: sonarArtwork }, { name: 'Jenkins', image: jenkinsArtwork }] },
 ]
 
 const CONTACT_INFO = [
@@ -414,7 +414,7 @@ const ABOUT_VALUES = [
   { title: 'Accountability', artwork: valueArtwork.accountability, body: 'We take ownership of responsibilities, honoring commitments, and delivering results and value with integrity and dedication.\n\nOur accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
   { title: 'Collaboration', artwork: valueArtwork.collaboration, body: 'Our team embraces teamwork and open communication to achieve common goals.\n\nWe believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
   { title: 'Excellence', artwork: valueArtwork.excellence, body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation.\n\nExcellence is not just our goal, it's our standard in everything we deliver." },
-  { title: 'Sustainability', artwork: valueArtwork.sustainability, body: 'We integrate sustainable practices into our everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.\n\nWe are committed to continuously improving our processes and solutions to minimize environmental impact, promote responsible resource use, and create lasting value for our communities and future generations.' },
+  { title: 'Sustainability', artwork: valueArtwork.sustainability, body: 'We integrate sustainable practices into our everyday operations to become a socially and environmentally responsible organization.\n\nWe are committed to continuously improving our processes and solutions to minimize environmental impact, promote responsible resource use, and create lasting value for our communities and future generations.' },
 ]
 
 function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
@@ -660,7 +660,7 @@ function AboutPage() {
             <div className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
               {[
                 ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', '💡', '</>'],
-                ['Expert Team', 'Our team comprises dedicated professionals with extensive industry experience and expertise in cutting-edge technologies. Our hands-on corporate experience enables us to understand the complexities and evolving demands of today’s digital landscape.\n\nWe are committed to delivering exceptional service and innovative solutions tailored to the unique needs of every client. By combining industry knowledge, technological excellence, and a commitment to quality, we empower organizations achieve efficiency, agility, and profitability.', '👥', '⚙'],
+                ['Expert Team', 'Our team comprises dedicated professionals with extensive industry experience and expertise in cutting-edge technologies.\n\nWe deliver innovative, tailored solutions with a solution driven approach, helping organizations unlock their full potential and achieve greater efficiency, agility, and sustainable growth.', '👥', '⚙'],
                 ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
               ].map(([title, body, icon, illustration]) => (
                 <article key={title} className={`group relative overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)] transition-transform duration-300 hover:-translate-y-1 ${title === 'Our Commitment' ? 'md:col-span-2' : ''}`}>
@@ -760,8 +760,8 @@ function AboutPage() {
 function ServicesPage() {
   const serviceSectionRef = useRef<HTMLElement>(null)
   const [serviceCardsVisible, setServiceCardsVisible] = useState(false)
-  const [selectedTechStack, setSelectedTechStack] = useState('Low-Code')
-  const activeTechStack = TECH_STACK.find(item => item.label === selectedTechStack) ?? TECH_STACK[2]
+  const [selectedTechStack, setSelectedTechStack] = useState('Front-End')
+  const activeTechStack = TECH_STACK.find(item => item.label === selectedTechStack) ?? TECH_STACK[0]
 
   useEffect(() => {
     const serviceSection = serviceSectionRef.current
@@ -828,12 +828,14 @@ function ServicesPage() {
                   tabIndex={0}
                   className={`${serviceCardsVisible ? (index % 2 === 0 ? 'service-card-reveal-left' : 'service-card-reveal-right') : 'service-card-hidden'} group overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,12,38,0.12)] cursor-pointer`}
                   style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.12)', boxShadow: '0 8px 24px rgba(4,8,32,0.08)', animationDelay: `${index * 100}ms` }}>
-                  <div className="relative overflow-hidden" style={{ height: 190 }}>
-                    <img src={sol.img} alt={sol.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom,rgba(255,255,255,0.05) 0%,rgba(10,36,114,0.18) 100%)' }} />
-                    <span className="absolute top-4 right-5 text-sm font-black" style={{ color: C.orange }}>0{index + 1}</span>
+                  <div className="relative h-44 overflow-hidden">
+                    <img src={sol.img} alt={sol.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(8,13,54,0.10), rgba(8,13,54,0.52))' }} />
                   </div>
                   <div className="p-5 md:p-6 flex flex-col">
+                    <div className="mb-4 flex items-center justify-between gap-3">
+                      <span className="text-sm font-black" style={{ color: C.orange }}>0{index + 1}</span>
+                    </div>
                     <h3 className="text-xl font-black mb-3" style={{ color: C.royalDeep }}>{sol.title}</h3>
                     <p className="services-copy leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textIndent: 0 }}>{sol.desc}</p>
                     <button onClick={() => window.location.assign(`/?service=${encodeURIComponent(sol.title)}`)} className="self-start inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3 mt-auto" style={{ color: C.orange }}>
@@ -858,7 +860,7 @@ function ServicesPage() {
                 <p className="mt-5 text-base leading-relaxed text-white/90 md:text-xl">We leverage modern technologies to build scalable, secure, and future-ready solutions.</p>
               </div>
 
-              <div className="grid overflow-hidden rounded-3xl bg-white p-2 shadow-xl sm:grid-cols-2 lg:grid-cols-6" role="tablist" aria-label="Technology categories">
+              <div className="grid overflow-hidden rounded-3xl bg-white p-2 shadow-xl sm:grid-cols-2 lg:grid-cols-5" role="tablist" aria-label="Technology categories">
                 {TECH_STACK.map(item => {
                   const isActive = selectedTechStack === item.label
                   return (
