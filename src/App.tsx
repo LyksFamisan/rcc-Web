@@ -3,6 +3,34 @@ import accountabilityArtwork from './assets/Accountability.png'
 import collaborationArtwork from './assets/Collaboration.png'
 import excellenceArtwork from './assets/Excellence.png'
 import sustainabilityArtwork from './assets/Sustainability.png'
+import androidArtwork from './assets/android.png'
+import flutterArtwork from './assets/Flutter.png'
+import iosArtwork from './assets/iOS.png'
+import reactArtwork from './assets/react.png'
+import angularArtwork from './assets/angular.png'
+import htmlCssArtwork from './assets/Html, css.png'
+import graphArtwork from './assets/graph.png'
+import javaArtwork from './assets/java.png'
+import nodeArtwork from './assets/node.png'
+import scalaArtwork from './assets/scala.png'
+import sparkArtwork from './assets/spark.png'
+import springArtwork from './assets/spring.png'
+import appianArtwork from './assets/appian.png'
+import clarisArtwork from './assets/claris.png'
+import adobeArtwork from './assets/adobe.png'
+import krakenDArtwork from './assets/krakenD.png'
+import hakuraArtwork from './assets/Hakura.png'
+import kongArtwork from './assets/Kong.png'
+import apigeeArtwork from './assets/apigee.png'
+import tykArtwork from './assets/Tyk.png'
+import seleniumArtwork from './assets/Se.png'
+import testNgArtwork from './assets/TestNG.png'
+import pytestArtwork from './assets/pytest.png'
+import mavenArtwork from './assets/maven.png'
+import openShiftArtwork from './assets/openshift.png'
+import gitLabArtwork from './assets/Gitlab.png'
+import sonarArtwork from './assets/sonar.png'
+import jenkinsArtwork from './assets/Jenkins.png'
 const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
 const robotRabbit = assetUrl('public_rabbit.png')
 const logoImg = assetUrl('Content-Creator-Project.png')
@@ -355,6 +383,23 @@ const SERVICE_PAGE_BENEFITS: Record<string, string[]> = {
 
 const SERVICE_PAGE_SOLUTIONS: Solution[] = SOLUTIONS
 
+type TechStackItem = {
+  label: string
+  icon: string
+  title: string
+  body: string
+  technologies?: { name: string; image: string }[]
+}
+
+const TECH_STACK: TechStackItem[] = [
+  { label: 'Front-End', icon: '</>', title: 'Front-End Development', body: 'We create responsive, accessible, and engaging interfaces using modern front-end frameworks and design systems.', technologies: [{ name: 'Android', image: androidArtwork }, { name: 'iOS', image: iosArtwork }, { name: 'Flutter', image: flutterArtwork }, { name: 'React', image: reactArtwork }, { name: 'Angular', image: angularArtwork }, { name: 'HTML & CSS', image: htmlCssArtwork }] },
+  { label: 'Back-End', icon: '≡', title: 'Back-End Development', body: 'We build secure, scalable APIs and backend services that keep your applications reliable as your business grows.', technologies: [{ name: 'Graph', image: graphArtwork }, { name: 'Java', image: javaArtwork }, { name: 'Node', image: nodeArtwork }, { name: 'Scala', image: scalaArtwork }, { name: 'Spark', image: sparkArtwork }, { name: 'Spring', image: springArtwork }] },
+  { label: 'Low-Code', icon: '</>', title: 'Low-Code Solutions', body: 'We accelerate delivery with low-code platforms that simplify workflows, automate processes, and help teams launch solutions faster.', technologies: [{ name: 'Appian', image: appianArtwork }, { name: 'Claris', image: clarisArtwork }, { name: 'Adobe', image: adobeArtwork }] },
+  { label: 'API', icon: '☁', title: 'API & Integrations', body: 'We connect applications, platforms, and data through dependable APIs and integrations built for seamless information flow.', technologies: [{ name: 'KrakenD', image: krakenDArtwork }, { name: 'Hakura', image: hakuraArtwork }, { name: 'Kong', image: kongArtwork }, { name: 'Apigee', image: apigeeArtwork }, { name: 'Tyk', image: tykArtwork }] },
+  { label: 'Automated Testing', icon: '⚙', title: 'Automated Testing', body: 'We improve quality and release confidence through automated testing across unit, integration, system, and acceptance levels.', technologies: [{ name: 'Selenium', image: seleniumArtwork }, { name: 'TestNG', image: testNgArtwork }, { name: 'pytest', image: pytestArtwork }] },
+  { label: 'DevOps', icon: '∞', title: 'DevOps & Delivery', body: 'We streamline development and operations with CI/CD, cloud infrastructure, monitoring, and reliable deployment practices.', technologies: [{ name: 'Maven', image: mavenArtwork }, { name: 'OpenShift', image: openShiftArtwork }, { name: 'GitLab', image: gitLabArtwork }, { name: 'SonarQube', image: sonarArtwork }, { name: 'Jenkins', image: jenkinsArtwork }] },
+]
+
 const CONTACT_INFO = [
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>, label: '7/F Ascott Makati Glorietta 4, Ayala Center San Lorenzo, Makati City, Philippines' },
   { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>, label: '+632 8651 6616' },
@@ -369,7 +414,7 @@ const ABOUT_VALUES = [
   { title: 'Accountability', artwork: valueArtwork.accountability, body: 'We take ownership of responsibilities, honoring commitments, and delivering results and value with integrity and dedication.\n\nOur accountability drives us to exceed expectations and build lasting trust with every client we serve.' },
   { title: 'Collaboration', artwork: valueArtwork.collaboration, body: 'Our team embraces teamwork and open communication to achieve common goals.\n\nWe believe that the best solutions emerge when diverse perspectives unite toward a shared vision of success.' },
   { title: 'Excellence', artwork: valueArtwork.excellence, body: "We are committed to continuously improving to surpass expectations and set the bar for quality and innovation.\n\nExcellence is not just our goal, it's our standard in everything we deliver." },
-  { title: 'Sustainability', artwork: valueArtwork.sustainability, body: 'We integrate sustainable practices into everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.' },
+  { title: 'Sustainability', artwork: valueArtwork.sustainability, body: 'We integrate sustainable practices into our everyday operations to become a socially and environmentally responsible organization, ensuring our growth contributes positively to the world around us.\n\nWe are committed to continuously improving our processes and solutions to minimize environmental impact, promote responsible resource use, and create lasting value for our communities and future generations.' },
 ]
 
 function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
@@ -458,7 +503,8 @@ function RabbitAiFloat() {
   const [chatOffset, setChatOffset] = useState({ x: 0, y: 0 })
   const [draggingChat, setDraggingChat] = useState(false)
   const [messages, setMessages] = useState<Msg[]>([
-    { role: 'ai', text: "Hi! I'm **RCC.Ai** 👋 Your AI assistant for RCC Colab Solutions. Ask me anything about our services, location, pricing, or how to get started!" },
+    { role: 'ai', text: "Hi! I'm RCC.ai, RCC Colab Solutions Inc. AI Assistant." },
+    { role: 'ai', text: 'How may I help you today?' },
   ])
   const [aiTyping, setAiTyping] = useState(false)
   const chatEndRef = useRef<HTMLDivElement>(null)
@@ -533,6 +579,10 @@ function RabbitAiFloat() {
             <button onClick={() => setChatOpen(false)} aria-label="Close RCC.Ai chat" className="ml-auto w-8 h-8 rounded-lg flex items-center justify-center text-white text-xl font-bold transition-all hover:bg-white/20">×</button>
           </div>
 
+          <div className="border-b px-3 py-2 text-[11px] leading-snug" style={{ background: '#f8fafc', borderColor: 'rgba(10,36,114,0.1)', color: 'rgba(21,49,125,0.78)' }}>
+            You're chatting with RCC.ai, our AI assistant. <a href="/data-privacy" className="font-semibold underline underline-offset-2">Privacy Notice</a>
+          </div>
+
           <div className="flex-1 overflow-y-auto bg-white px-3 py-3 space-y-3" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(21,49,125,0.3) transparent' }}>
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -549,10 +599,13 @@ function RabbitAiFloat() {
             {['Our Services', 'Location', 'Contact'].map(prompt => <button key={prompt} onClick={() => handleChatSend(prompt)} className="shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 hover:bg-orange-500/15" style={{ background: 'rgba(255,255,255,0.42)', border: `1px solid ${C.orange}`, color: C.orangeDeep, whiteSpace: 'nowrap' }}>{prompt}</button>)}
           </div>
 
-          <div className="px-3 pb-3 pt-1 shrink-0"><div className="flex gap-2 rounded-lg px-3 py-2" style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)' }}>
-            <input type="text" value={chatInput} onChange={event => setChatInput(event.target.value)} onKeyDown={event => event.key === 'Enter' && !event.shiftKey && handleChatSend()} placeholder="Ask RCC.Ai anything…" className="flex-1 bg-transparent text-xs outline-none placeholder:text-blue-900/50" style={{ color: C.royalDeep }} />
-            <button onClick={() => handleChatSend()} aria-label="Send message" className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110" style={{ background: chatInput.trim() ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : 'rgba(255,255,255,0.08)' }}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 text-white"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" /></svg></button>
-          </div></div>
+          <div className="px-3 pb-3 pt-1 shrink-0">
+            <div className="flex gap-2 rounded-lg px-3 py-2" style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)' }}>
+              <input type="text" value={chatInput} onChange={event => setChatInput(event.target.value)} onKeyDown={event => event.key === 'Enter' && !event.shiftKey && handleChatSend()} placeholder="Ask RCC.Ai anything…" className="flex-1 bg-transparent text-xs outline-none placeholder:text-blue-900/50" style={{ color: C.royalDeep }} />
+              <button onClick={() => handleChatSend()} aria-label="Send message" className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110" style={{ background: chatInput.trim() ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : 'rgba(255,255,255,0.08)' }}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 text-white"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" /></svg></button>
+            </div>
+            <div className="pt-2 text-center text-[10px] font-semibold" style={{ color: C.royalDeep }}>Powered by RCC Colab Solutions Inc.</div>
+          </div>
         </div>
       )}
     </>
@@ -607,7 +660,7 @@ function AboutPage() {
             <div className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
               {[
                 ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', '💡', '</>'],
-                ['Expert Team', 'Our team is a group of dedicated professionals with extensive experience and unparalleled expertise in cutting-edge technologies.\n\nThis expertise is not just theoretical but has been honed through years of corporate experience and exposure.\n\nWe are committed to delivering excellent service in every project we undertake, empowering our clients to thrive in a dynamic and ever-evolving digital world to achieve greater efficiency, agility, and profitability.', '👥', '⚙'],
+                ['Expert Team', 'Our team comprises dedicated professionals with extensive industry experience and expertise in cutting-edge technologies. Our hands-on corporate experience enables us to understand the complexities and evolving demands of today’s digital landscape.\n\nWe are committed to delivering exceptional service and innovative solutions tailored to the unique needs of every client. By combining industry knowledge, technological excellence, and a commitment to quality, we empower organizations achieve efficiency, agility, and profitability.', '👥', '⚙'],
                 ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
               ].map(([title, body, icon, illustration]) => (
                 <article key={title} className={`group relative overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)] transition-transform duration-300 hover:-translate-y-1 ${title === 'Our Commitment' ? 'md:col-span-2' : ''}`}>
@@ -707,6 +760,8 @@ function AboutPage() {
 function ServicesPage() {
   const serviceSectionRef = useRef<HTMLElement>(null)
   const [serviceCardsVisible, setServiceCardsVisible] = useState(false)
+  const [selectedTechStack, setSelectedTechStack] = useState('Low-Code')
+  const activeTechStack = TECH_STACK.find(item => item.label === selectedTechStack) ?? TECH_STACK[2]
 
   useEffect(() => {
     const serviceSection = serviceSectionRef.current
@@ -788,6 +843,58 @@ function ServicesPage() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden px-6 py-24" style={{ background: 'linear-gradient(145deg, #eef7ff 0%, #f8fbff 58%, #e6f3ff 100%)' }}>
+          <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full" style={{ background: 'rgba(29, 145, 234, 0.12)' }} />
+          <div className="pointer-events-none absolute -bottom-48 -left-24 h-96 w-96 rounded-full" style={{ background: 'rgba(42, 126, 218, 0.1)' }} />
+          <div className="relative mx-auto max-w-6xl">
+            <div className="rounded-[2.5rem] px-6 py-12 md:px-12" style={{ background: 'linear-gradient(135deg, #15317d 0%, #178de0 100%)', boxShadow: '0 24px 60px rgba(21,49,125,0.2)' }}>
+              <div className="mb-10 max-w-4xl">
+                <div className="mb-5 flex items-center gap-3" aria-hidden="true"><span className="h-2.5 w-20 rounded-full" style={{ background: C.orange }} /><span className="h-2.5 w-20 rounded-full" style={{ background: '#18b8ec' }} /></div>
+                <h2 className="text-4xl font-black uppercase leading-none text-white md:text-7xl">Our Tech Stack</h2>
+                <p className="mt-5 text-base leading-relaxed text-white/90 md:text-xl">We leverage modern technologies to build scalable, secure, and future-ready solutions.</p>
+              </div>
+
+              <div className="grid overflow-hidden rounded-3xl bg-white p-2 shadow-xl sm:grid-cols-2 lg:grid-cols-6" role="tablist" aria-label="Technology categories">
+                {TECH_STACK.map(item => {
+                  const isActive = selectedTechStack === item.label
+                  return (
+                    <button
+                      key={item.label}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      onClick={() => setSelectedTechStack(item.label)}
+                      className="flex min-h-24 items-center gap-3 rounded-2xl px-4 py-4 text-left transition-all duration-200 hover:bg-blue-50 lg:min-h-28 lg:flex-col lg:justify-center lg:text-center"
+                      style={isActive ? { background: 'linear-gradient(135deg, #168fe5, #1956ad)', color: '#fff', boxShadow: '0 10px 24px rgba(21,49,125,0.2)' } : { color: C.royalDeep }}
+                    >
+                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-lg font-black" style={isActive ? { borderColor: 'rgba(255,255,255,0.75)', background: 'rgba(255,255,255,0.08)' } : { borderColor: 'rgba(21,49,125,0.12)', background: '#edf6ff' }}>{item.icon}</span>
+                      <span className="text-sm font-black uppercase leading-tight">{item.label}</span>
+                    </button>
+                  )
+                })}
+              </div>
+
+              {activeTechStack.technologies ? (
+                <div key={activeTechStack.label} className="tech-stack-content mx-auto mt-16 max-w-5xl rounded-3xl px-5 py-5 md:px-8 md:py-8" style={{ background: '#eef8ff' }} aria-live="polite">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    {activeTechStack.technologies.map(technology => (
+                      <div key={technology.name} className="flex min-h-44 items-center justify-center rounded-2xl border px-5 py-6 transition-transform duration-200 hover:-translate-y-1" style={{ borderColor: 'rgba(21,49,125,0.05)', background: '#fff', boxShadow: '0 10px 26px rgba(21,49,125,0.08)' }}>
+                        <img src={technology.image} alt={`${technology.name} technology`} className="h-28 w-full object-contain" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div key={activeTechStack.label} className="tech-stack-content mx-auto mt-16 max-w-4xl rounded-3xl bg-white px-6 py-12 text-center shadow-xl md:px-12" aria-live="polite">
+                  <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full border-4 text-3xl font-black" style={{ borderColor: C.orange, background: C.royalDeep, color: '#fff' }}>{activeTechStack.icon}</div>
+                  <h3 className="text-3xl font-black md:text-5xl" style={{ color: C.royalDeep }}>{activeTechStack.title}</h3>
+                  <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg" style={{ color: 'rgba(10,36,114,0.72)' }}>{activeTechStack.body}</p>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -1532,11 +1639,11 @@ export default function App() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-3">
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,transparent,${C.orange})` }} />
-              <p className="text-base font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>What We Offer</p>
+              <p className="services-offer-intro-reveal text-base font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>What We Offer</p>
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
-            <h2 className="services-offer-heading text-3xl md:text-4xl mb-4" style={{ color: 'white' }}>Our Services Includes</h2>
-            <p className="services-offer-intro max-w-xl mx-auto">
+            <h2 className="services-offer-heading services-offer-intro-reveal text-3xl md:text-4xl mb-4" style={{ color: 'white' }}>Our Services Includes</h2>
+            <p className="services-offer-intro services-offer-intro-reveal max-w-xl mx-auto">
               End-to-end technology services engineered to solve complex challenges and unlock new growth.
             </p>
           </div>
