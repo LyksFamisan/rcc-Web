@@ -500,15 +500,12 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
 function RabbitAiFloat() {
   const [chatOpen, setChatOpen] = useState(false)
   const [chatInput, setChatInput] = useState('')
-  const [chatOffset, setChatOffset] = useState({ x: 0, y: 0 })
-  const [draggingChat, setDraggingChat] = useState(false)
   const [messages, setMessages] = useState<Msg[]>([
     { role: 'ai', text: "Hi! I'm RCC.ai, RCC Colab Solutions Inc. AI Assistant." },
     { role: 'ai', text: 'How may I help you today?' },
   ])
   const [aiTyping, setAiTyping] = useState(false)
   const chatEndRef = useRef<HTMLDivElement>(null)
-  const chatDragRef = useRef({ startX: 0, startY: 0, offsetX: 0, offsetY: 0, moved: false })
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -520,29 +517,6 @@ function RabbitAiFloat() {
     setMessages(current => [...current, { role: 'user', text: msg }, { role: 'ai', text: getAiReply(msg) }])
     setChatInput('')
     setAiTyping(false)
-  }
-
-  const handleChatPointerDown = (event: React.PointerEvent<HTMLButtonElement>) => {
-    event.currentTarget.setPointerCapture(event.pointerId)
-    chatDragRef.current = { startX: event.clientX, startY: event.clientY, offsetX: chatOffset.x, offsetY: chatOffset.y, moved: false }
-    setDraggingChat(true)
-  }
-
-  const handleChatPointerMove = (event: React.PointerEvent<HTMLButtonElement>) => {
-    if (!draggingChat) return
-    const drag = chatDragRef.current
-    const nextX = drag.offsetX + event.clientX - drag.startX
-    const nextY = drag.offsetY + event.clientY - drag.startY
-    drag.moved = Math.abs(event.clientX - drag.startX) > 4 || Math.abs(event.clientY - drag.startY) > 4
-    setChatOffset({
-      x: Math.max(-window.innerWidth + 76, Math.min(window.innerWidth - 76, nextX)),
-      y: Math.max(-window.innerHeight + 76, Math.min(window.innerHeight - 76, nextY)),
-    })
-  }
-
-  const handleChatPointerUp = (event: React.PointerEvent<HTMLButtonElement>) => {
-    event.currentTarget.releasePointerCapture(event.pointerId)
-    setDraggingChat(false)
   }
 
   const renderAiText = (text: string) => text.split('\n').map((line, index, lines) => {
@@ -560,13 +534,10 @@ function RabbitAiFloat() {
   return (
     <>
       <button
-        onClick={() => { if (!chatDragRef.current.moved) setChatOpen(open => !open) }}
-        onPointerDown={handleChatPointerDown}
-        onPointerMove={handleChatPointerMove}
-        onPointerUp={handleChatPointerUp}
+        onClick={() => setChatOpen(open => !open)}
         aria-label="Open RCC.Ai chat"
         className="fixed bottom-12 right-7 z-50 flex items-center justify-center rounded-full"
-        style={{ width: 60, height: 60, padding: 0, background: 'transparent', border: 'none', cursor: draggingChat ? 'grabbing' : 'grab', touchAction: 'none', transform: `translate(${chatOffset.x}px, ${chatOffset.y}px)`, filter: 'drop-shadow(0 0 16px rgba(21,49,125,.8))' }}
+        style={{ width: 60, height: 60, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', filter: 'drop-shadow(0 0 16px rgba(21,49,125,.8))' }}
       >
         <img src={robotRabbit} alt="RCC.ai Rabbit" style={{ width: 60, height: 60, objectFit: 'contain' }} />
       </button>
@@ -1815,117 +1786,6 @@ export default function App() {
 
       {/* ══ FOOTER ══════════════════════════════════════════ */}
       <SiteFooter />
-
-      {/* ══ RCC.Ai FLOATING CHAT ════════════════════════════ */}
-      <button
-        onClick={() => {
-          if (!chatDragRef.current.moved) setChatOpen(o => !o)
-        }}
-        onPointerDown={handleChatPointerDown}
-        onPointerMove={handleChatPointerMove}
-        onPointerUp={handleChatPointerUp}
-        aria-label="Open RCC.Ai chat"
-        className="fixed bottom-12 right-7 z-50 flex items-center justify-center rounded-full"
-        style={{
-          width: 60,
-          height: 60,
-          padding: 0,
-          background: 'transparent',
-          border: 'none',
-          cursor: draggingChat ? 'grabbing' : 'grab',
-          touchAction: 'none',
-          transform: `translate(${chatOffset.x}px, ${chatOffset.y}px)`,
-          filter: 'drop-shadow(0 0 16px rgba(21,49,125,.8))',
-        }}
-      >
-        <img
-          src={robotRabbit}
-          alt="RCC.ai Rabbit"
-          style={{ width: 60, height: 60, objectFit: 'contain' }}
-        />
-      </button>
-
-      {chatOpen && (
-        <div className="fixed bottom-24 right-3 sm:right-6 z-50 rounded-2xl flex flex-col overflow-hidden"
-          style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100vh - 96px))', minHeight: 390, background: '#fff', border: '1px solid rgba(10,36,114,0.16)', boxShadow: '0 24px 80px rgba(37,99,235,0.2)' }}>
-
-          {/* Header */}
-          <div className="flex items-center gap-2.5 px-3 py-2.5 shrink-0"
-            style={{ background: C.orange, borderBottom: '1px solid rgba(234,88,12,0.7)' }}>
-            <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center bg-white/10">
-              <img src={robotRabbit} alt="RCC.Ai" className="w-full h-full object-contain" />
-            </div>
-            <div>
-              <div className="font-extrabold text-white text-base leading-tight tracking-wide">RCC.Ai</div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs text-white/90">Online · Always ready</span>
-              </div>
-            </div>
-            <button onClick={() => setChatOpen(false)} aria-label="Close RCC.Ai chat"
-              className="ml-auto w-8 h-8 rounded-lg flex items-center justify-center text-white text-xl font-bold transition-all hover:bg-white/20">×</button>
-          </div>
-
-          {/* Messages */}
-              <div className="flex-1 overflow-y-auto bg-white px-3 py-3 space-y-3"
-                style={{ background: '#fff', scrollbarWidth: 'thin', scrollbarColor: `rgba(21,49,125,0.3) transparent` }}>
-            {messages.map((m, i) => (
-              <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className="max-w-[84%] rounded-xl px-3 py-2.5 text-sm leading-relaxed"
-                  style={m.role === 'user'
-                    ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 }
-                    : { background: '#fff', color: '#15317d', borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
-                  {m.role === 'ai' ? renderAiText(m.text) : m.text}
-                </div>
-              </div>
-            ))}
-            {aiTyping && (
-              <div className="flex justify-start">
-                <div className="rounded-2xl px-4 py-3 flex gap-1.5 items-center"
-                  style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)', borderBottomLeftRadius: 4 }}>
-                  {[0,1,2].map(i => (
-                    <span key={i} className="w-1.5 h-1.5 rounded-full"
-                      style={{ background: C.orange, opacity: 0.7, animation: `typingDot 1s ${i*0.2}s infinite` }} />
-                  ))}
-                </div>
-              </div>
-            )}
-            <div ref={chatEndRef} />
-          </div>
-
-          {/* Quick prompts */}
-          <div className="px-3 pb-2 flex flex-wrap gap-1.5 shrink-0" style={{ borderTop: '1px solid rgba(29,78,216,0.18)', paddingTop: 8 }}>
-            {['Our Services','Location','Contact'].map(q => (
-              <button key={q} onClick={() => handleChatSend(q)}
-                className="shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 hover:bg-orange-500/15"
-                style={{ background: 'rgba(255,255,255,0.42)', border: `1px solid ${C.orange}`, color: C.orangeDeep, whiteSpace: 'nowrap' }}>
-                {q}
-              </button>
-            ))}
-          </div>
-
-          {/* Input */}
-          <div className="px-3 pb-3 pt-1 shrink-0">
-            <div className="flex gap-2 rounded-lg px-3 py-2"
-                style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)' }}>
-              <input type="text" value={chatInput}
-                onChange={e => setChatInput(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleChatSend()}
-                placeholder="Ask RCC.Ai anything…"
-                className="flex-1 bg-transparent text-xs outline-none placeholder:text-blue-900/50"
-                style={{ color: C.royalDeep }}
-              />
-              <button onClick={() => handleChatSend()}
-                className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110"
-                style={{ background: chatInput.trim() ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : 'rgba(255,255,255,0.08)' }}>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 text-white">
-                  <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* ══ SERVICE DETAIL MODAL ════════════════════════════ */}
       {activeService && (
