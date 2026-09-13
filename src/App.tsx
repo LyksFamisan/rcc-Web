@@ -110,9 +110,9 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
   { keywords: ['price','cost','quote','how much','pricing'],
     answer: "Pricing is customized based on project scope. We offer:\n\n• **Project-based** – fixed scope & cost\n• **Time & Material** – flexible & iterative\n• **Staff Augmentation** – dedicated resources\n\nContact us for a free quote!" },
   { keywords: ['about','company','who','rcc','colab','history'],
-    answer: "**RCC Colab Solutions Inc.** offers end-to-end personalized business solutions, helping businesses unlock their full potential through emerging and cutting-edge technology.\n\nWe collaborate with your team to identify the best IT services that create significant value for your organization." },
+    answer: "**RCC Colab Solutions Inc.** offers end to end personalized business solutions, helping businesses unlock their full potential through emerging and cutting-edge technology.\n\nWe collaborate with your team to identify the best IT services that create significant value for your organization." },
   { keywords: ['vision'],
-    answer: "Our vision is to become a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth while contributing to economic development." },
+    answer: "Our vision is to become a trusted and leading IT solutions and consulting company in the Philippines, delivering innovative and transformative technology solutions that empower businesses and individuals to grow, adapt, and thrive in a rapidly evolving digital world.\n\nWe are committed to contributing to sustainable economic and digital development." },
   { keywords: ['mission'],
     answer: "Our mission is to empower businesses and individuals by delivering scalable, cutting-edge technology solutions that drive innovation, transform industries, and create lasting value. We are committed to making a positive impact on our people, clients, communities, and the environment." },
   { keywords: ['values','accountability','collaboration','excellence','sustainability'],
@@ -286,7 +286,7 @@ const SOLUTIONS: Solution[] = [
     whyPoints: [
       { bold: 'Eliminate Data Silos:', text: 'Break down information barriers so every team works from a single, consistent source of truth.' },
       { bold: 'Real-Time Visibility:', text: 'Integrated systems surface live data across your operations, enabling faster, more informed decisions.' },
-      { bold: 'Process Automation:', text: 'Connected systems trigger automated workflows — reducing manual handoffs and accelerating end-to-end processes.' },
+      { bold: 'Process Automation:', text: 'Connected systems trigger automated workflows — reducing manual handoffs and accelerating end to end processes.' },
     ],
     expertise: [
       { icon: '🔗', title: 'API Integration', body: 'Design and implement RESTful, SOAP, and GraphQL API integrations that connect your internal platforms with third-party services and partner systems.' },
@@ -314,7 +314,7 @@ const SOLUTIONS: Solution[] = [
   {
     img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=180&fit=crop&auto=format',
     title: 'POS & Kiosk Software Systems',
-    desc: 'Reliable point-of-sale and self-service kiosk solutions for retail, hospitality, and service industries.',
+    desc: 'Reliable point of sale and self-service kiosk solutions for retail, hospitality, and service industries.',
     intro: 'From high-volume retail counters to unmanned self-service kiosks, we build robust, intuitive software that streamlines transactions, reduces wait times, and delivers real-time business intelligence to operators and managers.',
     whyTitle: 'Why Custom POS & Kiosk Solutions?',
     whyPoints: [
@@ -332,7 +332,7 @@ const SOLUTIONS: Solution[] = [
     img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=180&fit=crop&auto=format',
     title: 'Data Analytics & Business Intelligence',
     desc: 'Turn raw data into actionable insights with dashboards and BI tools that drive smarter decisions.',
-    intro: 'Data is your most valuable asset — but only when you can understand it. We build end-to-end analytics solutions that transform scattered raw data into clear, actionable intelligence that empowers every level of your organization to make faster, smarter decisions.',
+    intro: 'Data is your most valuable asset — but only when you can understand it. We build end to end analytics solutions that transform scattered raw data into clear, actionable intelligence that empowers every level of your organization to make faster, smarter decisions.',
     whyTitle: 'Why Data Analytics & BI?',
     whyPoints: [
       { bold: 'Informed Decision-Making:', text: 'Replace gut-feel decisions with data-backed insights — identifying opportunities and risks before they impact your bottom line.' },
@@ -579,10 +579,6 @@ function RabbitAiFloat() {
             <button onClick={() => setChatOpen(false)} aria-label="Close RCC.Ai chat" className="ml-auto w-8 h-8 rounded-lg flex items-center justify-center text-white text-xl font-bold transition-all hover:bg-white/20">×</button>
           </div>
 
-          <div className="border-b px-3 py-2 text-[11px] leading-snug" style={{ background: '#f8fafc', borderColor: 'rgba(10,36,114,0.1)', color: 'rgba(21,49,125,0.78)' }}>
-            You're chatting with RCC.ai, our AI assistant. <a href="/data-privacy" className="font-semibold underline underline-offset-2">Privacy Notice</a>
-          </div>
-
           <div className="flex-1 overflow-y-auto bg-white px-3 py-3 space-y-3" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(21,49,125,0.3) transparent' }}>
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -621,10 +617,10 @@ function AboutPage() {
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
           </nav>
           <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
         </div>
@@ -638,7 +634,6 @@ function AboutPage() {
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="absolute inset-0 opacity-25" style={{ backgroundImage: `linear-gradient(rgba(103,232,249,0.2) 1px,transparent 1px),linear-gradient(90deg,rgba(103,232,249,0.2) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
           <div className="page-hero-content relative z-10 w-full max-w-none text-left">
-            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>About Us</p>
             <h1 className="text-6xl md:text-8xl font-black text-white max-w-6xl leading-none">Leading the future of <span className="md:whitespace-nowrap">digital transformation.</span></h1>
             <p className="mt-7 max-w-3xl text-xl md:text-2xl leading-relaxed" style={{ color: '#F4F4F4' }}>Innovation, expertise, and dedication for businesses ready to move forward.</p>
             <a href="#about-content" className="mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110" style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`, border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 10px 28px rgba(249,115,22,0.3)' }}>
@@ -659,7 +654,7 @@ function AboutPage() {
             </div>
             <div className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
               {[
-                ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end-to-end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', '💡', '</>'],
+                ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end to end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', '💡', '</>'],
                 ['Expert Team', 'Our team comprises dedicated professionals with extensive industry experience and expertise in cutting-edge technologies.\n\nWe deliver innovative, tailored solutions with a solution driven approach, helping organizations unlock their full potential and achieve greater efficiency, agility, and sustainable growth.', '👥', '⚙'],
                 ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
               ].map(([title, body, icon, illustration]) => (
@@ -690,7 +685,7 @@ function AboutPage() {
             {[
               {
                 title: 'Vision',
-                body: 'We envision becoming a leading IT company delivering transformative technology and consulting solutions across industries, empowering businesses and individuals to achieve sustainable growth while contributing to economic development.',
+                body: 'We envision becoming a trusted and leading IT solutions and consulting company in the Philippines, delivering innovative and transformative technology solutions that empower businesses and individuals to grow, adapt, and thrive in a rapidly evolving digital world.\n\nWe are committed to contributing to sustainable economic and digital development.',
                 accent: '#ff941f',
                 position: 'left',
               },
@@ -784,10 +779,10 @@ function ServicesPage() {
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
           </nav>
           <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
         </div>
@@ -801,7 +796,6 @@ function ServicesPage() {
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.22) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.22) 1px,transparent 1px)`, backgroundSize: '56px 56px' }} />
           <div className="page-hero-content relative z-10 w-full max-w-none text-left">
-            <p className="text-xs font-extrabold tracking-widest uppercase mb-4" style={{ color: C.orange }}>Our Services</p>
             <h1 className="text-6xl md:text-8xl font-black text-white max-w-5xl leading-none">Our Services</h1>
             <p className="mt-7 max-w-4xl text-xl md:text-2xl leading-relaxed" style={{ color: '#fff', textAlign: 'justify' }}>We offer a comprehensive range of business support services designed to help companies operate more efficiently, with each solution carefully tailored to meet your unique goals and operational needs.</p>
             <a href="#service-expertise" className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full text-sm font-extrabold text-white transition-transform duration-200 hover:scale-105" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, boxShadow: `0 8px 28px rgba(249,115,22,0.28)` }}>
@@ -974,10 +968,10 @@ function ContactPage() {
         <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" aria-label="RCC Colab Solutions home"><img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} /></a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
           </nav>
           <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
         </div>
@@ -989,7 +983,7 @@ function ContactPage() {
           <div className="absolute inset-0" style={{ background: 'rgba(8,13,54,0.34)' }} />
           <div className="contact-hero-content relative z-10 w-full max-w-none text-left">
             <h1 className="text-6xl md:text-7xl font-black text-white max-w-5xl leading-none">Contact Us</h1>
-            <p className="mt-7 max-w-3xl text-xl md:text-2xl leading-relaxed" style={{ color: '#F4F4F4' }}>Let's Connect</p>
+            <p className="text-2xl font-extrabold tracking-widest uppercase mt-7" style={{ color: C.orange }}>Let's Connect</p>
             <a href="#contact-content" className="mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110" style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.orangeDeep})`, border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 10px 28px rgba(249,115,22,0.3)' }}>
               Get In Touch
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="h-5 w-5" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
@@ -1159,10 +1153,10 @@ function DataPrivacyPage() {
             <img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} />
           </a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
           </nav>
           <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
         </div>
@@ -1290,10 +1284,10 @@ function TermsOfUsePage() {
         <div className="w-full px-6 md:px-10 flex items-center justify-between" style={{ height: 88 }}>
           <a href="/" className="shrink-0" aria-label="RCC Colab Solutions home"><img src={logoImg} alt="RCC Colab Solutions" className="object-contain" style={{ width: 86, height: 62 }} /></a>
           <nav className="hidden md:flex items-center gap-9" aria-label="Main navigation">
-            <a href="/" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
-            <a href="/aboutus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>About Us</a>
-            <a href="/services" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Services</a>
-            <a href="/contactus" className="nav-link text-sm font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
+            <a href="/" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Home</a>
+            <a href="/aboutus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>About Us</a>
+            <a href="/services" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Services</a>
+            <a href="/contactus" className="nav-link text-lg font-semibold" style={{ color: C.royalDeep }}>Contact Us</a>
           </nav>
           <a href="/" className="md:hidden text-sm font-semibold" style={{ color: C.royalDeep }}>Home</a>
         </div>
@@ -1488,7 +1482,7 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-9">
             {[{ l: 'Home', id: 'home' }, { l: 'About Us', id: 'about' }, { l: 'Services', id: 'solutions' }, { l: 'Contact Us', id: 'contact' }].map(({ l, id }) => (
               <button key={l} onClick={() => id === 'about' ? window.location.assign('/aboutus') : id === 'solutions' ? window.location.assign('/services') : id === 'contact' ? window.location.assign('/contactus') : scrollTo(id)}
-                className="nav-link text-sm font-semibold transition-all duration-200 relative group"
+                className="nav-link text-lg font-semibold transition-all duration-200 relative group"
                 style={{ letterSpacing: '0.01em', color: C.royalDeep }}>
                 {l}
                 <span className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
@@ -1590,25 +1584,21 @@ export default function App() {
         <div className="absolute bottom-0 left-0 w-80 h-80 pointer-events-none"
           style={{ background: `radial-gradient(circle at bottom left,rgba(21,49,125,0.08),transparent 70%)` }} />
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center relative">
+        <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-14 items-center relative">
           <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
-              <p className="text-sm font-extrabold tracking-widest uppercase" style={{ color: C.orange }}>About Us</p>
-            </div>
             <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>
               Who We Are
             </h2>
-            <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
-              RCC Colab Solutions Inc. offers end-to-end personalized business solutions, understanding that
+            <p className="text-lg leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
+              RCC Colab Solutions Inc. offers end to end personalized business solutions, understanding that
               each company has unique needs and goals. We help businesses unlock their full potential through
               emerging and cutting-edge solutions.
             </p>
-            <p className="leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
+            <p className="text-lg leading-relaxed mb-5" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
               Whether you're a startup or an established company, we're eager to enhance your digital presence,
               streamline operations, and improve customer engagement through innovative software solutions.
             </p>
-            <p className="leading-relaxed mb-8" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
+            <p className="text-lg leading-relaxed mb-8" style={{ color: 'rgba(10,36,114,0.72)', textAlign: 'justify' }}>
               We <strong className="font-bold" style={{ color: C.royalDeep }}>collaborate</strong> with your team to identify the best IT
               services and solutions that create significant value for your organization.
             </p>
@@ -1646,7 +1636,7 @@ export default function App() {
             </div>
             <h2 className="services-offer-heading services-offer-intro-reveal text-3xl md:text-4xl mb-4" style={{ color: 'white' }}>Our Services Includes</h2>
             <p className="services-offer-intro services-offer-intro-reveal max-w-xl mx-auto">
-              End-to-end technology services engineered to solve complex challenges and unlock new growth.
+              End to end technology services engineered to solve complex challenges and unlock new growth.
             </p>
           </div>
 
@@ -1672,7 +1662,7 @@ export default function App() {
                 </div>
                 <div className="flex flex-col gap-3 p-5 md:p-6 flex-1">
                   <h3 className="services-offer-card-title text-xl leading-snug text-white">{sol.title}</h3>
-                  <p className="services-offer-card-desc flex-1">{sol.desc}</p>
+                  <p className={`services-offer-card-desc flex-1 ${['Application Modernization', 'Custom Software Development', 'Managed IT Services', 'Cloud Solutions & Migration'].includes(sol.title) ? 'services-offer-card-desc-tight' : ''}`}>{sol.desc}</p>
                   <button onClick={() => setActiveService(sol)}
                     className="self-start mt-2 inline-flex items-center gap-2 text-sm font-extrabold transition-all duration-200 hover:gap-3"
                     style={{ color: C.orange }}>
@@ -2058,6 +2048,8 @@ export default function App() {
           </div>
         </div>
       )}
+
+      <RabbitAiFloat />
 
       <style>{`
         @keyframes scanline { 0%,100%{opacity:0.1} 50%{opacity:0.45} }
