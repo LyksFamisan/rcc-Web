@@ -655,7 +655,7 @@ function AboutPage() {
             <div className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
               {[
                 ['RCC Colab Solutions', 'RCC Colab Solutions Inc. is an IT solutions provider driven by a deep commitment to transforming businesses and delivering operational excellence across various industries.\n\nWe offer end to end personalized services with a solution-driven approach to helping companies unlock their full potential through innovative and tailored solutions designed to meet their unique needs.', '💡', '</>'],
-                ['Expert Team', 'Our team comprises dedicated professionals with extensive industry experience and expertise in cutting-edge technologies.\n\nWe deliver innovative, tailored solutions with a solution driven approach, helping organizations unlock their full potential and achieve greater efficiency, agility, and sustainable growth.', '👥', '⚙'],
+                ['Expert Team', 'Our team comprises dedicated professionals with extensive industry experience and expertise in cutting-edge technologies.\n\n\nWe deliver innovative, tailored solutions with a solution driven approach, helping organizations unlock their full potential and achieve greater efficiency, agility, and sustainable growth.', '👥', '⚙'],
                 ['Our Commitment', 'We aim to serve a clientele across various industries to tackle their most challenging projects so we can deliver the right technology solutions for our clients.', '🎯', '🤝'],
               ].map(([title, body, icon, illustration]) => (
                 <article key={title} className={`group relative overflow-hidden rounded-2xl bg-white shadow-[0_18px_45px_rgba(21,49,125,0.12)] transition-transform duration-300 hover:-translate-y-1 ${title === 'Our Commitment' ? 'md:col-span-2' : ''}`}>
@@ -1682,7 +1682,7 @@ export default function App() {
           <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>
             Optimize IT &amp; Software Solutions,<br />Grow Your Business Today
           </h2>
-          <p className="mb-10 text-base max-w-xl mx-auto" style={{ color: 'rgba(21,49,125,0.68)' }}>
+          <p className="mb-10 text-lg max-w-xl mx-auto" style={{ color: 'rgba(21,49,125,0.68)' }}>
             Partner with RCC Colab Solutions and let us handle the complexity while you focus on what matters most.
           </p>
           <button onClick={() => scrollTo('contact')}
@@ -1720,7 +1720,7 @@ export default function App() {
               <div className="w-10 h-px" style={{ background: `linear-gradient(90deg,${C.orange},transparent)` }} />
             </div>
             <h2 className="text-3xl md:text-4xl font-black mb-3" style={{ color: C.royalDeep, letterSpacing: '-0.02em' }}>Get In Touch</h2>
-            <p className="text-base max-w-lg mx-auto" style={{ color: 'rgba(10,36,114,0.62)' }}>Ready to simplify your IT complexity? Let's start a conversation.</p>
+            <p className="text-lg max-w-lg mx-auto" style={{ color: 'rgba(10,36,114,0.62)' }}>Ready to simplify your IT complexity? Let's start a conversation.</p>
           </div>
 
           {/* Map + Form */}
