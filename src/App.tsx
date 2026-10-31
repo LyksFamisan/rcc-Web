@@ -3,6 +3,19 @@ import accountabilityArtwork from './assets/Accountability.png'
 import collaborationArtwork from './assets/Collaboration.png'
 import excellenceArtwork from './assets/Excellence.png'
 import sustainabilityArtwork from './assets/Sustainability.png'
+
+async function submitWebsiteForm(recipient: string, data: FormData) {
+  const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+    method: 'POST',
+    body: data,
+    headers: { Accept: 'application/json' },
+  })
+  const result = await response.json()
+  if (!response.ok || (result.success !== true && result.success !== 'true')) {
+    throw new Error('Form service did not accept the submission')
+  }
+}
+
 const assetUrl = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`
 const androidArtwork = assetUrl('android.png')
 const flutterArtwork = assetUrl('flutter.png')
@@ -430,12 +443,7 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
       formData.append('_subject', 'New RCC Colab Solutions Newsletter Subscriber')
       formData.append('_captcha', 'false')
       formData.append('_template', 'table')
-      const response = await fetch('https://formsubmit.co/lyka@rcccolabsolutions.com', {
-        method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' },
-      })
-      if (!response.ok) throw new Error('Subscription failed')
+      await submitWebsiteForm('lyka@rcccolabsolutions.com', formData)
       setSubscriberEmail('')
       setSubscriptionStatus('success')
     } catch {
@@ -922,10 +930,7 @@ function ContactPage() {
       data.append('_subject', `New Contact Inquiry from ${form.name}`)
       data.append('_captcha', 'false')
       data.append('_template', 'table')
-      const response = await fetch('https://formsubmit.co/info@rcccolabsolutions.com', {
-        method: 'POST', body: data, headers: { Accept: 'application/json' },
-      })
-      if (!response.ok) throw new Error('Unable to send message')
+      await submitWebsiteForm('info@rcccolabsolutions.com', data)
       setStatus('ok')
       setForm({ name: '', company: '', phone: '', email: '', message: '' })
     } catch {
@@ -1375,14 +1380,12 @@ export default function App() {
       fd.append('message', form.message)
       fd.append('_captcha', 'false')
       fd.append('_template', 'table')
-      const res = await fetch('https://formsubmit.co/info@rcccolabsolutions.com', {
-        method: 'POST', body: fd, headers: { Accept: 'application/json' },
-      })
-      if (res.ok) {
+      await submitWebsiteForm('info@rcccolabsolutions.com', fd)
+      {
         setFormStatus('ok')
         setForm({ firstName: '', lastName: '', email: '', company: '', message: '' })
         setTimeout(() => setFormStatus('idle'), 7000)
-      } else { setFormStatus('error'); setTimeout(() => setFormStatus('idle'), 5000) }
+      }
     } catch { setFormStatus('error'); setTimeout(() => setFormStatus('idle'), 5000) }
   }
 
