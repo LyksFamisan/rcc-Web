@@ -431,26 +431,6 @@ const ABOUT_VALUES = [
 ]
 
 function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
-  const [subscriberEmail, setSubscriberEmail] = useState('')
-  const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-
-  const handleSubscribe = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setSubscriptionStatus('sending')
-    try {
-      const formData = new FormData()
-      formData.append('email', subscriberEmail)
-      formData.append('_subject', 'New RCC Colab Solutions Newsletter Subscriber')
-      formData.append('_captcha', 'false')
-      formData.append('_template', 'table')
-      await submitWebsiteForm('lyka@rcccolabsolutions.com', formData)
-      setSubscriberEmail('')
-      setSubscriptionStatus('success')
-    } catch {
-      setSubscriptionStatus('error')
-    }
-  }
-
   return (
     <footer className="site-footer relative overflow-hidden px-6 pt-12" style={{ background: C.bgDeep, color: '#fff' }}>
       <div className="mx-auto grid max-w-6xl gap-8 pb-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1fr_1.1fr]">
@@ -460,13 +440,7 @@ function SiteFooter({ showRabbit = false }: { showRabbit?: boolean }) {
             <span className="text-xl font-extrabold">RCC Colab Solutions</span>
           </a>
           <p className="max-w-sm text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>Your trusted partner for personalized IT software and consulting solutions, delivering excellence in innovation, quality, and service.</p>
-          <h3 className="mt-6 mb-3 text-base font-black">Stay Updated</h3>
-          <form className="flex max-w-md gap-2" onSubmit={handleSubscribe}>
-            <input type="email" required placeholder="Enter your email" aria-label="Enter your email" value={subscriberEmail} onChange={event => setSubscriberEmail(event.target.value)} className="min-w-0 flex-1 rounded-lg px-3 py-2.5 text-sm outline-none" style={{ color: C.royalDeep, background: '#fff' }} />
-            <button type="submit" disabled={subscriptionStatus === 'sending'} className="shrink-0 rounded-lg px-4 py-2.5 text-sm font-extrabold text-white disabled:opacity-60" style={{ background: '#0eb6d5' }}>{subscriptionStatus === 'sending' ? 'Sending...' : 'Subscribe'}</button>
-          </form>
-          {subscriptionStatus === 'success' && <p className="mt-2 text-xs font-semibold" style={{ color: '#86efac' }}>Thanks, you're subscribed.</p>}
-          {subscriptionStatus === 'error' && <p className="mt-2 text-xs font-semibold" style={{ color: '#fca5a5' }}>Unable to subscribe. Please try again.</p>}
+
         </div>
         <div>
           <h3 className="mb-4 text-lg font-black">Quick Links</h3>
