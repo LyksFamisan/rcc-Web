@@ -162,8 +162,6 @@ const CAREERS_REPLY = [
   "• Scrum Master — Makati (Hybrid)",
   "• Technical Lead – Full Stack Solutions — Makati",
   "• Back-end Java Developer — Mandaluyong (Hybrid)",
-  "",
-  "Please confirm availability with RCC before applying.",
 ].join('\n')
 
 function getAiReply(input: string): string {
