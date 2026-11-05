@@ -150,9 +150,20 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
     answer: "Getting started is easy:\n\n1. **Reach out** via our contact form or call +632 8651 6616\n2. **Discovery call** – we learn your goals\n3. **Proposal** – tailored solution & timeline\n4. **Kickoff** – we start collaborating!\n\nReady? Use the contact form below!" },
 ]
 
-const RCC_LINKEDIN_JOBS = 'https://www.linkedin.com/company/rcc-colab-solutions-inc/jobs/'
 const CAREERS_QUESTION = /\b(hir(?:e|ing)|careers?|jobs?|vacanc(?:y|ies)|internships?|ojt|appl(?:y|icant|ication)s?|open (?:roles?|positions?)|job openings?|rpa engineers?|solutions? architects?|database developers?|nagha-hire|trabaho|bakante|mag-apply|magapply|maka-apply|paano magpasa)\b/i
-const CAREERS_REPLY = "For RCC Colab Solutions job openings and application instructions, check our official LinkedIn Jobs page. Open the listing for the role you're interested in to see if it's still accepting applications."
+const CAREERS_REPLY = [
+  "**RCC Colab Solutions job postings**",
+  "Listed publicly as of November 5, 2026:",
+  "• Senior Database Developer — Makati",
+  "• Solutions Architect — Makati (Hybrid)",
+  "• Full Stack Mobile Developer — Mandaluyong",
+  "• Full Stack Web Developer — Mandaluyong (Hybrid)",
+  "• Scrum Master — Makati (Hybrid)",
+  "• Technical Lead – Full Stack Solutions — Makati",
+  "• Back-end Java Developer — Mandaluyong (Hybrid)",
+  "",
+  "Please confirm availability with RCC before applying.",
+].join('\n')
 
 function getAiReply(input: string): string {
   if (CAREERS_QUESTION.test(input)) return CAREERS_REPLY
@@ -541,9 +552,6 @@ function RabbitAiFloat() {
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className="max-w-[84%] [overflow-wrap:anywhere] rounded-xl px-3 py-2.5 text-sm leading-relaxed" style={message.role === 'user' ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 } : { background: '#fff', color: C.royalDeep, borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
                   {message.role === 'ai' ? renderAiText(message.text) : message.text}
-                  {message.role === 'ai' && message.text === CAREERS_REPLY && (
-                    <a href={RCC_LINKEDIN_JOBS} target="_blank" rel="noopener noreferrer" className="mt-2 block font-semibold underline">View RCC jobs on LinkedIn ↗</a>
-                  )}
                 </div>
               </div>
             ))}
