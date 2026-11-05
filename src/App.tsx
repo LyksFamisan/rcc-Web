@@ -151,6 +151,7 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
 ]
 
 const CAREERS_QUESTION = /\b(hir(?:e|ing)|careers?|jobs?|vacanc(?:y|ies)|internships?|ojt|appl(?:y|icant|ication)s?|open (?:roles?|positions?)|job openings?|rpa engineers?|solutions? architects?|database developers?|nagha-hire|trabaho|bakante|mag-apply|magapply|maka-apply|paano magpasa)\b/i
+const CAREERS_JD_LINKS = ['https://ph.linkedin.com/jobs/view/4486337896', 'https://ph.jobstreet.com/job/95539593', 'https://ph.jobstreet.com/job/95148292', 'https://ph.jobstreet.com/job/95148362', 'https://ph.jobstreet.com/job/95145228', 'https://ph.jobstreet.com/job/95241611', 'https://ph.jobstreet.com/job/95148451']
 const CAREERS_REPLY = [
   "**RCC Colab Solutions job postings**",
   "Listed publicly as of November 5, 2026:",
@@ -516,6 +517,15 @@ function RabbitAiFloat() {
   }
 
   const renderAiText = (text: string) => text.split('\n').map((line, index, lines) => {
+    const jdUrl = text === CAREERS_REPLY ? CAREERS_JD_LINKS[index - 2] : undefined
+    if (jdUrl) {
+      return (
+        <span key={index} className="block mb-2">
+          {line}{' '}
+          <a href={jdUrl} target="_blank" rel="noopener noreferrer" className="font-semibold underline">View JD ↗</a>
+        </span>
+      )
+    }
     const parts = line.split(/\*\*(.*?)\*\*/g)
     return (
       <span key={index}>
