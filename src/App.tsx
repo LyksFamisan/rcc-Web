@@ -150,7 +150,12 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
     answer: "Getting started is easy:\n\n1. **Reach out** via our contact form or call +632 8651 6616\n2. **Discovery call** – we learn your goals\n3. **Proposal** – tailored solution & timeline\n4. **Kickoff** – we start collaborating!\n\nReady? Use the contact form below!" },
 ]
 
+const RCC_LINKEDIN_JOBS = 'https://www.linkedin.com/company/rcc-colab-solutions-inc/jobs/'
+const CAREERS_QUESTION = /\b(hir(?:e|ing)|careers?|jobs?|vacanc(?:y|ies)|internships?|ojt|appl(?:y|icant|ication)s?|open (?:roles?|positions?)|job openings?|rpa engineers?|solutions? architects?|database developers?|nagha-hire|trabaho|bakante|mag-apply|magapply|maka-apply|paano magpasa)\b/i
+const CAREERS_REPLY = "For RCC Colab Solutions job openings and application instructions, check our official LinkedIn Jobs page. Open the listing for the role you're interested in to see if it's still accepting applications."
+
 function getAiReply(input: string): string {
+  if (CAREERS_QUESTION.test(input)) return CAREERS_REPLY
   const lower = input.toLowerCase()
   for (const item of AI_RESPONSES) {
     if (item.keywords.some(k => lower.includes(k))) return item.answer
@@ -484,21 +489,19 @@ function RabbitAiFloat() {
   const [chatInput, setChatInput] = useState('')
   const [messages, setMessages] = useState<Msg[]>([
     { role: 'ai', text: "Hi! I'm RCC.ai, RCC Colab Solutions Inc. AI Assistant." },
-    { role: 'ai', text: 'How may I help you today?' },
+    { role: 'ai', text: 'Ask me about our services, office, or job openings.' },
   ])
-  const [aiTyping, setAiTyping] = useState(false)
   const chatEndRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages, aiTyping])
+    chatEndRef.current?.scrollIntoView({ block: 'nearest' })
+  }, [messages, chatOpen])
 
   const handleChatSend = (text?: string) => {
     const msg = (text ?? chatInput).trim()
     if (!msg) return
     setMessages(current => [...current, { role: 'user', text: msg }, { role: 'ai', text: getAiReply(msg) }])
     setChatInput('')
-    setAiTyping(false)
   }
 
   const renderAiText = (text: string) => text.split('\n').map((line, index, lines) => {
@@ -517,7 +520,8 @@ function RabbitAiFloat() {
     <>
       <button
         onClick={() => setChatOpen(open => !open)}
-        aria-label="Open RCC.Ai chat"
+        aria-label={chatOpen ? "Close RCC.Ai chat" : "Open RCC.Ai chat"}
+        aria-expanded={chatOpen}
         className="fixed bottom-12 right-7 z-50 flex items-center justify-center rounded-full"
         style={{ width: 60, height: 60, padding: 0, background: 'transparent', border: 'none', cursor: 'pointer', filter: 'drop-shadow(0 0 16px rgba(21,49,125,.8))' }}
       >
@@ -525,32 +529,34 @@ function RabbitAiFloat() {
       </button>
 
       {chatOpen && (
-        <div className="fixed bottom-24 right-3 sm:right-6 z-50 rounded-2xl flex flex-col overflow-hidden" style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100vh - 96px))', minHeight: 390, background: '#fff', border: '1px solid rgba(10,36,114,0.16)', boxShadow: '0 24px 80px rgba(37,99,235,0.2)' }}>
+        <div className="fixed bottom-3 right-3 sm:bottom-24 sm:right-6 z-50 rounded-2xl flex flex-col overflow-hidden" style={{ width: 'min(340px, calc(100vw - 24px))', height: 'min(500px, calc(100dvh - 7rem))', background: '#fff', border: '1px solid rgba(10,36,114,0.16)', boxShadow: '0 24px 80px rgba(37,99,235,0.2)' }}>
           <div className="flex items-center gap-2.5 px-3 py-2.5 shrink-0" style={{ background: C.orange, borderBottom: '1px solid rgba(234,88,12,0.7)' }}>
             <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center bg-white/10"><img src={robotRabbit} alt="RCC.Ai" className="w-full h-full object-contain" /></div>
             <div><div className="font-extrabold text-white text-base leading-tight tracking-wide">RCC.Ai</div><div className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /><span className="text-xs text-white/90">Online · Always ready</span></div></div>
             <button onClick={() => setChatOpen(false)} aria-label="Close RCC.Ai chat" className="ml-auto w-8 h-8 rounded-lg flex items-center justify-center text-white text-xl font-bold transition-all hover:bg-white/20">×</button>
           </div>
 
-          <div className="flex-1 overflow-y-auto bg-white px-3 py-3 space-y-3" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(21,49,125,0.3) transparent' }}>
+          <div role="log" aria-label="RCC.Ai messages" className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-white px-3 py-3 space-y-3" style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(21,49,125,0.3) transparent' }}>
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className="max-w-[84%] rounded-xl px-3 py-2.5 text-sm leading-relaxed" style={message.role === 'user' ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 } : { background: '#fff', color: C.royalDeep, borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
+                <div className="max-w-[84%] [overflow-wrap:anywhere] rounded-xl px-3 py-2.5 text-sm leading-relaxed" style={message.role === 'user' ? { background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})`, color: '#fff', borderBottomRightRadius: 4 } : { background: '#fff', color: C.royalDeep, borderBottomLeftRadius: 4, border: '1px solid rgba(10,36,114,0.14)' }}>
                   {message.role === 'ai' ? renderAiText(message.text) : message.text}
+                  {message.role === 'ai' && message.text === CAREERS_REPLY && (
+                    <a href={RCC_LINKEDIN_JOBS} target="_blank" rel="noopener noreferrer" className="mt-2 block font-semibold underline">View RCC jobs on LinkedIn ↗</a>
+                  )}
                 </div>
               </div>
             ))}
-            {aiTyping && <div className="flex justify-start"><div className="rounded-2xl px-4 py-3 flex gap-1.5 items-center" style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)', borderBottomLeftRadius: 4 }}>{[0, 1, 2].map(index => <span key={index} className="w-1.5 h-1.5 rounded-full" style={{ background: C.orange, opacity: 0.7, animation: `typingDot 1s ${index * 0.2}s infinite` }} />)}</div></div>}
             <div ref={chatEndRef} />
           </div>
 
           <div className="px-3 pb-2 flex flex-wrap gap-1.5 shrink-0" style={{ borderTop: '1px solid rgba(29,78,216,0.18)', paddingTop: 8 }}>
-            {['Our Services', 'Location', 'Contact'].map(prompt => <button key={prompt} onClick={() => handleChatSend(prompt)} className="shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 hover:bg-orange-500/15" style={{ background: 'rgba(255,255,255,0.42)', border: `1px solid ${C.orange}`, color: C.orangeDeep, whiteSpace: 'nowrap' }}>{prompt}</button>)}
+            {['Our Services', 'Job Openings', 'Location', 'Contact'].map(prompt => <button key={prompt} onClick={() => handleChatSend(prompt)} className="shrink-0 px-2.5 py-1 rounded-full text-xs font-semibold transition-all duration-200 hover:bg-orange-500/15" style={{ background: 'rgba(255,255,255,0.42)', border: `1px solid ${C.orange}`, color: C.orangeDeep, whiteSpace: 'nowrap' }}>{prompt}</button>)}
           </div>
 
           <div className="px-3 pb-3 pt-1 shrink-0">
             <div className="flex gap-2 rounded-lg px-3 py-2" style={{ background: '#fff', border: '1px solid rgba(10,36,114,0.14)' }}>
-              <input type="text" value={chatInput} onChange={event => setChatInput(event.target.value)} onKeyDown={event => event.key === 'Enter' && !event.shiftKey && handleChatSend()} placeholder="Ask RCC.Ai anything…" className="flex-1 bg-transparent text-xs outline-none placeholder:text-blue-900/50" style={{ color: C.royalDeep }} />
+              <input type="text" value={chatInput} onChange={event => setChatInput(event.target.value)} onKeyDown={event => event.key === 'Enter' && !event.shiftKey && handleChatSend()} aria-label="Ask RCC.Ai" placeholder="Ask about services or careers…" className="min-w-0 flex-1 bg-transparent text-base sm:text-sm outline-none placeholder:text-blue-900/50" style={{ color: C.royalDeep }} />
               <button onClick={() => handleChatSend()} aria-label="Send message" className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 hover:scale-110" style={{ background: chatInput.trim() ? `linear-gradient(135deg,${C.orange},${C.orangeDeep})` : 'rgba(255,255,255,0.08)' }}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3.5 h-3.5 text-white"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" /></svg></button>
             </div>
             <div className="pt-2 text-center text-[10px] font-semibold" style={{ color: C.royalDeep }}>Powered by RCC Colab Solutions Inc.</div>
