@@ -7,8 +7,8 @@ import sustainabilityArtwork from './assets/Sustainability.png'
 async function submitWebsiteForm(recipient: string, data: FormData) {
   const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
     method: 'POST',
-    body: data,
-    headers: { Accept: 'application/json' },
+    body: JSON.stringify({ ...Object.fromEntries(data), _url: window.location.href }),
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
   })
   const result = await response.json()
   if (!response.ok || (result.success !== true && result.success !== 'true')) {
@@ -1021,7 +1021,7 @@ function ContactPage() {
                 <textarea required rows={5} placeholder="How can we help?" value={form.message} onChange={event => setForm(current => ({ ...current, message: event.target.value }))} className="mt-2 w-full px-3 py-3 rounded-lg text-sm outline-none resize-none" style={{ color: C.royalDeep, background: '#fff', border: '1px solid rgba(10,36,114,0.16)' }} />
               </label>
               {status === 'ok' && <p className="mt-4 text-sm font-bold" style={{ color: '#16a34a' }}>Your message was sent. We'll be in touch soon.</p>}
-              {status === 'error' && <p className="mt-4 text-sm font-bold" style={{ color: '#dc2626' }}>Something went wrong. Please try again.</p>}
+              {status === 'error' && <p role="alert" className="mt-4 break-words text-sm font-bold text-red-200">We couldn’t confirm your submission. Please try again or email <a className="underline" href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>.</p>}
               <button type="submit" disabled={status === 'sending'} className="mt-6 w-full py-3.5 rounded-full font-extrabold text-white text-sm disabled:opacity-60" style={{ background: `linear-gradient(135deg,${C.orange},${C.orangeDeep})` }}>{status === 'sending' ? 'SENDING...' : 'SEND MESSAGE'}</button>
             </form>
           </div>
@@ -1758,7 +1758,7 @@ export default function App() {
 
               {formStatus === 'error' && (
                 <div className="rounded-xl px-4 py-3" style={{ background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)' }}>
-                  <p className="text-sm font-bold text-red-400">Something went wrong. Please try again.</p>
+                  <p role="alert" className="break-words text-sm font-bold text-red-200">We couldn’t confirm your submission. Please try again or email <a className="underline" href="mailto:info@rcccolabsolutions.com">info@rcccolabsolutions.com</a>.</p>
                 </div>
               )}
 
