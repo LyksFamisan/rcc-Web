@@ -895,3 +895,43 @@ textarea::placeholder {
   background: #f97316;
   border-radius: 3px;
 }
+
+.rcc-chat-launcher {
+  bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.75rem + env(safe-area-inset-right, 0px));
+}
+
+.rcc-chat-panel {
+  --chat-viewport-height: 100vh;
+  --chat-bottom-gap: 6rem;
+  --chat-side-gap: 1.5rem;
+  right: calc(var(--chat-side-gap) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--chat-bottom-gap) + env(safe-area-inset-bottom, 0px) + var(--chat-viewport-inset, 0px));
+  width: min(340px, calc(100% - 2 * var(--chat-side-gap) - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)));
+  height: min(500px, calc(var(--chat-viewport-height) - var(--chat-bottom-gap) - 12px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
+}
+
+@supports (height: 100dvh) {
+  .rcc-chat-panel {
+    --chat-viewport-height: 100dvh;
+  }
+}
+
+@media (max-width: 639px), (max-height: 480px) {
+  .rcc-chat-panel {
+    --chat-bottom-gap: 12px;
+    --chat-side-gap: 12px;
+  }
+}
+
+@media (max-width: 639px) {
+  .rcc-chat-panel {
+    width: calc(100% - 2 * var(--chat-side-gap) - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  }
+}
+
+@media (max-height: 360px) {
+  .rcc-chat-prompts {
+    display: none;
+  }
+}
