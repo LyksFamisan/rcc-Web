@@ -151,17 +151,15 @@ const AI_RESPONSES: { keywords: string[]; answer: string }[] = [
 ]
 
 const CAREERS_QUESTION = /\b(hir(?:e|ing)|careers?|jobs?|vacanc(?:y|ies)|internships?|ojt|appl(?:y|icant|ication)s?|open (?:roles?|positions?)|job openings?|rpa engineers?|solutions? architects?|database developers?|nagha-hire|trabaho|bakante|mag-apply|magapply|maka-apply|paano magpasa)\b/i
-const CAREERS_JD_LINKS = ['https://ph.linkedin.com/jobs/view/4486337896', 'https://ph.jobstreet.com/job/95539593', 'https://ph.jobstreet.com/job/95148292', 'https://ph.jobstreet.com/job/95148362', 'https://ph.jobstreet.com/job/95145228', 'https://ph.jobstreet.com/job/95241611', 'https://ph.jobstreet.com/job/95148451']
+const CAREERS_POSTINGS = [
+  { title: 'Senior Database Developer — Makati', url: 'https://ph.jobstreet.com/job/95695939' },
+  { title: 'Solutions Architect — Makati (Hybrid)', url: 'https://ph.jobstreet.com/job/95539593' },
+  { title: 'Technical Lead – Full Stack Solutions — Makati', url: 'https://ph.jobstreet.com/job/95241611' },
+]
 const CAREERS_REPLY = [
   "**RCC Colab Solutions job postings**",
-  "Listed publicly as of November 5, 2026:",
-  "• Senior Database Developer — Makati",
-  "• Solutions Architect — Makati (Hybrid)",
-  "• Full Stack Mobile Developer — Mandaluyong",
-  "• Full Stack Web Developer — Mandaluyong (Hybrid)",
-  "• Scrum Master — Makati (Hybrid)",
-  "• Technical Lead – Full Stack Solutions — Makati",
-  "• Back-end Java Developer — Mandaluyong (Hybrid)",
+  "Verified on Jobstreet as of November 10, 2026:",
+  ...CAREERS_POSTINGS.map(({ title }) => `• ${title}`),
 ].join('\n')
 
 function getAiReply(input: string): string {
@@ -538,7 +536,7 @@ function RabbitAiFloat() {
   }
 
   const renderAiText = (text: string) => text.split('\n').map((line, index, lines) => {
-    const jdUrl = text === CAREERS_REPLY ? CAREERS_JD_LINKS[index - 2] : undefined
+    const jdUrl = text === CAREERS_REPLY ? CAREERS_POSTINGS[index - 2]?.url : undefined
     if (jdUrl) {
       return (
         <span key={index} className="block mb-2">
